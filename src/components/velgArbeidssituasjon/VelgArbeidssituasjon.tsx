@@ -29,12 +29,17 @@ const VelgArbeidssituasjon = ({
     ]
 
     return (
-        <Vis hvis={kanVelge}
+        <Vis
+            hvis={kanVelge}
             render={() => (
                 <div className="radiofaner">
                     {alternativer.map((a, idx) => (
-                        <div key={idx} className="navds-radio navds-radio--medium">
-                            <input type="radio"
+                        <div
+                            key={idx}
+                            className="navds-radio navds-radio--medium"
+                        >
+                            <input
+                                type="radio"
                                 name="velgArbeidssituasjon"
                                 id="velg-arb-sit"
                                 className="navds-radio__input"
@@ -45,11 +50,15 @@ const VelgArbeidssituasjon = ({
                                     setVisning(a.verdi as any)
                                 }}
                             />
-                            <label className="navds-radio__label" htmlFor="velg-arb-sit">
+                            <label
+                                className="navds-radio__label"
+                                htmlFor="velg-arb-sit"
+                            >
                                 {a.tittel}
                             </label>
 
-                            <Vis hvis={medHjelpetekst && a.hjelpetekst}
+                            <Vis
+                                hvis={medHjelpetekst && a.hjelpetekst}
                                 render={() => (
                                     <HelpText>{a.hjelpetekst}</HelpText>
                                 )}

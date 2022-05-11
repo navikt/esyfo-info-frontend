@@ -2,7 +2,10 @@ import { Alert, Heading } from '@navikt/ds-react'
 import { Link as Lenke } from '@navikt/ds-react'
 import React, { useEffect, useState } from 'react'
 
-import { getAktivitetskravvisning, NYTT_AKTIVITETSKRAVVARSEL, } from '../../pages/aktivitetsplikt'
+import {
+    getAktivitetskravvisning,
+    NYTT_AKTIVITETSKRAVVARSEL,
+} from '../../pages/aktivitetsplikt'
 import use39ukersvarsel from '../../query-hooks/use39ukersvarsel'
 import useBrev from '../../query-hooks/useBrev'
 import useDialogmoteBehov from '../../query-hooks/useDialogmoteBehov'
@@ -11,7 +14,11 @@ import useHendelser from '../../query-hooks/useHendelser'
 import useOppfolgingsplaner from '../../query-hooks/useOppfolgingsplaner'
 import useSoknader from '../../query-hooks/useSoknader'
 import useSykmeldinger from '../../query-hooks/useSykmeldinger'
-import { oppfolgingsplanUrl, sykepengesoknadUrl, sykmeldingUrl, } from '../../utils/environment'
+import {
+    oppfolgingsplanUrl,
+    sykepengesoknadUrl,
+    sykmeldingUrl,
+} from '../../utils/environment'
 import { tekst } from '../../utils/tekster'
 import { useDialogmotePaths } from '../NavigationHooks/useDialogmotePaths'
 import { skapBrevOppgaver } from './brevOppgaver'
@@ -49,7 +56,7 @@ const OppgaveLista = ({ oppgaver }: OppgaveProps) => {
 }
 
 function Oppgaver() {
-    const [ oppgaver, setOppgaver ] = useState<Oppgave[]>([])
+    const [oppgaver, setOppgaver] = useState<Oppgave[]>([])
 
     const { data: sykmeldinger } = useSykmeldinger()
     const { data: soknader } = useSoknader()

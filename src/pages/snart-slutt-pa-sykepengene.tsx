@@ -1,5 +1,12 @@
 import { Back } from '@navikt/ds-icons'
-import { Accordion, BodyShort, Button, GuidePanel, Heading, Label } from '@navikt/ds-react'
+import {
+    Accordion,
+    BodyShort,
+    Button,
+    GuidePanel,
+    Heading,
+    Label,
+} from '@navikt/ds-react'
 import parser from 'html-react-parser'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
@@ -32,8 +39,9 @@ const brodsmuler: Brodsmule[] = [
 
 const SnartSluttPaSykepengene = () => {
     const router = useRouter()
-    const [ harArbeidsgiver, setHarArbeidsgiver ] = useState<boolean>()
-    const [ arbeidsrettetOppfolging, setArbeidsrettetOppfolging ] = useState<any>()
+    const [harArbeidsgiver, setHarArbeidsgiver] = useState<boolean>()
+    const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
+        useState<any>()
 
     const { data: oppfolging } = useArbeidsrettetOppfolging()
     const { data: narmesteLedere } = useNarmesteledere()
@@ -48,7 +56,7 @@ const SnartSluttPaSykepengene = () => {
         )
         setHarArbeidsgiver(arbeidsgivere.length > 0)
         setArbeidsrettetOppfolging(oppfolging)
-    }, [ narmesteLedere, oppfolging, sykmeldinger ])
+    }, [narmesteLedere, oppfolging, sykmeldinger])
 
     const logSvar = (svar: 'JA' | 'NEI') => {
         logEvent('Spørsmål svart', {
@@ -89,7 +97,8 @@ const SnartSluttPaSykepengene = () => {
                     {tekst('snartslutt.hva_nå')}
                 </Heading>
 
-                <Vis hvis={harArbeidsgiver}
+                <Vis
+                    hvis={harArbeidsgiver}
                     render={() => (
                         <GuidePanel illustration={veilederDame}>
                             <Label as="h3">
@@ -102,7 +111,8 @@ const SnartSluttPaSykepengene = () => {
                     )}
                 />
 
-                <Vis hvis={!harArbeidsgiver}
+                <Vis
+                    hvis={!harArbeidsgiver}
                     render={() => (
                         <GuidePanel illustration={dialog}>
                             <Label as="h3">
@@ -116,12 +126,8 @@ const SnartSluttPaSykepengene = () => {
                 />
 
                 <GuidePanel illustration={penger}>
-                    <Label as="h3">
-                        {tekst('snartslutt.planlegg.tittel')}
-                    </Label>
-                    <BodyShort>
-                        {tekst('snartslutt.planlegg.tekst')}
-                    </BodyShort>
+                    <Label as="h3">{tekst('snartslutt.planlegg.tittel')}</Label>
+                    <BodyShort>{tekst('snartslutt.planlegg.tekst')}</BodyShort>
                 </GuidePanel>
 
                 <Heading size="medium" level="2" className="subtittel">
@@ -131,14 +137,16 @@ const SnartSluttPaSykepengene = () => {
                 <Accordion>
                     <Accordion.Item className="byttjobb">
                         <Accordion.Header>
-                            <Vis hvis={harArbeidsgiver}
+                            <Vis
+                                hvis={harArbeidsgiver}
                                 render={() => (
                                     <Heading size="small" level="3">
                                         {tekst('snartslutt.bytt_jobb.tittel')}
                                     </Heading>
                                 )}
                             />
-                            <Vis hvis={!harArbeidsgiver}
+                            <Vis
+                                hvis={!harArbeidsgiver}
                                 render={() => (
                                     <Heading size="small" level="3">
                                         {tekst('snartslutt.finn_jobb.tittel')}
@@ -150,10 +158,14 @@ const SnartSluttPaSykepengene = () => {
                         <Accordion.Content>
                             <ul>
                                 <BodyShort as="li">
-                                    {parser(tekst('snartslutt.bytt_jobb.liste.del1'))}
+                                    {parser(
+                                        tekst('snartslutt.bytt_jobb.liste.del1')
+                                    )}
                                 </BodyShort>
                                 <BodyShort as="li">
-                                    {parser(tekst('snartslutt.bytt_jobb.liste.del2'))}
+                                    {parser(
+                                        tekst('snartslutt.bytt_jobb.liste.del2')
+                                    )}
                                 </BodyShort>
                             </ul>
                         </Accordion.Content>
@@ -167,29 +179,38 @@ const SnartSluttPaSykepengene = () => {
                         </Accordion.Header>
 
                         <Accordion.Content>
-                            <Vis hvis={harArbeidsgiver}
+                            <Vis
+                                hvis={harArbeidsgiver}
                                 render={() => (
                                     <BodyShort>
                                         {tekst('snartslutt.okonomien.tekst')}
                                     </BodyShort>
                                 )}
                             />
-                            <Vis hvis={!harArbeidsgiver}
+                            <Vis
+                                hvis={!harArbeidsgiver}
                                 render={() => (
                                     <BodyShort>
                                         {tekst('snartslutt.okonomien.tekst2')}
                                     </BodyShort>
                                 )}
                             />
-                            <Vis hvis={harArbeidsgiver}
+                            <Vis
+                                hvis={harArbeidsgiver}
                                 render={() => (
                                     <BodyShort>
-                                        {tekst('snartslutt.okonomien.innhold.avsnitt1')}
+                                        {tekst(
+                                            'snartslutt.okonomien.innhold.avsnitt1'
+                                        )}
                                     </BodyShort>
                                 )}
                             />
                             <BodyShort>
-                                {parser(tekst('snartslutt.okonomien.innhold.avsnitt2'))}
+                                {parser(
+                                    tekst(
+                                        'snartslutt.okonomien.innhold.avsnitt2'
+                                    )
+                                )}
                             </BodyShort>
                             <BodyShort>
                                 {tekst('snartslutt.okonomien.innhold.avsnitt3')}
@@ -202,12 +223,19 @@ const SnartSluttPaSykepengene = () => {
                     hvis={arbeidsrettetOppfolging?.underOppfolging === false}
                     render={() => (
                         <>
-                            <Heading size="medium" level="2" className="subtittel">
+                            <Heading
+                                size="medium"
+                                level="2"
+                                className="subtittel"
+                            >
                                 {tekst('snartslutt.veiledning')}
                             </Heading>
 
                             <div className="knapperad">
-                                <Button variant="primary" onClick={handleJaBtnClicked}>
+                                <Button
+                                    variant="primary"
+                                    onClick={handleJaBtnClicked}
+                                >
                                     {tekst('snartslutt.veiledning.ja')}
                                 </Button>
                                 <Button onClick={handleNeiBtnClicked}>
@@ -219,7 +247,8 @@ const SnartSluttPaSykepengene = () => {
                 />
 
                 <Link href="/">
-                    <a className="navds-link"
+                    <a
+                        className="navds-link"
                         onClick={(e) => {
                             e.preventDefault()
                             router.push('/')
@@ -236,7 +265,7 @@ const SnartSluttPaSykepengene = () => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async() => {
+export const getServerSideProps: GetServerSideProps = async () => {
     // Disable static rendring
     return {
         props: {},
