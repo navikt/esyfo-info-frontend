@@ -1,7 +1,7 @@
 name: Push
 on: push
 env:
-  APP: ditt-sykefravaer
+  APP: esyfo-info-frontend
   branchname: ${{ github.ref_name }}
 jobs:
   build-and-publish:
@@ -40,8 +40,6 @@ jobs:
         run: npm run prettier:check
       - name: Run lint
         run: npm run lint
-      - name: Run tests
-        run: npm run test:ci
       - name: Build application
         run: npm run build
       - name: Setup kernel for react native, increase watchers
@@ -58,30 +56,6 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - name: Login GCP dev
-        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')
-        uses: google-github-actions/auth@v0.7.1
-        with:
-          credentials_json: ${{ secrets.STATIC_FILES_DEV }}
-      - name: Last opp statiske filer til dev
-        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')
-        uses: google-github-actions/upload-cloud-storage@v0.9.0
-        with:
-          path: .next/static
-          parent: false
-          destination: flex-static-files-dev/sykefravaer/_next/static
-      - name: Login GCP prod
-        if: github.ref == 'refs/heads/master'
-        uses: google-github-actions/auth@v0.7.1
-        with:
-          credentials_json: ${{ secrets.STATIC_FILES_PROD }}
-      - name: Last opp statiske filer til prod
-        if: github.ref == 'refs/heads/master'
-        uses: google-github-actions/upload-cloud-storage@v0.9.0
-        with:
-          path: .next/static
-          parent: false
-          destination: flex-static-files-prod/sykefravaer/_next/static
       - name: Docker login
         if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/labs-')
         env:
@@ -155,34 +129,3 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: labs-gcp
           RESOURCE: nais-labs.yaml
-
-  deploy-branch-to-labs-gcp:
-    if: startsWith(github.ref, 'refs/heads/labs-')
-    name: Deploy branch to labs-gcp (Demo)
-    needs: build-and-publish
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/download-artifact@v1
-        with:
-          name: VERSION.txt
-          path: .
-      - run: echo "VERSION=`cat VERSION.txt`" >> $GITHUB_ENV
-      - run: echo "IMAGE=docker.pkg.github.com/${GITHUB_REPOSITORY}/$APP:$VERSION" >> $GITHUB_ENV
-      - name: Deploy to labs-gcp
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: labs-gcp
-          RESOURCE: nais-labs-branch.yaml
-          VAR: appname=${{ env.branchname }},replicas=1,branchState=alive
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: flex-labs-deploy
-          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-          SLACK_MESSAGE: 'Ny versjon ute i labs :rocket: https://ditt-sykefravaer-${{ env.branchname }}.labs.nais.io/syk/sykefravaer'
-          SLACK_TITLE: ${{ env.branchname }}
-          SLACK_USERNAME: Labs deploy
-          SLACK_ICON: ':lab_coat:'
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

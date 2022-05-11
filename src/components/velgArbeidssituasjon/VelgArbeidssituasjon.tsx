@@ -1,8 +1,8 @@
 import { HelpText } from '@navikt/ds-react'
 import React, { Dispatch, SetStateAction } from 'react'
 
-import { Visning } from '../tidslinje-utdrag/TidslinjeUtdrag'
 import Vis from '../Vis'
+import { Visning } from './visning'
 
 interface VelgArbeidssituasjonProps {
     kanVelge: boolean

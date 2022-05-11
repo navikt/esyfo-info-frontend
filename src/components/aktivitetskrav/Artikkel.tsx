@@ -3,8 +3,8 @@ import parser from 'html-react-parser'
 import React, { useState } from 'react'
 
 import { tekst } from '../../utils/tekster'
-import { Visning } from '../tidslinje-utdrag/TidslinjeUtdrag'
 import VelgArbeidssituasjon from '../velgArbeidssituasjon/VelgArbeidssituasjon'
+import { Visning } from '../velgArbeidssituasjon/visning'
 import Vis from '../Vis'
 
 const Artikkel = () => {

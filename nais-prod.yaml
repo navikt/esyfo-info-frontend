@@ -1,15 +1,15 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: ditt-sykefravaer
-  namespace: flex
+  name: esyfo-info-frontend
+  namespace: team-esyfo
   labels:
-    team: flex
+    team: team-esyfo
 spec:
   image: {{image}}
   port: 8080
   ingresses:
-    - "https://www.nav.no/syk/sykefravaer"
+    - "https://www.nav.no/syk/info"
   replicas:
     min: 2
     max: 3
@@ -22,9 +22,9 @@ spec:
       cpu: 200m
       memory: 100Mi
   liveness:
-    path: syk/sykefravaer/api/isAlive
+    path: syk/info/api/isAlive
   readiness:
-    path: syk/sykefravaer/api/isReady
+    path: syk/info/api/isReady
   env:
     - name: MOCK_BACKEND
       value: "false"
@@ -68,7 +68,3 @@ spec:
       value: "d5b43a81941b61a3b06059197807a25a"
     - name: AMPLITUDE_ENABLED
       value: "true"
-    - name: ASSET_PREFIX
-      value: "https://flex-static-files.nav.no/sykefravaer"
-    - name: BACKEND_SOKNAD_APP
-      value: "syfosoknad"

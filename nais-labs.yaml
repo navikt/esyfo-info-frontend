@@ -1,20 +1,19 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: ditt-sykefravaer
-  namespace: flex
+  name: esyfo-info-frontend
+  namespace: team-esyfo
   labels:
-    team: flex
+    team: team-esyfo
 spec:
   image: {{image}}
   port: 8080
   ingresses:
-    - "https://ditt-sykefravaer.labs.nais.io/"
-    - "https://sykefravaer.labs.nais.io/"
+    - "https://esyfo-info-frontend.labs.nais.io/"
   liveness:
-    path: syk/sykefravaer/api/isAlive
+    path: syk/info/api/isAlive
   readiness:
-    path: syk/sykefravaer/api/isReady
+    path: syk/info/api/isReady
   env:
     - name: MOCK_BACKEND
       value: "true"
@@ -46,5 +45,3 @@ spec:
       value: "prod"
     - name: AMPLITUDE_ENABLED
       value: "false"
-    - name: BACKEND_SOKNAD_APP
-      value: "syfosoknad"
