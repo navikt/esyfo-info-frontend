@@ -42,15 +42,13 @@ jobs:
         run: npm run lint
       - name: Build application
         run: npm run build
-      - name: Setup kernel for react native, increase watchers
-        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
       - name: Run cypress
         uses: cypress-io/github-action@v2
         with:
           install: false
           record: false
           start: npm run start-ingen-dekorator
-          wait-on: http://localhost:8080/syk/sykefravaer/api/isAlive
+          wait-on: http://localhost:8080/syk/info/api/isAlive
       - uses: actions/upload-artifact@v1
         if: ${{ always() }}
         with:
