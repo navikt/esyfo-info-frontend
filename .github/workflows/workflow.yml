@@ -54,15 +54,11 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - name: Docker login
-        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/labs-')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
       - name: Bygg og push Docker image
         if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/labs-')
         run: |
-          docker build . -f Dockerfile -t ${IMAGE}
+          docker build -t ${IMAGE} .
+          echo ${GITHUB_TOKEN} | docker login ghcr.io --username ${GITHUB_REPOSITORY} --password-stdin
           docker push ${IMAGE}
 
   deploy-to-dev-gcp:
@@ -78,7 +74,7 @@ jobs:
           name: VERSION.txt
           path: .
       - run: echo "VERSION=`cat VERSION.txt`" >> $GITHUB_ENV
-      - run: echo "IMAGE=docker.pkg.github.com/${GITHUB_REPOSITORY}/$APP:$VERSION" >> $GITHUB_ENV
+      - run: echo "IMAGE=ghcr.io/navikt/$APP:$VERSION" >> $GITHUB_ENV
       - name: Deploy to dev-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
@@ -99,7 +95,7 @@ jobs:
           name: VERSION.txt
           path: .
       - run: echo "VERSION=`cat VERSION.txt`" >> $GITHUB_ENV
-      - run: echo "IMAGE=docker.pkg.github.com/${GITHUB_REPOSITORY}/$APP:$VERSION" >> $GITHUB_ENV
+      - run: echo "IMAGE=ghcr.io/navikt/$APP:$VERSION" >> $GITHUB_ENV
       - name: Deploy to prod-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
@@ -120,7 +116,7 @@ jobs:
           name: VERSION.txt
           path: .
       - run: echo "VERSION=`cat VERSION.txt`" >> $GITHUB_ENV
-      - run: echo "IMAGE=docker.pkg.github.com/${GITHUB_REPOSITORY}/$APP:$VERSION" >> $GITHUB_ENV
+      - run: echo "IMAGE=ghcr.io/navikt/$APP:$VERSION" >> $GITHUB_ENV
       - name: Deploy to labs-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
