@@ -72,7 +72,7 @@ const SnartSluttPaSykepengene = () => {
         // Må sikre at amplitude får logget ferdig
         window.setTimeout(() => {
             window.location.href = arbeidssokerregistreringUrl()
-        }, 200)
+        }, 400)
     }
 
     const handleNeiBtnClicked = () => {
@@ -80,7 +80,7 @@ const SnartSluttPaSykepengene = () => {
         // Må sikre at amplitude får logget ferdig
         window.setTimeout(() => {
             window.location.href = dittSykefravaerUrl()
-        }, 200)
+        }, 400)
     }
 
     return (
