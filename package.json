@@ -7,7 +7,7 @@
     "@navikt/ds-react": "^0.18.5",
     "@navikt/ds-tokens": "^0.9.0",
     "@navikt/nav-dekoratoren-moduler": "^1.6.9",
-    "amplitude-js": "^8.18.1",
+    "amplitude-js": "^8.3.1",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.1",
     "html-react-parser": "^1.4.12",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.11.1",
     "@next/eslint-plugin-next": "^12.1.6",
-    "@types/amplitude-js": "^8.16.0",
+    "@types/amplitude-js": "^8.0.1",
     "@types/classnames": "^2.3.0",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
