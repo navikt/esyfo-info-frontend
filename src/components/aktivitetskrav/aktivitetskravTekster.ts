@@ -1,10 +1,4 @@
 export const AktivitetskravTekster = {
-    'aktivitetskrav-varsel.ingen-varsel.tittel':
-        'Du har ingen varsel om aktivitetsplikt',
-    'aktivitetskrav-varsel.ingen-varsel.melding':
-        'Hvis du får et slikt varsel, får du mer informasjon om aktivitetsplikten på denne siden.',
-    'aktivitetskrav-varsel.kvittering':
-        'Du har bekreftet at du har lest om aktivitetsplikten %DATO%.',
     'aktivitetskrav-varsel.tittel': 'Påminnelse om aktivitet',
     'aktivitetskrav-varsel.ingress':
         'Du har snart vært sykmeldt i åtte uker. NAV skal vurdere om du oppfyller aktivitetsplikten og om du fortsatt har rett til sykepenger.',
@@ -55,7 +49,4 @@ export const AktivitetskravTekster = {
         '</ol>',
     'aktivitetskrav-varsel.alt.MED_ARBEIDSGIVER': 'Sykmeldt og arbeidsgiver',
     'aktivitetskrav-varsel.alt.UTEN_ARBEIDSGIVER': 'Sykmeldt og NAV-veileder',
-    'aktivitetskrav-varsel.bekreft-label': 'Jeg har lest om aktivitetsplikten',
-    'aktivitetskrav-varsel.bekreft-feilmelding':
-        'Du må bekrefte at du har lest all informasjonen du har fått.',
 }

@@ -75,9 +75,8 @@ const Brodsmuler = ({ brodsmuler }: BrodsmulerProps) => {
     const [synlige, setSynlige] = useState<Brodsmule[]>([])
     const [skjerm, setSkjerm] = useState<number>()
     const smulesti = useRef<HTMLElement>(null)
-    const sykefravaerKlikkbar = brodsmuler.length > 0
 
-    brodsmuler = faste(sykefravaerKlikkbar).concat(brodsmuler)
+    brodsmuler = faste().concat(brodsmuler)
 
     useEffect(() => {
         setSkjerm(window.innerWidth)

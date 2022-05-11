@@ -41,7 +41,7 @@ const VelgArbeidssituasjon = ({
                             <input
                                 type="radio"
                                 name="velgArbeidssituasjon"
-                                id="velg-arb-sit"
+                                id={`velg-arb-sit-${idx}`}
                                 className="navds-radio__input"
                                 value={a.verdi}
                                 defaultChecked={a.verdi === 'MED_ARBEIDSGIVER'}
@@ -52,7 +52,7 @@ const VelgArbeidssituasjon = ({
                             />
                             <label
                                 className="navds-radio__label"
-                                htmlFor="velg-arb-sit"
+                                htmlFor={`velg-arb-sit-${idx}`}
                             >
                                 {a.tittel}
                             </label>

@@ -19,7 +19,7 @@ const Person = () => {
     return (
         <>
             <img
-                src="/syk/sykefravaer/static/person.svg"
+                src="/syk/info/static/person.svg"
                 alt="Du"
                 className="brodsmuler__ikon"
                 ref={person}

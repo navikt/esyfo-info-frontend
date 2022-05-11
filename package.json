@@ -51,6 +51,7 @@
     "prettier": "^2.6.2",
     "react-test-renderer": "^17.0.2",
     "start-server-and-test": "^1.14.0",
+    "ts-loader": "^9.3.0",
     "yet-another-fetch-mock": "^4.1.0"
   },
   "scripts": {
@@ -60,7 +61,7 @@
     "start-ingen-dekorator": "NO_DECORATOR=true npm start",
     "build": "next build",
     "cy:open": "cypress open",
-    "e2e": "start-test dev-ingen-dekorator http://localhost:8080/syk/sykefravaer cy:open",
+    "e2e": "start-test dev-ingen-dekorator http://localhost:8080/syk/info/aktivitetsplikt cy:open",
     "prettier:write": "prettier --write .",
     "prettier:check": "prettier --check .",
     "lint": "eslint --ext=ts,tsx src cypress",

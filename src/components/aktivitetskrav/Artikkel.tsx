@@ -30,7 +30,7 @@ const Artikkel = () => {
                     hvis={visning === 'MED_ARBEIDSGIVER'}
                     render={() => (
                         <img
-                            src="/syk/sykefravaer/static/med_arbeidsgiver.svg"
+                            src="/syk/info/static/med_arbeidsgiver.svg"
                             alt={tekst(
                                 'aktivitetskrav-varsel.alt.MED_ARBEIDSGIVER'
                             )}
@@ -41,7 +41,7 @@ const Artikkel = () => {
                     hvis={visning === 'UTEN_ARBEIDSGIVER'}
                     render={() => (
                         <img
-                            src="/syk/sykefravaer/static/uten_arbeidsgiver.svg"
+                            src="/syk/info/static/uten_arbeidsgiver.svg"
                             alt={tekst(
                                 'aktivitetskrav-varsel.alt.UTEN_ARBEIDSGIVER'
                             )}

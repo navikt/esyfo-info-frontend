@@ -25,7 +25,10 @@ import { veilederDame } from '../grafikk/VeilederDame'
 import useArbeidsrettetOppfolging from '../query-hooks/useArbeidsrettetOppfolging'
 import useNarmesteledere from '../query-hooks/useNarmesteledere'
 import useSykmeldinger from '../query-hooks/useSykmeldinger'
-import { arbeidssokerregistreringUrl } from '../utils/environment'
+import {
+    arbeidssokerregistreringUrl,
+    dittSykefravaerUrl,
+} from '../utils/environment'
 import { setBodyClass } from '../utils/setBodyClass'
 import { tekst } from '../utils/tekster'
 
@@ -75,7 +78,10 @@ const SnartSluttPaSykepengene = () => {
 
     const handleNeiBtnClicked = () => {
         logSvar('NEI')
-        router.push('/')
+        // Må sikre at amplitude får logget ferdig
+        window.setTimeout(() => {
+            window.location.href = dittSykefravaerUrl()
+        }, 200)
     }
 
     return (
@@ -246,14 +252,8 @@ const SnartSluttPaSykepengene = () => {
                     )}
                 />
 
-                <Link href="/">
-                    <a
-                        className="navds-link"
-                        onClick={(e) => {
-                            e.preventDefault()
-                            router.push('/')
-                        }}
-                    >
+                <Link href={dittSykefravaerUrl()}>
+                    <a className="navds-link">
                         <Back className="tilbake-pil" />
                         <BodyShort as="span">
                             Til hovedsiden Ditt sykefravaer
