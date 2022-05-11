@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 
-import { dittNavUrl } from '../../utils/environment'
+import { dittNavUrl, dittSykefravaerUrl } from '../../utils/environment'
 import Vis from '../Vis'
 import Person from './Person'
 
@@ -17,13 +17,13 @@ export interface Brodsmule {
     erKlikkbar?: boolean
 }
 
-const faste = (sykefravaerKlikkbar: boolean): Brodsmule[] => {
+const faste = (): Brodsmule[] => {
     return [
         { tittel: 'Ditt NAV', sti: dittNavUrl(), erKlikkbar: true },
         {
             tittel: 'Ditt sykefravær',
-            sti: '/',
-            erKlikkbar: sykefravaerKlikkbar,
+            sti: dittSykefravaerUrl(),
+            erKlikkbar: true,
         },
     ]
 }

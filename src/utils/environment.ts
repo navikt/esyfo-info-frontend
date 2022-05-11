@@ -26,6 +26,10 @@ export function dittNavUrl() {
     return publicRuntimeConfig.dittNavUrl
 }
 
+export function dittSykefravaerUrl() {
+    return publicRuntimeConfig.dittSykefravaerUrl
+}
+
 export function amplitudeKey() {
     return publicRuntimeConfig.amplitudeKey
 }
