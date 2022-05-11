@@ -41,7 +41,6 @@ const brodsmuler: Brodsmule[] = [
 ]
 
 const SnartSluttPaSykepengene = () => {
-    const router = useRouter()
     const [harArbeidsgiver, setHarArbeidsgiver] = useState<boolean>()
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
         useState<any>()
@@ -239,12 +238,16 @@ const SnartSluttPaSykepengene = () => {
 
                             <div className="knapperad">
                                 <Button
+                                    className="veiledning-knapp"
                                     variant="primary"
                                     onClick={handleJaBtnClicked}
                                 >
                                     {tekst('snartslutt.veiledning.ja')}
                                 </Button>
-                                <Button onClick={handleNeiBtnClicked}>
+                                <Button
+                                    onClick={handleNeiBtnClicked}
+                                    className="veiledning-knapp"
+                                >
                                     {tekst('snartslutt.veiledning.nei')}
                                 </Button>
                             </div>

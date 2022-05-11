@@ -1,10 +1,10 @@
 import { Persona } from './persona'
 import { sendtSykmelding } from './sykmeldinger'
 
-export const heltFrisk: Persona = {
+export const underOppfolging: Persona = {
     sykmeldinger: [],
     narmesteledere: [],
-    arbeidsrettetOppfolging: { underOppfolging: false },
+    arbeidsrettetOppfolging: { underOppfolging: true },
 }
 
 export const defaultPersona: Persona = {
@@ -52,5 +52,5 @@ export const defaultPersona: Persona = {
             aktivFom: '2021-03-19',
         },
     ],
-    arbeidsrettetOppfolging: { underOppfolging: true },
+    arbeidsrettetOppfolging: { underOppfolging: false },
 }

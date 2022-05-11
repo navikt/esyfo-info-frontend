@@ -85,7 +85,7 @@ jobs:
           RESOURCE: nais-dev.yaml
 
   deploy-to-prod-gcp:
-    if: github.ref == 'refs/heads/master-fjern-meg'
+    if: github.ref == 'refs/heads/master'
     name: Deploy to prod-gcp
     needs: build-and-publish
     runs-on: ubuntu-latest

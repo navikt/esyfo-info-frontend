@@ -26,7 +26,7 @@ const Aktivitetsplikt = () => {
 
             <Brodsmuler brodsmuler={brodsmuler} />
 
-            <div className="limit">
+            <div className="limit aktivitetskrav">
                 <>
                     <Artikkel />
                 </>
