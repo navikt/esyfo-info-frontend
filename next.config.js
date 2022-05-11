@@ -77,7 +77,6 @@ module.exports = withLess({
         environment: process.env.ENVIRONMENT,
         sykmeldingerBackendProxyRoot:
             process.env.SYKMELDINGER_BACKEND_PROXY_ROOT,
-        aktivitetsplanUrl: process.env.AKTIVITETSPLAN_URL,
         narmestelederUrl: process.env.NARMESTELEDER_URL,
         arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
         backendSoknadApp: process.env.BACKEND_SOKNAD_APP,

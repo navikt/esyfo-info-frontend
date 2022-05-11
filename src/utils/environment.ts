@@ -18,6 +18,10 @@ export function loginServiceUrl() {
     return publicRuntimeConfig.loginserviceUrl
 }
 
+export function loginServiceRedirectUrl() {
+    return publicRuntimeConfig.loginServiceRedirectUrl
+}
+
 export function dittNavUrl() {
     return publicRuntimeConfig.dittNavUrl
 }

@@ -36,26 +36,10 @@ spec:
       value: "https://sykmelding-gateway.nav.no/sykmeldinger-backend"
     - name: FLEX_GATEWAY_ROOT
       value: "https://flex-gateway.nav.no"
-    - name: SYFOAPI_ROOT
-      value: "https://syfoapi-sky.nav.no"
     - name: LOGINSERVICE_URL
       value: "https://loginservice.nav.no/login"
     - name: LOGINSERVICE_REDIRECT_URL
-      value: "https://www.nav.no/syk/sykefravaer"
-    - name: SYKEPENGESOKNAD_URL
-      value: "https://www.nav.no/syk/sykepengesoknad"
-    - name: SPINNSYN_URL
-      value: "https://www.nav.no/syk/sykepenger"
-    - name: SYKMELDING_URL
-      value: "https://www.nav.no/syk/sykmeldinger"
-    - name: AKTIVITETSPLAN_URL
-      value: "https://aktivitetsplan.nav.no/"
-    - name: OPPFOLGINGSPLAN_URL
-      value: "https://www.nav.no/syk/oppfolgingsplan"
-    - name: DIALOGMOTE_URL
-      value: "https://www.nav.no/syk/dialogmote"
-    - name: NEW_DIALOGMOTE_URL
-      value: "https://www.nav.no/syk/dialogmoter/sykmeldt"
+      value: "https://www.nav.no/syk/info/snart-slutt-pa-sykepengene"
     - name: DITTNAV_URL
       value: "https://www.nav.no/person/dittnav"
     - name: NARMESTELEDER_URL
