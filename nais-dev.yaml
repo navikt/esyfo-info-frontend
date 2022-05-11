@@ -10,6 +10,12 @@ spec:
   port: 8080
   ingresses:
     - "https://www-gcp.dev.nav.no/syk/info"
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      level: Level4
+      autoLogin: true
   replicas:
     min: 1
     max: 2
