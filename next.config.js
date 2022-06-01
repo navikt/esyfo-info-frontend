@@ -73,7 +73,6 @@ module.exports = withLess({
         sykefravaerUrl: process.env.SYKEFRAVAER_URL,
         dittNavUrl: process.env.DITTNAV_URL,
         dittSykefravaerUrl: process.env.DITT_SYKEFRAVAER_URL,
-        amplitudeKey: process.env.AMPLITUDE_KEY,
         amplitudeEnabled: process.env.AMPLITUDE_ENABLED,
         environment: process.env.ENVIRONMENT,
         sykmeldingerBackendProxyRoot:

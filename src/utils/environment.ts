@@ -30,10 +30,6 @@ export function dittSykefravaerUrl() {
     return publicRuntimeConfig.dittSykefravaerUrl
 }
 
-export function amplitudeKey() {
-    return publicRuntimeConfig.amplitudeKey
-}
-
 export function amplitudeEnabled() {
     return publicRuntimeConfig.amplitudeEnabled === 'true'
 }
