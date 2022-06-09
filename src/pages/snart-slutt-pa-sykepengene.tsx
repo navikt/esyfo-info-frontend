@@ -61,7 +61,8 @@ const SnartSluttPaSykepengene = () => {
     }, [narmesteLedere, oppfolging, sykmeldinger])
 
     const logSvar = (svar: 'JA' | 'NEI') => {
-        logEvent('Spørsmål svart', {
+        // Old event name: Spørsmål besvart
+        logEvent('Skjema spørsmål besvart', {
             sporsmal: tekst('snartslutt.veiledning'),
             svar,
         })
