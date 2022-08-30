@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query'
 
 import { ArbeidsrettetOppfolging } from '../types/arbeidsrettetOppfolging'
-import { flexGatewayRoot } from '../utils/environment'
 import Fetch from '../utils/fetch'
 
 export default function UseArbeidsrettetOppfolging() {
@@ -9,11 +8,11 @@ export default function UseArbeidsrettetOppfolging() {
         'arbeidsrettetOppfolging',
         () =>
             Fetch.authenticatedGet(
-                `${flexGatewayRoot()}/veilarboppfolging/api/oppfolging`,
+                '/syk/info/api/veilarboppfolging/veilarboppfolging/api/v2/oppfolging',
                 async (data) => {
                     return data as ArbeidsrettetOppfolging
                 },
-                { 'Nav-Consumer-Id': 'sykefravaer' }
+                { 'Nav-Consumer-Id': 'esyfo-info-frontend' }
             )
     )
 }
