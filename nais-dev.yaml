@@ -58,3 +58,5 @@ spec:
       value: "dev"
     - name: AMPLITUDE_ENABLED
       value: "true"
+    - name: VEILARBOPPFOLGING_HOST
+      value: "veilarboppfolging.dev-fss-pub.nais.io"

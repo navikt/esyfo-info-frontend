@@ -10,7 +10,6 @@ import {
 import parser from 'html-react-parser'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 import { logEvent } from '../components/amplitude/amplitude'
@@ -25,6 +24,7 @@ import { veilederDame } from '../grafikk/VeilederDame'
 import useArbeidsrettetOppfolging from '../query-hooks/useArbeidsrettetOppfolging'
 import useNarmesteledere from '../query-hooks/useNarmesteledere'
 import useSykmeldinger from '../query-hooks/useSykmeldinger'
+import { ArbeidsrettetOppfolging } from '../types/arbeidsrettetOppfolging'
 import {
     arbeidssokerregistreringUrl,
     dittSykefravaerUrl,
@@ -43,7 +43,7 @@ const brodsmuler: Brodsmule[] = [
 const SnartSluttPaSykepengene = () => {
     const [harArbeidsgiver, setHarArbeidsgiver] = useState<boolean>()
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
-        useState<any>()
+        useState<ArbeidsrettetOppfolging>()
 
     const { data: oppfolging } = useArbeidsrettetOppfolging()
     const { data: narmesteLedere } = useNarmesteledere()
@@ -226,7 +226,7 @@ const SnartSluttPaSykepengene = () => {
                 </Accordion>
 
                 <Vis
-                    hvis={arbeidsrettetOppfolging?.underOppfolging === false}
+                    hvis={arbeidsrettetOppfolging?.erUnderOppfolging === false}
                     render={() => (
                         <>
                             <Heading

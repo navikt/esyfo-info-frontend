@@ -62,12 +62,12 @@ module.exports = withLess({
         decoratorEnv: process.env.DECORATOR_ENV,
         decoratorUrl: process.env.DECORATOR_URL,
         noDecorator: process.env.NO_DECORATOR,
+        veilarboppfolgingHost: process.env.VEILARBOPPFOLGING_HOST,
     },
     publicRuntimeConfig: {
         // Will be available on both server and client
         loginserviceUrl: process.env.LOGINSERVICE_URL,
         loginServiceRedirectUrl: process.env.LOGINSERVICE_REDIRECT_URL,
-        flexGatewayRoot: process.env.FLEX_GATEWAY_ROOT,
         mockBackend: process.env.MOCK_BACKEND,
         opplaering: process.env.OPPLAERING,
         sykefravaerUrl: process.env.SYKEFRAVAER_URL,
@@ -79,6 +79,5 @@ module.exports = withLess({
             process.env.SYKMELDINGER_BACKEND_PROXY_ROOT,
         narmestelederUrl: process.env.NARMESTELEDER_URL,
         arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
-        backendSoknadApp: process.env.BACKEND_SOKNAD_APP,
     },
 })

@@ -4,7 +4,7 @@ import { sendtSykmelding } from './sykmeldinger'
 export const underOppfolging: Persona = {
     sykmeldinger: [],
     narmesteledere: [],
-    arbeidsrettetOppfolging: { underOppfolging: true },
+    arbeidsrettetOppfolging: { erUnderOppfolging: true },
 }
 
 export const defaultPersona: Persona = {
@@ -52,5 +52,5 @@ export const defaultPersona: Persona = {
             aktivFom: '2021-03-19',
         },
     ],
-    arbeidsrettetOppfolging: { underOppfolging: false },
+    arbeidsrettetOppfolging: { erUnderOppfolging: false },
 }

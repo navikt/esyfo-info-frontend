@@ -1,8 +1,6 @@
-import dayjs from 'dayjs'
 import FetchMock, { MiddlewareUtils } from 'yet-another-fetch-mock'
 
 import {
-    flexGatewayRoot,
     isOpplaering,
     narmestelederUrl,
     sykmeldingerBackendProxyRoot,
@@ -20,7 +18,7 @@ const mock = FetchMock.configure({
 
 function setUpMock(persona: Persona) {
     mock.get(
-        `${flexGatewayRoot()}/veilarboppfolging/api/oppfolging`,
+        '/syk/info/api/veilarboppfolging/veilarboppfolging/api/v2/oppfolging',
         (req, res, ctx) => res(ctx.json(persona.arbeidsrettetOppfolging))
     )
 

@@ -58,3 +58,5 @@ spec:
       value: "prod"
     - name: AMPLITUDE_ENABLED
       value: "true"
+    - name: VEILARBOPPFOLGING_HOST
+      value: "veilarboppfolging.prod-fss-pub.nais.io"
