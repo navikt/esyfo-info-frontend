@@ -1,38 +1,68 @@
 export const SnartsluttTekster = {
-    'snartslutt.bjorntekst':
-        'Det begynner å nærme seg datoen du ikke lenger kan få sykepenger. ' +
-        'Tror du at du snart er tilbake i jobb, eller vil du trenge noe mer fra NAV? Her kan du se hvilke muligheter du har.',
-    'snartslutt.hva_nå': 'Hva kan du gjøre nå?',
-    'snartslutt.andre': 'Andre muligheter',
-    'snartslutt.snakk_med.tittel': 'Snakk med arbeidsgiveren din',
-    'snartslutt.snakk_med.tekst':
-        'Arbeidsgiveren din har fortsatt ansvaret for å tilpasse arbeidsplassen og oppgavene dine slik at du kan jobbe.',
-    'snartslutt.aktivitetsplan.tittel': 'Lag en aktivitetsplan',
-    'snartslutt.aktivitetsplan.tekst':
-        'Du kan kommunisere direkte med NAV-veilederen din i en aktivitetsplan når du er logget inn på nav.no.',
-    'snartslutt.planlegg.tittel': 'Planlegg økonomien din\n',
-    'snartslutt.planlegg.tekst':
-        'Det er bare sykepenger som erstatter inntekten din med 100 prosent. Du må derfor være forberedt på å gå ned i inntekt når sykepengene tar slutt.',
-    'snartslutt.bytt_jobb.tittel': 'Kan du bytte jobb?',
-    'snartslutt.finn_jobb.tittel': 'Finn en jobb som passer situasjonen din',
-    'snartslutt.bytt_jobb.tekst':
-        'Av og til er det mulig å fungere bedre i en annen jobb enn den man ble sykmeldt fra.',
-    'snartslutt.bytt_jobb.liste.del1':
-        'På <a href="https://arbeidsplassen.nav.no/" class="lenke" target="_blank" rel="noopener noreferrer">Arbeidsplassen</a> finner du alle utlyste stillinger i landet, og sjansen er god for å finne en jobb eller bli funnet av en arbeidsgiver.',
-    'snartslutt.bytt_jobb.liste.del2':
-        'Du kan snakke med <a href="https://www.nav.no/person/kontakt-oss/nb/" class="lenke" target="_blank" rel="noopener noreferrer">en av våre veiledere</a> om hva som kan gjøre det lettere for deg å komme i ny jobb.',
-    'snartslutt.okonomien.tittel': 'Hvordan blir økonomien din?',
-    'snartslutt.okonomien.tekst':
-        'Det er bare sykepenger som erstatter inntekten din med 100 prosent. Du må derfor være forberedt på å gå ned i inntekt når sykepengene tar slutt.',
-    'snartslutt.okonomien.tekst2':
-        'Du kan ha rett til annen økonomisk støtte fra NAV hvis du ikke kan gå tilbake i jobb før sykepengene er slutt. Dette må du i tilfelle søke om.',
-    'snartslutt.okonomien.innhold.avsnitt1':
-        'Du kan ha rett til annen økonomisk støtte fra NAV hvis du ikke kan gå tilbake i jobb før sykepengene er slutt. Dette må du i tilfelle søke om.',
-    'snartslutt.okonomien.innhold.avsnitt2':
-        'Viktig å vite: Du går ikke automatisk over på arbeidsavklaringspenger, du må selv søke om det. Les mer på <a href="https://www.nav.no/etter-sykepenger" class="lenke" target="_blank" rel="noopener noreferrer">nav.no/etter-sykepenger</a>',
-    'snartslutt.okonomien.innhold.avsnitt3':
-        'Undersøk også hvilke rettigheter du har hos forsikringsselskapet eller pensjonskassen du er medlem i. Det er ikke NAV som administrerer slike ordninger.',
-    'snartslutt.veiledning': 'Ønsker du mer veiledning fra NAV?',
-    'snartslutt.veiledning.ja': 'Ja',
-    'snartslutt.veiledning.nei': 'Nei',
+    'snartslutt.general_info.avsnitt1': 'Etter ',
+    'snartslutt.general_info.avsnitt2':
+        ' får du ikke lenger sykepenger. Datoen kan forskyves, for eksempel hvis du tar ferie mens du er sykmeldt.',
+    'snartslutt.general_info.avsnitt3':
+        'Hvis du er usikker på om du er tilbake i arbeid innen sykepengene tar slutt, er det viktig at du planlegger framover slik at du ikke risikerer å stå uten inntekt.',
+    'snartslutt.hva_na.tittel': 'Hva kan du gjøre?',
+    'snartslutt.hva_na.tekst':
+        'Hvis du blir frisk og er tilbake i arbeid før sykepengene tar slutt, kan du se bort fra denne informasjonen.',
+
+    'snartslutt.tilbake.tittel': 'Kan du gå tilbake til jobben din?',
+    'snartslutt.tilbake.tekst':
+        'Arbeidsgiveren din skal, så langt det er mulig, tilpasse arbeidsplassen og oppgavene dine slik at du kan jobbe.',
+    'snartslutt.tilbake.list':
+        '<ul>' +
+        '<li>Snakk med lederen din.</li>' +
+        '<li>Det er arbeidsgiverens ansvar å legge til rette for at du kan jobbe.</li>' +
+        '<li>Det er ditt ansvar å være med å finne løsninger slik at du kan komme tilbake til jobb.</li>' +
+        '</ul>',
+
+    'snartslutt.bytte.tittel': 'Bør du bytte jobb?',
+    'snartslutt.bytte.tekst':
+        'Av og til er det mulig å fungere bedre i en annen jobb enn den man ble sykmeldt fra.\n',
+    'snartslutt.bytte.list':
+        '<ul>' +
+        '<li>Er det vanskelig for deg å utføre oppgavene du hadde før du ble syk?</li>' +
+        '<li>Er det andre forhold hos arbeidsgiveren din som gjør det vanskelig for deg å fungere i jobben?.</li>' +
+        '<li>Snakk gjerne med en av våre veiledere om en ny jobb kan være bedre for deg.</li>' +
+        '<li>Du kan finne alle utlyste stillinger i landet på arbeidsplassen.no.</li>' +
+        '</ul>',
+
+    'snartslutt.fortsatt_syk.tittel': 'Er du fortsatt syk?',
+    'snartslutt.fortsatt_syk.tekst':
+        'Hvis du ikke er frisk nok til å gå tilbake til jobb slik som før, kan det være riktig å søke om arbeidsavklaringspenger (AAP), eller en annen økonomisk støtte. Du må være forberedt på å gå ned i inntekt når sykepengene tar slutt, fordi andre støtter fra NAV gir mindre enn sykepenger.',
+    'snartslutt.fortsatt_syk.list':
+        '<ul>' +
+        '<li>Husk at du selv må søke om AAP eller annen økonomisk støtte. Dette skjer ikke automatisk.</li>' +
+        '<li>Husk å søke støtte i god tid før sykepengene tar slutt, behandlingstiden kan være lang.</li>' +
+        '<li>Husk at du også kan ha rettigheter hos forsikringsselskapet eller pensjonskassen din.</li>' +
+        '<li>Ikke alle har rett til AAP. Les mer om AAP og om hvordan du kan søke.</li>' +
+        '<li>Snakk gjerne med en av våre veiledere om hva du kan gjøre hvis du fortsatt er syk.</li>' +
+        '</ul>',
+
+    'snartslutt.lese_mer.tittel': 'Her kan du lese mer',
+    'snartslutt.lese_mer.tekst':
+        '<ul style="list-style-type:none">' +
+        '<li><a href="https://www.nav.no/syk-lenge" class="lenke" target="_blank" rel="noopener noreferrer">Mulighetene dine fremover</a></li>' +
+        '<li><a href="http://arbeidsplassen.no/" class="lenke" target="_blank" rel="noopener noreferrer">Utlyste ledige stillinger på arbeidsplassen.no</li>' +
+        '<li><a href="https://www.nav.no/no/person/arbeid/sykmeldt-arbeidsavklaringspenger-og-yrkesskade/sykmelding-ulike-former/friskmelding-til-arbeidsformidling" class="lenke" target="_blank" rel="noopener noreferrer">Sykepenger mens du søker ny jobb</a></li>' +
+        '<li><a href="https://www.nav.no/aap" class="lenke" target="_blank" rel="noopener noreferrer">Om AAP og om hvordan du kan søke</a></li>' +
+        '</ul>',
+
+    'snartslutt.mer_veiledning.tittel': 'Ønsker du mer veiledning?',
+    'snartslutt.mer_veiledning.tekst':
+        'Hvis du tror at du fortsatt vil være syk etter at sykepengene tar slutt, kan du registrere deg for mer veiledning.',
+    'snartslutt.mer_veiledning.list':
+        '<ul>' +
+        '<li>Du får veiledning om mulighetene dine</li>' +
+        '<li>Du kan bruke din egen aktivitetsplan</li>' +
+        '<li>Du får vite om du har krav på annen økonomisk støtte</li>' +
+        '<li>Du kan ha dialog med veilederen din</li>' +
+        '</ul>',
+    'snartslutt.mer_veiledning.knapp': 'Jeg trenger mer veiledning',
+
+    'snartslutt.sporsmal.tittel': 'Er du usikker?',
+    'snartslutt.sporsmal.tekst':
+        'Har du spørsmål du ikke finner svar på her, for eksempel om sykepenger, <a href="https://www.nav.no/person/kontakt-oss/nb/" class="lenke" target="_blank" rel="noopener noreferrer">ta kontakt med NAV</a>.',
 }

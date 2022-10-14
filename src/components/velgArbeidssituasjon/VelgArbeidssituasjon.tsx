@@ -60,7 +60,9 @@ const VelgArbeidssituasjon = ({
                             <Vis
                                 hvis={medHjelpetekst && a.hjelpetekst}
                                 render={() => (
-                                    <HelpText>{a.hjelpetekst}</HelpText>
+                                    <HelpText>
+                                        {a.hjelpetekst ? a.hjelpetekst : ''}
+                                    </HelpText>
                                 )}
                             />
                         </div>

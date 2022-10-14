@@ -1,43 +1,57 @@
+@import '../../../node_modules/@navikt/ds-tokens/dist/tokens';
+
 .snartslutt {
-    .nav-veileder__frame--s {
-        height: auto;
+    .limit--snartslutt {
+        padding: 2rem 5rem 2.5rem;
+    }
+
+    .xlarge-tittel-margin {
+        margin: 2rem 0 3.5rem;
+    }
+
+    .subtittel--large-margin {
+        margin: 3.5rem 0 2rem;
     }
 
     .subtittel {
-        margin: 2rem 0 1rem;
+        margin: 3.5rem 0 1rem;
     }
 
-    .nav-veilederpanel,
-    .ekspanderbartPanel {
-        margin: 1rem 0;
+    .paragraph__tittel {
+        margin: 0 0 0.3rem;
     }
 
-    .navds-alert--success {
-        margin-bottom: 1rem;
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
-    .nav-veilederpanel__content {
-        .navds-label {
-            margin-bottom: 0.35rem;
-        }
+    .icon-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-basis: 10%;
     }
 
-    .ekspanderbartPanel__tittel {
-        padding-right: 1rem;
-
-        .navds-heading__medium {
-            margin-bottom: 0.5rem;
-        }
+    .text-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-basis: 90%;
+        padding-left: 16px;
     }
 
-    .ekspanderbartPanel__innhold {
-        ul {
-            margin: 0 0 0.5rem;
-        }
-
-        .navds-body-short + .navds-body-short {
-            margin-top: 0.5rem;
-        }
+    .icon-circle {
+        height: 64px;
+        width: 64px;
+        background-color: @navds-global-color-blue-50;
+        border-radius: 50%;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .knapperad {
@@ -45,15 +59,14 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
-        margin: 3rem 0 4rem;
+    }
 
-        .navds-button {
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-
-            &:last-child {
-                margin-bottom: 0.5rem;
-            }
-        }
+    .info-panel--blue {
+        background-color: @navds-global-color-blue-50;
+        border-color: @navds-global-color-deepblue-500;
+        border-radius: 5px;
+        padding: 2rem;
+        margin-bottom: 4.5rem;
+        margin-top: 4rem;
     }
 }

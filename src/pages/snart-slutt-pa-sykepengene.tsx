@@ -1,11 +1,11 @@
-import { Back } from '@navikt/ds-icons'
+import { Back, Bag, Bandage, Office1 } from '@navikt/ds-icons'
 import {
-    Accordion,
+    BodyLong,
     BodyShort,
     Button,
     GuidePanel,
     Heading,
-    Label,
+    Panel,
 } from '@navikt/ds-react'
 import parser from 'html-react-parser'
 import { GetServerSideProps } from 'next'
@@ -13,17 +13,10 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 import { logEvent } from '../components/amplitude/amplitude'
-import { finnAktuelleArbeidsgivere } from '../components/arbeidssituasjon/arbeidssituasjonHjelpefunksjoner'
-import Banner from '../components/banner/Banner'
-import Bjorn from '../components/bjorn/Bjorn'
 import Brodsmuler, { Brodsmule } from '../components/brodsmuler/Brodsmuler'
 import Vis from '../components/Vis'
-import { dialog } from '../grafikk/Dialog'
-import { penger } from '../grafikk/Penger'
-import { veilederDame } from '../grafikk/VeilederDame'
 import useArbeidsrettetOppfolging from '../query-hooks/useArbeidsrettetOppfolging'
-import useNarmesteledere from '../query-hooks/useNarmesteledere'
-import useSykmeldinger from '../query-hooks/useSykmeldinger'
+import UseMaxDate from '../query-hooks/useMaxDate'
 import { ArbeidsrettetOppfolging } from '../types/arbeidsrettetOppfolging'
 import {
     arbeidssokerregistreringUrl,
@@ -41,29 +34,25 @@ const brodsmuler: Brodsmule[] = [
 ]
 
 const SnartSluttPaSykepengene = () => {
-    const [harArbeidsgiver, setHarArbeidsgiver] = useState<boolean>()
+    const [hasMaxDate, setHasMaxDate] = useState<boolean>()
+    const { data: sykepengerMaxDate } = UseMaxDate()
+
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
         useState<ArbeidsrettetOppfolging>()
-
     const { data: oppfolging } = useArbeidsrettetOppfolging()
-    const { data: narmesteLedere } = useNarmesteledere()
-    const { data: sykmeldinger } = useSykmeldinger()
 
     useEffect(() => {
         setBodyClass('snartslutt')
-
-        const arbeidsgivere = finnAktuelleArbeidsgivere(
-            narmesteLedere,
-            sykmeldinger
+        setHasMaxDate(
+            sykepengerMaxDate !== undefined && sykepengerMaxDate.maxDate != null
         )
-        setHarArbeidsgiver(arbeidsgivere.length > 0)
         setArbeidsrettetOppfolging(oppfolging)
-    }, [narmesteLedere, oppfolging, sykmeldinger])
+    }, [sykepengerMaxDate, oppfolging])
 
     const logSvar = (svar: 'JA' | 'NEI') => {
         // Old event name: Spørsmål besvart
         logEvent('Skjema spørsmål besvart', {
-            sporsmal: tekst('snartslutt.veiledning'),
+            sporsmal: tekst('snartslutt.mer_veiledning.tittel'),
             svar,
         })
     }
@@ -76,182 +65,159 @@ const SnartSluttPaSykepengene = () => {
         }, 400)
     }
 
-    const handleNeiBtnClicked = () => {
-        logSvar('NEI')
-        // Må sikre at amplitude får logget ferdig
-        window.setTimeout(() => {
-            window.location.href = dittSykefravaerUrl()
-        }, 400)
-    }
-
     return (
         <>
-            <Banner>
-                <Heading size="xlarge" level="1" className="sidebanner__tittel">
+            <Brodsmuler brodsmuler={brodsmuler} />
+            <div className="limit limit--snartslutt">
+                <Heading
+                    size="xlarge"
+                    level="1"
+                    className="xlarge-tittel-margin"
+                >
                     {tekst('sidetittel.snartslutt')}
                 </Heading>
-            </Banner>
 
-            <Brodsmuler brodsmuler={brodsmuler} />
+                <BodyLong size="medium" spacing>
+                    <Vis
+                        hvis={hasMaxDate}
+                        render={() => (
+                            <>
+                                {tekst('snartslutt.general_info.avsnitt1')}
+                                {sykepengerMaxDate !== undefined
+                                    ? sykepengerMaxDate.maxDate
+                                    : ''}
+                                {tekst('snartslutt.general_info.avsnitt2')}
+                            </>
+                        )}
+                    />
+                </BodyLong>
 
-            <div className="limit">
-                <Bjorn>
-                    <BodyShort>{tekst('snartslutt.bjorntekst')}</BodyShort>
-                </Bjorn>
+                <BodyLong size="medium" spacing>
+                    {tekst('snartslutt.general_info.avsnitt3')}
+                </BodyLong>
 
-                <Heading size="medium" level="2" className="subtittel">
-                    {tekst('snartslutt.hva_nå')}
+                <Heading
+                    size="large"
+                    level="2"
+                    className="subtittel--large-margin"
+                >
+                    {tekst('snartslutt.hva_na.tittel')}
                 </Heading>
+                <BodyLong size="medium" spacing>
+                    {tekst('snartslutt.hva_na.tekst')}
+                </BodyLong>
 
-                <Vis
-                    hvis={harArbeidsgiver}
-                    render={() => (
-                        <GuidePanel illustration={veilederDame}>
-                            <Label as="h3">
-                                {tekst('snartslutt.snakk_med.tittel')}
-                            </Label>
-                            <BodyShort>
-                                {tekst('snartslutt.snakk_med.tekst')}
-                            </BodyShort>
-                        </GuidePanel>
-                    )}
-                />
+                <div className="content-wrapper">
+                    <div className="icon-wrapper, icon-circle">
+                        <Office1 />
+                    </div>
+                    <div className="text-wrapper">
+                        <div>
+                            <Heading
+                                size="medium"
+                                level="2"
+                                className="paragraph__tittel"
+                            >
+                                {tekst('snartslutt.tilbake.tittel')}
+                            </Heading>
+                            <BodyLong size="medium" spacing>
+                                {tekst('snartslutt.tilbake.tekst')}
+                            </BodyLong>
+                            <BodyLong size="medium" spacing>
+                                {parser(tekst('snartslutt.tilbake.list'))}
+                            </BodyLong>
+                        </div>
+                    </div>
+                </div>
 
-                <Vis
-                    hvis={!harArbeidsgiver}
-                    render={() => (
-                        <GuidePanel illustration={dialog}>
-                            <Label as="h3">
-                                {tekst('snartslutt.aktivitetsplan.tittel')}
-                            </Label>
-                            <BodyShort>
-                                {tekst('snartslutt.aktivitetsplan.tekst')}
-                            </BodyShort>
-                        </GuidePanel>
-                    )}
-                />
+                <div className="content-wrapper">
+                    <div className="icon-column, icon-circle">
+                        <Bag />
+                    </div>
+                    <div className="text-column">
+                        <div>
+                            <Heading
+                                size="medium"
+                                level="2"
+                                className="paragraph__tittel"
+                            >
+                                {tekst('snartslutt.bytte.tittel')}
+                            </Heading>
+                            <BodyLong size="medium" spacing>
+                                {tekst('snartslutt.bytte.tekst')}
+                            </BodyLong>
+                            <BodyLong size="medium" spacing>
+                                {parser(tekst('snartslutt.bytte.list'))}
+                            </BodyLong>
+                        </div>
+                    </div>
+                </div>
 
-                <GuidePanel illustration={penger}>
-                    <Label as="h3">{tekst('snartslutt.planlegg.tittel')}</Label>
-                    <BodyShort>{tekst('snartslutt.planlegg.tekst')}</BodyShort>
+                <div className="content-wrapper">
+                    <div className="icon-column, icon-circle">
+                        <Bandage />
+                    </div>
+                    <div className="text-column">
+                        <div>
+                            <Heading
+                                size="medium"
+                                level="2"
+                                className="paragraph__tittel"
+                            >
+                                {tekst('snartslutt.fortsatt_syk.tittel')}
+                            </Heading>
+                            <BodyLong size="medium" spacing>
+                                {tekst('snartslutt.fortsatt_syk.tekst')}
+                            </BodyLong>
+                            <BodyLong size="medium">
+                                {parser(tekst('snartslutt.fortsatt_syk.list'))}
+                            </BodyLong>
+                        </div>
+                    </div>
+                </div>
+
+                <GuidePanel>
+                    <Heading size="small" level="2">
+                        {tekst('snartslutt.lese_mer.tittel')}
+                    </Heading>
+                    <BodyLong size="small">
+                        {parser(tekst('snartslutt.lese_mer.tekst'))}
+                    </BodyLong>
                 </GuidePanel>
 
-                <Heading size="medium" level="2" className="subtittel">
-                    {tekst('snartslutt.andre')}
+                <Heading size="large" level="2" className="subtittel">
+                    {tekst('snartslutt.sporsmal.tittel')}
                 </Heading>
-
-                <Accordion>
-                    <Accordion.Item className="byttjobb">
-                        <Accordion.Header>
-                            <Vis
-                                hvis={harArbeidsgiver}
-                                render={() => (
-                                    <Heading size="small" level="3">
-                                        {tekst('snartslutt.bytt_jobb.tittel')}
-                                    </Heading>
-                                )}
-                            />
-                            <Vis
-                                hvis={!harArbeidsgiver}
-                                render={() => (
-                                    <Heading size="small" level="3">
-                                        {tekst('snartslutt.finn_jobb.tittel')}
-                                    </Heading>
-                                )}
-                            />
-                        </Accordion.Header>
-
-                        <Accordion.Content>
-                            <ul>
-                                <BodyShort as="li">
-                                    {parser(
-                                        tekst('snartslutt.bytt_jobb.liste.del1')
-                                    )}
-                                </BodyShort>
-                                <BodyShort as="li">
-                                    {parser(
-                                        tekst('snartslutt.bytt_jobb.liste.del2')
-                                    )}
-                                </BodyShort>
-                            </ul>
-                        </Accordion.Content>
-                    </Accordion.Item>
-
-                    <Accordion.Item className="okonomien">
-                        <Accordion.Header>
-                            <Heading size="small" level="3">
-                                {tekst('snartslutt.okonomien.tittel')}
-                            </Heading>
-                        </Accordion.Header>
-
-                        <Accordion.Content>
-                            <Vis
-                                hvis={harArbeidsgiver}
-                                render={() => (
-                                    <BodyShort>
-                                        {tekst('snartslutt.okonomien.tekst')}
-                                    </BodyShort>
-                                )}
-                            />
-                            <Vis
-                                hvis={!harArbeidsgiver}
-                                render={() => (
-                                    <BodyShort>
-                                        {tekst('snartslutt.okonomien.tekst2')}
-                                    </BodyShort>
-                                )}
-                            />
-                            <Vis
-                                hvis={harArbeidsgiver}
-                                render={() => (
-                                    <BodyShort>
-                                        {tekst(
-                                            'snartslutt.okonomien.innhold.avsnitt1'
-                                        )}
-                                    </BodyShort>
-                                )}
-                            />
-                            <BodyShort>
-                                {parser(
-                                    tekst(
-                                        'snartslutt.okonomien.innhold.avsnitt2'
-                                    )
-                                )}
-                            </BodyShort>
-                            <BodyShort>
-                                {tekst('snartslutt.okonomien.innhold.avsnitt3')}
-                            </BodyShort>
-                        </Accordion.Content>
-                    </Accordion.Item>
-                </Accordion>
-
+                <BodyLong size="medium" spacing>
+                    {parser(tekst('snartslutt.sporsmal.tekst'))}
+                </BodyLong>
                 <Vis
                     hvis={arbeidsrettetOppfolging?.erUnderOppfolging === false}
                     render={() => (
                         <>
-                            <Heading
-                                size="medium"
-                                level="2"
-                                className="subtittel"
-                            >
-                                {tekst('snartslutt.veiledning')}
-                            </Heading>
-
-                            <div className="knapperad">
-                                <Button
-                                    className="veiledning-knapp"
-                                    variant="primary"
-                                    onClick={handleJaBtnClicked}
-                                >
-                                    {tekst('snartslutt.veiledning.ja')}
-                                </Button>
-                                <Button
-                                    onClick={handleNeiBtnClicked}
-                                    className="veiledning-knapp"
-                                >
-                                    {tekst('snartslutt.veiledning.nei')}
-                                </Button>
-                            </div>
+                            <Panel border={true} className="info-panel--blue">
+                                <Heading size="large" level="2">
+                                    {tekst('snartslutt.mer_veiledning.tittel')}
+                                </Heading>
+                                <BodyLong size="medium" spacing>
+                                    {tekst('snartslutt.mer_veiledning.tekst')}
+                                </BodyLong>
+                                <BodyLong size="medium" spacing>
+                                    {parser(
+                                        tekst('snartslutt.mer_veiledning.list')
+                                    )}
+                                </BodyLong>
+                                <div className="knapperad">
+                                    <Button
+                                        variant="primary"
+                                        onClick={handleJaBtnClicked}
+                                    >
+                                        {tekst(
+                                            'snartslutt.mer_veiledning.knapp'
+                                        )}
+                                    </Button>
+                                </div>
+                            </Panel>
                         </>
                     )}
                 />
@@ -259,9 +225,7 @@ const SnartSluttPaSykepengene = () => {
                 <Link href={dittSykefravaerUrl()}>
                     <a className="navds-link">
                         <Back className="tilbake-pil" />
-                        <BodyShort as="span">
-                            Til hovedsiden Ditt sykefravaer
-                        </BodyShort>
+                        <BodyShort as="span">Ditt sykefravaer</BodyShort>
                     </a>
                 </Link>
             </div>

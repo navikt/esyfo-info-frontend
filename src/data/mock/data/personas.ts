@@ -5,6 +5,7 @@ export const underOppfolging: Persona = {
     sykmeldinger: [],
     narmesteledere: [],
     arbeidsrettetOppfolging: { erUnderOppfolging: true },
+    sykepengerMaxDate: { maxDate: null },
 }
 
 export const defaultPersona: Persona = {
@@ -53,4 +54,5 @@ export const defaultPersona: Persona = {
         },
     ],
     arbeidsrettetOppfolging: { erUnderOppfolging: false },
+    sykepengerMaxDate: { maxDate: '22. juni 2022' },
 }

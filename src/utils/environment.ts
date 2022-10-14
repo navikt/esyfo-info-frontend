@@ -41,3 +41,7 @@ export function narmestelederUrl() {
 export function arbeidssokerregistreringUrl() {
     return publicRuntimeConfig.arbeidssokerregistreringUrl
 }
+
+export function esyfovarselHost() {
+    return publicRuntimeConfig.esyfovarselHost
+}
