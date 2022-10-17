@@ -15,7 +15,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         req,
         res,
         backendHostname: publicRuntimeConfig.esyfovarselHost,
-        https: true,
     })
     return res.status(200)
 }
@@ -24,12 +23,11 @@ interface Opts {
     req: NextApiRequest
     res: NextApiResponse
     backendHostname: string
-    https: boolean
 }
 
 async function fetchMaxDate(opts: Opts) {
     const options: RequestOptions = {
-        port: opts.https ? 443 : 80,
+        port: 443,
         method: 'GET',
         headers: { 'Nav-Consumer-Id': 'esyfo-info-frontend' },
     }
@@ -58,7 +56,6 @@ async function fetchMaxDate(opts: Opts) {
             }
             backendResponse.on('data', (d: any) => {
                 opts.res.write(d)
-                logger.info('123d', d)
             })
             backendResponse.on('end', (d: any) => {
                 opts.res.end()
