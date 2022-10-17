@@ -6,7 +6,6 @@ import { Readable } from 'stream'
 
 import { stream2buffer } from '../../../proxy/stream2buffer'
 import { esyfovarselHost } from '../../../utils/environment'
-import { logger } from '../../../utils/logger'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -60,7 +59,6 @@ async function fetchMaxDate(opts: Opts) {
             backendResponse.on('end', (d: any) => {
                 opts.res.end()
             })
-            logger.info('123opts', opts.res)
         }
     )
 
