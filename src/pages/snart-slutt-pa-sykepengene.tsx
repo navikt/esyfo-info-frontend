@@ -90,10 +90,11 @@ const SnartSluttPaSykepengene = () => {
                             </>
                         )}
                     />
+                    {tekst('snartslutt.general_info.avsnitt3')}
                 </BodyLong>
 
                 <BodyLong size="medium" spacing>
-                    {tekst('snartslutt.general_info.avsnitt3')}
+                    {tekst('snartslutt.general_info.avsnitt4')}
                 </BodyLong>
 
                 <Heading
