@@ -52,13 +52,11 @@ export const SnartsluttTekster = {
 
     'snartslutt.mer_veiledning.tittel': 'Ønsker du mer veiledning?',
     'snartslutt.mer_veiledning.tekst':
-        'Hvis du tror at du fortsatt vil være syk etter at sykepengene tar slutt, kan du registrere deg for mer veiledning.',
+        'Hvis du tror at du fortsatt vil være syk etter at sykepengene tar slutt, må du registrere deg for mer veiledning.',
     'snartslutt.mer_veiledning.list':
         '<ul>' +
-        '<li>Du får veiledning om mulighetene dine</li>' +
-        '<li>Du kan bruke din egen aktivitetsplan</li>' +
-        '<li>Du får vite om du har krav på annen økonomisk støtte</li>' +
-        '<li>Du kan ha dialog med veilederen din</li>' +
+        '<li>Du kan snakke med veilederen din om mulighetene dine fremover</li>' +
+        '<li>Du får informasjon om du har krav på annen økonomisk støtte</li>' +
         '</ul>',
     'snartslutt.mer_veiledning.knapp': 'Jeg trenger mer veiledning',
 

@@ -176,21 +176,6 @@ const SnartSluttPaSykepengene = () => {
                     </div>
                 </div>
 
-                <GuidePanel>
-                    <Heading size="small" level="2">
-                        {tekst('snartslutt.lese_mer.tittel')}
-                    </Heading>
-                    <BodyLong size="small">
-                        {parser(tekst('snartslutt.lese_mer.tekst'))}
-                    </BodyLong>
-                </GuidePanel>
-
-                <Heading size="large" level="2" className="subtittel">
-                    {tekst('snartslutt.sporsmal.tittel')}
-                </Heading>
-                <BodyLong size="medium" spacing>
-                    {parser(tekst('snartslutt.sporsmal.tekst'))}
-                </BodyLong>
                 <Vis
                     hvis={arbeidsrettetOppfolging?.erUnderOppfolging === false}
                     render={() => (
@@ -221,6 +206,22 @@ const SnartSluttPaSykepengene = () => {
                         </>
                     )}
                 />
+
+                <Heading size="large" level="2" className="subtittel">
+                    {tekst('snartslutt.sporsmal.tittel')}
+                </Heading>
+                <BodyLong size="medium" spacing>
+                    {parser(tekst('snartslutt.sporsmal.tekst'))}
+                </BodyLong>
+
+                <GuidePanel>
+                    <Heading size="small" level="2">
+                        {tekst('snartslutt.lese_mer.tittel')}
+                    </Heading>
+                    <BodyLong size="small">
+                        {parser(tekst('snartslutt.lese_mer.tekst'))}
+                    </BodyLong>
+                </GuidePanel>
 
                 <Link href={dittSykefravaerUrl()}>
                     <a className="navds-link">
