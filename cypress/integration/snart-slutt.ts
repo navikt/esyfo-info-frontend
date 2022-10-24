@@ -31,7 +31,7 @@ describe('Tester snart-slutt', () => {
 
         cy.get('.snartslutt').should(
             'not.contain',
-            'Datoen kan forskyves, for eksempel hvis du tar ferie mens du er sykmeldt.'
+            'Etter '
         )
     })
 })
