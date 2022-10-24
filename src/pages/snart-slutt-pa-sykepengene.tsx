@@ -134,7 +134,7 @@ const SnartSluttPaSykepengene = () => {
                     <div className="icon-column, icon-circle">
                         <Bag />
                     </div>
-                    <div className="text-column">
+                    <div className="text-wrapper">
                         <div>
                             <Heading
                                 size="medium"
@@ -157,7 +157,7 @@ const SnartSluttPaSykepengene = () => {
                     <div className="icon-column, icon-circle">
                         <Bandage />
                     </div>
-                    <div className="text-column">
+                    <div className="text-wrapper">
                         <div>
                             <Heading
                                 size="medium"
@@ -206,14 +206,6 @@ const SnartSluttPaSykepengene = () => {
                         </>
                     )}
                 />
-
-                <Heading size="large" level="2" className="subtittel">
-                    {tekst('snartslutt.sporsmal.tittel')}
-                </Heading>
-                <BodyLong size="medium" spacing>
-                    {parser(tekst('snartslutt.sporsmal.tekst'))}
-                </BodyLong>
-
                 <GuidePanel>
                     <Heading size="small" level="2">
                         {tekst('snartslutt.lese_mer.tittel')}
@@ -223,8 +215,15 @@ const SnartSluttPaSykepengene = () => {
                     </BodyLong>
                 </GuidePanel>
 
+                <Heading size="large" level="2" className="subtittel">
+                    {tekst('snartslutt.sporsmal.tittel')}
+                </Heading>
+                <BodyLong size="medium" spacing>
+                    {parser(tekst('snartslutt.sporsmal.tekst'))}
+                </BodyLong>
+
                 <Link href={dittSykefravaerUrl()}>
-                    <a className="navds-link">
+                    <a className="navds-link back-link">
                         <Back className="tilbake-pil" />
                         <BodyShort as="span">Ditt sykefravaer</BodyShort>
                     </a>
