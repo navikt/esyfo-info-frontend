@@ -32,6 +32,10 @@ function setUpMock(persona: Persona) {
         (req, res, ctx) => res(ctx.json(persona.narmesteledere))
     )
 
+    mock.get('/syk/info/api/esyfovarsel/fetchMaxDate', (req, res, ctx) =>
+        res(ctx.json(persona.sykepengerMaxDate))
+    )
+
     mock.get(
         'https://www.nav.no/person/innloggingsstatus/auth',
         (req, res, ctx) => res(ctx.json({}))

@@ -79,5 +79,6 @@ module.exports = withLess({
             process.env.SYKMELDINGER_BACKEND_PROXY_ROOT,
         narmestelederUrl: process.env.NARMESTELEDER_URL,
         arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
+        esyfovarselHost: process.env.ESYFOVARSEL_HOST,
     },
 })

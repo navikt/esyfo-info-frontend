@@ -29,6 +29,8 @@ spec:
       value: "https://ditt-sykefravaer.labs.nais.io/syk/sykefravaer"
     - name: ARBEIDSSOKERREGISTRERING_URL
       value: "https://arbeidssokerregistrering.nav.no/start?fraSykefravaer=true"
+    - name: ESYFOVARSEL_HOST
+      value: "https://esyfovarsel.dev.intern.nav.no"
     - name: DECORATOR_ENV
       value: "prod"
     - name: AMPLITUDE_ENABLED

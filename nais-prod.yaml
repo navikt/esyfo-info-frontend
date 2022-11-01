@@ -54,6 +54,8 @@ spec:
       value: "https://narmesteleder.nav.no"
     - name: ARBEIDSSOKERREGISTRERING_URL
       value: "https://arbeidssokerregistrering.nav.no/start?fraSykefravaer=true"
+    - name: ESYFOVARSEL_HOST
+      value: "https://esyfovarsel.intern.nav.no"
     - name: DECORATOR_ENV
       value: "prod"
     - name: AMPLITUDE_ENABLED
