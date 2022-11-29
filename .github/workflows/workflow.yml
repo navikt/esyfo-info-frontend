@@ -3,6 +3,7 @@ on: push
 env:
   APP: esyfo-info-frontend
   branchname: ${{ github.ref_name }}
+  NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 jobs:
   build-and-publish:
     name: Bygg, test og push Docker image
@@ -14,6 +15,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+          registry-url: 'https://npm.pkg.github.com'
       - name: Cache Cypress binary
         uses: actions/cache@v1
         with:
