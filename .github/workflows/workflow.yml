@@ -1,4 +1,4 @@
-name: Push
+name: main
 on: push
 env:
   APP: esyfo-info-frontend
