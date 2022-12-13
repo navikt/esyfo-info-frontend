@@ -3,7 +3,6 @@ import { GetServerSideProps } from 'next'
 import React from 'react'
 
 import Artikkel from '../components/aktivitetskrav/Artikkel'
-import Banner from '../components/banner/Banner'
 import Brodsmuler, { Brodsmule } from '../components/brodsmuler/Brodsmuler'
 import { tekst } from '../utils/tekster'
 
@@ -18,11 +17,13 @@ const brodsmuler: Brodsmule[] = [
 const Aktivitetsplikt = () => {
     return (
         <>
-            <Banner>
-                <Heading size="xlarge" level="1" className="sidebanner__tittel">
-                    {tekst('sidetittel.liste')}
-                </Heading>
-            </Banner>
+            <Heading
+                size="xlarge"
+                level="1"
+                className="sidebanner__tittel sidebanner"
+            >
+                {tekst('sidetittel.liste')}
+            </Heading>
 
             <Brodsmuler brodsmuler={brodsmuler} />
 

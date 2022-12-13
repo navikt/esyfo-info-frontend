@@ -65,11 +65,15 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </Head>
             <QueryClientProvider client={queryClient}>
                 <Hydrate state={pageProps.dehydratedState}>
-                    <div className="pagewrapper">
+                    <main
+                        className="pagewrapper"
+                        tabIndex={-1}
+                        id="maincontent"
+                    >
                         <div id="root">
                             <Component {...pageProps} />
                         </div>
-                    </div>
+                    </main>
                 </Hydrate>
             </QueryClientProvider>
         </>

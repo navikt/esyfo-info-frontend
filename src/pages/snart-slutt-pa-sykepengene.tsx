@@ -67,16 +67,17 @@ const SnartSluttPaSykepengene = () => {
 
     return (
         <>
-            <Brodsmuler brodsmuler={brodsmuler} />
-            <div className="limit limit--snartslutt">
-                <Heading
-                    size="xlarge"
-                    level="1"
-                    className="xlarge-tittel-margin"
-                >
-                    {tekst('sidetittel.snartslutt')}
-                </Heading>
+            <Heading
+                size="xlarge"
+                level="1"
+                className="sidebanner__tittel sidebanner"
+            >
+                {tekst('sidetittel.snartslutt')}
+            </Heading>
 
+            <Brodsmuler brodsmuler={brodsmuler} />
+
+            <div className="limit limit--snartslutt">
                 <BodyLong size="medium" spacing>
                     <Vis
                         hvis={hasMaxDate}
