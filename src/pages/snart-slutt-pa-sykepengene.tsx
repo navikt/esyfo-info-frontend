@@ -10,12 +10,10 @@ import {
 import parser from 'html-react-parser'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 import { logEvent } from '../components/amplitude/amplitude'
 import { finnAktuelleArbeidsgivere } from '../components/arbeidssituasjon/arbeidssituasjonHjelpefunksjoner'
-import Banner from '../components/banner/Banner'
 import Bjorn from '../components/bjorn/Bjorn'
 import Brodsmuler, { Brodsmule } from '../components/brodsmuler/Brodsmuler'
 import Vis from '../components/Vis'
@@ -86,11 +84,13 @@ const SnartSluttPaSykepengene = () => {
 
     return (
         <>
-            <Banner>
-                <Heading size="xlarge" level="1" className="sidebanner__tittel">
-                    {tekst('sidetittel.snartslutt')}
-                </Heading>
-            </Banner>
+            <Heading
+                size="xlarge"
+                level="1"
+                className="sidebanner__tittel sidebanner"
+            >
+                {tekst('sidetittel.snartslutt')}
+            </Heading>
 
             <Brodsmuler brodsmuler={brodsmuler} />
 

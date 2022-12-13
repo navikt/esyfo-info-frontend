@@ -12,7 +12,7 @@ const Artikkel = () => {
 
     return (
         <article className="artikkel">
-            <header className="artikkel__header">
+            <div className="artikkel__header">
                 <Heading size="small" className="artikkel__tittel">
                     {tekst('aktivitetskrav-varsel.tittel')}
                 </Heading>
@@ -21,7 +21,7 @@ const Artikkel = () => {
                     setVisning={setVisning}
                     medHjelpetekst={false}
                 />
-            </header>
+            </div>
             <BodyShort className="artikkel__ingress">
                 {tekst('aktivitetskrav-varsel.ingress')}
             </BodyShort>
