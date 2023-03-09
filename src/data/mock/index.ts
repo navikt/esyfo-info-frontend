@@ -1,9 +1,6 @@
 import FetchMock, { MiddlewareUtils } from 'yet-another-fetch-mock'
 
-import {
-    isOpplaering,
-    narmestelederUrl,
-} from '../../utils/environment'
+import { isOpplaering, narmestelederUrl } from '../../utils/environment'
 import { Persona } from './data/persona'
 import { defaultPersona } from './data/personas'
 import { personas } from './testperson'
