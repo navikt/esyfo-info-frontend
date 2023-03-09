@@ -51,7 +51,7 @@ spec:
     - name: NARMESTELEDER_URL
       value: "https://narmesteleder.dev.nav.no"
     - name: ARBEIDSSOKERREGISTRERING_URL
-      value: "https://arbeidssokerregistrering-q1.nav.no/start?fraSykefravaer=true"
+      value: "https://arbeid.dev.nav.no/arbeid/registrering"
     - name: ESYFOVARSEL_HOST
       value: "https://esyfovarsel.dev.intern.nav.no"
     - name: ESYFOVARSEL_CLIENT_ID
