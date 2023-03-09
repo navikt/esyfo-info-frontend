@@ -62,12 +62,16 @@ module.exports = withLess({
         decoratorEnv: process.env.DECORATOR_ENV,
         decoratorUrl: process.env.DECORATOR_URL,
         noDecorator: process.env.NO_DECORATOR,
+        veilarboppfolgingClientId: process.env.VEILARBOPPFOLGING_CLIENT_ID,
         veilarboppfolgingHost: process.env.VEILARBOPPFOLGING_HOST,
     },
     publicRuntimeConfig: {
         // Will be available on both server and client
-        loginserviceUrl: process.env.LOGINSERVICE_URL,
-        loginServiceRedirectUrl: process.env.LOGINSERVICE_REDIRECT_URL,
+        idportenWellKnownUrl: process.env.IDPORTEN_WELL_KNOWN_URL,
+        idportenClientId: process.env.IDPORTEN_CLIENT_ID,
+        tokenXClientId: process.env.TOKEN_X_CLIENT_ID,
+        tokenXPrivateJwk: process.env.TOKEN_X_PRIVATE_JWK,
+        tokenXWellKnownUrl: process.env.TOKEN_X_WELL_KNOWN_URL,
         mockBackend: process.env.MOCK_BACKEND,
         opplaering: process.env.OPPLAERING,
         sykefravaerUrl: process.env.SYKEFRAVAER_URL,
@@ -80,5 +84,6 @@ module.exports = withLess({
         narmestelederUrl: process.env.NARMESTELEDER_URL,
         arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
         esyfovarselHost: process.env.ESYFOVARSEL_HOST,
+        esyfovarselClientId: process.env.ESYFOVARSEL_CLIENT_ID,
     },
 })

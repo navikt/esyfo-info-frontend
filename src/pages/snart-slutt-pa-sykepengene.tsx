@@ -8,10 +8,10 @@ import {
     Panel,
 } from '@navikt/ds-react'
 import parser from 'html-react-parser'
-import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
+import { beskyttetSideUtenProps } from '../auth/beskyttetSide'
 import { logEvent } from '../components/amplitude/amplitude'
 import Brodsmuler, { Brodsmule } from '../components/brodsmuler/Brodsmuler'
 import Vis from '../components/Vis'
@@ -36,7 +36,6 @@ const brodsmuler: Brodsmule[] = [
 const SnartSluttPaSykepengene = () => {
     const [hasMaxDate, setHasMaxDate] = useState<boolean>()
     const { data: sykepengerMaxDate } = UseMaxDate()
-
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
         useState<ArbeidsrettetOppfolging>()
     const { data: oppfolging } = useArbeidsrettetOppfolging()
@@ -235,11 +234,6 @@ const SnartSluttPaSykepengene = () => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    // Disable static rendring
-    return {
-        props: {},
-    }
-}
+export const getServerSideProps = beskyttetSideUtenProps
 
 export default SnartSluttPaSykepengene

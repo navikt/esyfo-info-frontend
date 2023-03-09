@@ -1,6 +1,6 @@
 import getConfig from 'next/config'
 
-const { publicRuntimeConfig } = getConfig()
+const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 
 export function isMockBackend() {
     return publicRuntimeConfig.mockBackend === 'true'
@@ -8,14 +8,6 @@ export function isMockBackend() {
 
 export function isOpplaering() {
     return publicRuntimeConfig.opplaering === 'true'
-}
-
-export function loginServiceUrl() {
-    return publicRuntimeConfig.loginserviceUrl
-}
-
-export function loginServiceRedirectUrl() {
-    return publicRuntimeConfig.loginServiceRedirectUrl
 }
 
 export function dittNavUrl() {
@@ -42,6 +34,38 @@ export function arbeidssokerregistreringUrl() {
     return publicRuntimeConfig.arbeidssokerregistreringUrl
 }
 
+export function veilarboppfolgingHost() {
+    return serverRuntimeConfig.veilarboppfolgingHost
+}
+
+export function veilarboppfolgingClientId() {
+    return serverRuntimeConfig.veilarboppfolgingClientId
+}
+
 export function esyfovarselHost() {
     return publicRuntimeConfig.esyfovarselHost
+}
+
+export function esyfovarselClientId() {
+    return publicRuntimeConfig.esyfovarselClientId
+}
+
+export function idportenWellKnownUrl() {
+    return publicRuntimeConfig.idportenWellKnownUrl
+}
+
+export function idportenClientId() {
+    return publicRuntimeConfig.idportenClientId
+}
+
+export function tokenXClientId(): string {
+    return publicRuntimeConfig.tokenXClientId
+}
+
+export function tokenXPrivateJwk(): string {
+    return publicRuntimeConfig.tokenXPrivateJwk
+}
+
+export function tokenXWellKnownUrl(): string {
+    return publicRuntimeConfig.tokenXWellKnownUrl
 }

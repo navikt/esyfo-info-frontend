@@ -5,6 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { Readable } from 'stream'
 
 import { logger } from '../utils/logger'
+import { getVeilarboppfolgingTokenFromRequest } from '../utils/tokenX/getTokenXFromRequest'
 import { stream2buffer } from './stream2buffer'
 
 interface Opts {
@@ -40,9 +41,10 @@ export async function proxyLoginserviceKallTilBackend(opts: Opts) {
             options.headers![headersKey] = opts.req.headers[headersKey]
         }
     }
-    const loginservicetoken = opts.req.cookies['selvbetjening-idtoken']
-    if (loginservicetoken) {
-        options.headers!['Authorization'] = `Bearer ${loginservicetoken}`
+    const tokenx = await getVeilarboppfolgingTokenFromRequest(opts.req)
+
+    if (tokenx) {
+        options.headers!['Authorization'] = `Bearer ${tokenx}`
     }
 
     const stream = Readable.from(opts.req)
