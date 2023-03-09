@@ -30,10 +30,6 @@ export function amplitudeEnabled() {
     return publicRuntimeConfig.amplitudeEnabled === 'true'
 }
 
-export function sykmeldingerBackendProxyRoot() {
-    return publicRuntimeConfig.sykmeldingerBackendProxyRoot
-}
-
 export function narmestelederUrl() {
     return publicRuntimeConfig.narmestelederUrl
 }

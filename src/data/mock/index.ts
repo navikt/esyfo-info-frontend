@@ -3,7 +3,6 @@ import FetchMock, { MiddlewareUtils } from 'yet-another-fetch-mock'
 import {
     isOpplaering,
     narmestelederUrl,
-    sykmeldingerBackendProxyRoot,
 } from '../../utils/environment'
 import { Persona } from './data/persona'
 import { defaultPersona } from './data/personas'
@@ -20,11 +19,6 @@ function setUpMock(persona: Persona) {
     mock.get(
         '/syk/info/api/veilarboppfolging/veilarboppfolging/api/v2/oppfolging',
         (req, res, ctx) => res(ctx.json(persona.arbeidsrettetOppfolging))
-    )
-
-    mock.get(
-        `${sykmeldingerBackendProxyRoot()}/api/v1/sykmeldinger`,
-        (req, res, ctx) => res(ctx.json(persona.sykmeldinger))
     )
 
     mock.get(
