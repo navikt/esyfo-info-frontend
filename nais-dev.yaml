@@ -38,8 +38,6 @@ spec:
       value: "q1"
     - name: OPPLAERING
       value: "false"
-    - name: SYKMELDINGER_BACKEND_PROXY_ROOT
-      value: "https://sykmelding-gateway.dev.nav.no/sykmeldinger-backend"
     - name: FLEX_GATEWAY_ROOT
       value: "https://flex-gateway.dev.nav.no"
     - name: LOGINSERVICE_URL
