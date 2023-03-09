@@ -17,7 +17,7 @@ interface Opts {
     https: boolean
 }
 
-export async function proxyLoginserviceKallTilBackend(opts: Opts) {
+export async function proxyKallTilBackend(opts: Opts) {
     const rewritedPath = opts.req.url!.replace(`/api/${opts.backend}`, '')
     const api = `${opts.req.method} ${rewritedPath}`
     if (!opts.tillatteApier.includes(<String>cleanPathForMetric(api))) {

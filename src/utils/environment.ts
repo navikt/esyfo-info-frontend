@@ -51,21 +51,21 @@ export function esyfovarselClientId() {
 }
 
 export function idportenWellKnownUrl() {
-    return publicRuntimeConfig.idportenWellKnownUrl
+    return serverRuntimeConfig.idportenWellKnownUrl
 }
 
 export function idportenClientId() {
-    return publicRuntimeConfig.idportenClientId
+    return serverRuntimeConfig.idportenClientId
 }
 
 export function tokenXClientId(): string {
-    return publicRuntimeConfig.tokenXClientId
+    return serverRuntimeConfig.tokenXClientId
 }
 
 export function tokenXPrivateJwk(): string {
-    return publicRuntimeConfig.tokenXPrivateJwk
+    return serverRuntimeConfig.tokenXPrivateJwk
 }
 
 export function tokenXWellKnownUrl(): string {
-    return publicRuntimeConfig.tokenXWellKnownUrl
+    return serverRuntimeConfig.tokenXWellKnownUrl
 }

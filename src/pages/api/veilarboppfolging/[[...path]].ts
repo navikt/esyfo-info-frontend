@@ -1,19 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import getConfig from 'next/config'
 
-import { proxyLoginserviceKallTilBackend } from '../../../proxy/backendproxy'
-
-const { serverRuntimeConfig } = getConfig()
+import { proxyKallTilBackend } from '../../../proxy/backendproxy'
+import { veilarboppfolgingHost } from '../../../utils/environment'
 
 const tillatteApier = ['GET /veilarboppfolging/api/v2/oppfolging']
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-    await proxyLoginserviceKallTilBackend({
+    await proxyKallTilBackend({
         req,
         res,
         tillatteApier,
         backend: 'veilarboppfolging',
-        backendHostname: serverRuntimeConfig.veilarboppfolgingHost,
+        backendHostname: veilarboppfolgingHost(),
         https: true,
     })
 }
