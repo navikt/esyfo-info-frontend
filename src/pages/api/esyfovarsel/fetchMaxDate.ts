@@ -14,8 +14,8 @@ const handler = async (
     } else {
         const tokenX = await getEsyfovarselTokenFromRequest(req)
 
-        await getMaxDate(tokenX)
-        res.status(200).end()
+        const response = await getMaxDate(tokenX)
+        res.status(200).json(response)
     }
 }
 
