@@ -69,6 +69,8 @@ module.exports = withLess({
         tokenXWellKnownUrl: process.env.TOKEN_X_WELL_KNOWN_URL,
         veilarboppfolgingClientId: process.env.VEILARBOPPFOLGING_CLIENT_ID,
         veilarboppfolgingHost: process.env.VEILARBOPPFOLGING_HOST,
+        esyfovarselClientId: process.env.ESYFOVARSEL_CLIENT_ID,
+        esyfovarselHost: process.env.ESYFOVARSEL_HOST,
     },
     publicRuntimeConfig: {
         // Will be available on both server and client
@@ -83,7 +85,5 @@ module.exports = withLess({
             process.env.SYKMELDINGER_BACKEND_PROXY_ROOT,
         narmestelederUrl: process.env.NARMESTELEDER_URL,
         arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
-        esyfovarselHost: process.env.ESYFOVARSEL_HOST,
-        esyfovarselClientId: process.env.ESYFOVARSEL_CLIENT_ID,
     },
 })

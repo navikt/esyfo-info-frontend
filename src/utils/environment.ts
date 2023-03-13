@@ -43,11 +43,11 @@ export function veilarboppfolgingClientId() {
 }
 
 export function esyfovarselHost() {
-    return publicRuntimeConfig.esyfovarselHost
+    return serverRuntimeConfig.esyfovarselHost
 }
 
 export function esyfovarselClientId() {
-    return publicRuntimeConfig.esyfovarselClientId
+    return serverRuntimeConfig.esyfovarselClientId
 }
 
 export function idportenWellKnownUrl() {
