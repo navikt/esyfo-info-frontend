@@ -1,25 +1,19 @@
-import { loginServiceRedirectUrl, loginServiceUrl } from './environment'
 import { logger } from './logger'
-
-export const hentLoginUrl = () => {
-    return `${loginServiceUrl()}?redirect=${loginServiceRedirectUrl()}`
-}
 
 /**
  * Class with utility functions for working with fetch.
- * Redirects to Login Service if any request contains a 401 response.
+ * Redirects to Login page if any request contains a 401 response.
  */
 class Fetch {
-    static loginServiceUrl = hentLoginUrl()
-
     /**
      * Make a GET request for the specified resource
-     * Redirects to Login Service if request contains a 401 response.
+     * Redirects to Login page if request contains a 401 response.
      * @param {string} url - The endpoint to call
      * @param {(data: unknown) => Promise<T>} cb - The function to call after res.json()
      * @param {HeadersInit} headers - Headers
      * @return {Promise<T>} The data
      */
+
     static async authenticatedGet<T>(
         url: string,
         cb: (data: unknown) => Promise<T>,
@@ -46,7 +40,7 @@ class Fetch {
         }
         // Sesjonen er utløpt
         if (res.status === 401) {
-            window.location.href = this.loginServiceUrl
+            window.location.href = `/syk/info/oauth2/login?redirect=${window.location.pathname}`
             throw new Error(
                 'Sesjonen er utløpt. Vi videresender deg til innloggingssiden.'
             )

@@ -21,14 +21,12 @@ spec:
       value: "labs"
     - name: OPPLAERING
       value: "true"
-    - name: LOGINSERVICE_URL
-      value: "https://loginservice-q.nav.no/login"
     - name: DITTNAV_URL
       value: "https://www.nav.no/person/dittnav"
     - name: DITT_SYKEFRAVAER_URL
       value: "https://ditt-sykefravaer.labs.nais.io/syk/sykefravaer"
     - name: ARBEIDSSOKERREGISTRERING_URL
-      value: "https://arbeidssokerregistrering.nav.no/start?fraSykefravaer=true"
+      value: "https://arbeid.dev.nav.no/arbeid/registrering"
     - name: ESYFOVARSEL_HOST
       value: "https://esyfovarsel.dev.intern.nav.no"
     - name: DECORATOR_ENV
