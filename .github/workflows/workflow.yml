@@ -127,3 +127,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: labs-gcp
           RESOURCE: nais-labs.yaml
+          DEPLOY_SERVER: deploy.nais.io:443
