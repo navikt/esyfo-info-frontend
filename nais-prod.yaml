@@ -60,6 +60,8 @@ spec:
       value: "true"
     - name: VEILARBOPPFOLGING_HOST
       value: "veilarboppfolging.prod-fss-pub.nais.io"
+    - name: VEILARBOPPFOLGING_CLIENT_ID
+      value: "prod-fss:pto:veilarboppfolging"
   accessPolicy:
     outbound:
       rules:
