@@ -10,6 +10,7 @@ spec:
   port: 8080
   ingresses:
     - "https://esyfo-info-frontend.labs.nais.io/"
+    - "https://esyfo-info-frontend.ekstern.dev.nav.no/"
   liveness:
     path: syk/info/api/isAlive
   readiness:
