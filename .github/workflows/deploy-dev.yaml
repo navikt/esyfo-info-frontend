@@ -57,7 +57,7 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
       - name: Bygg og push Docker image
-        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/labs-')
+        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/demo-')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
