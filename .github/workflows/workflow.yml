@@ -57,7 +57,7 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
       - name: Bygg og push Docker image
-        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/labs-')
+        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/demo-')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -107,12 +107,12 @@ jobs:
           CLUSTER: prod-gcp
           RESOURCE: nais-prod.yaml
 
-  deploy-to-labs-gcp:
+  deploy-demo-to-dev-gcp:
     if: github.ref == 'refs/heads/master'
-    name: Deploy to labs-gcp (Demo)
+    name: Deploy to dev-gcp (Demo)
     needs: build-and-publish
     runs-on: ubuntu-latest
-    concurrency: deploy-to-labs-gcp
+    concurrency: deploy-demo-to-dev-gcp
     steps:
       - uses: actions/checkout@v1
       - uses: actions/download-artifact@v1
@@ -121,10 +121,10 @@ jobs:
           path: .
       - run: echo "VERSION=`cat VERSION.txt`" >> $GITHUB_ENV
       - run: echo "IMAGE=ghcr.io/navikt/$APP:$VERSION" >> $GITHUB_ENV
-      - name: Deploy to labs-gcp
+      - name: Deploy demo to dev-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: labs-gcp
-          RESOURCE: nais-labs.yaml
+          CLUSTER: dev-gcp
+          RESOURCE: nais-demo.yaml
           DEPLOY_SERVER: deploy.nais.io:443

@@ -9,8 +9,7 @@ spec:
   image: {{image}}
   port: 8080
   ingresses:
-    - "https://esyfo-info-frontend.labs.nais.io/"
-    - "https://esyfo-info-frontend.ekstern.dev.nav.no/"
+    - "https://demo.ekstern.dev.nav.no/syk/info/"
   liveness:
     path: syk/info/api/isAlive
   readiness:
@@ -19,7 +18,7 @@ spec:
     - name: MOCK_BACKEND
       value: "true"
     - name: ENVIRONMENT
-      value: "labs"
+      value: "demo"
     - name: OPPLAERING
       value: "true"
     - name: DITTNAV_URL
