@@ -10,6 +10,12 @@ spec:
   port: 8080
   ingresses:
     - "https://demo.ekstern.dev.nav.no/syk/info/"
+  tokenx:
+    enabled: false
+  idporten:
+    enabled: false
+    sidecar:
+      enabled: false
   liveness:
     path: syk/info/api/isAlive
   readiness:
