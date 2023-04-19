@@ -68,3 +68,5 @@ spec:
         - application: esyfovarsel
         - application: veilarboppfolging
           namespace: pto
+      external:
+        - host: dekoratoren.ekstern.dev.nav.no  # for dev

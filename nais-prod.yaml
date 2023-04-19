@@ -68,3 +68,5 @@ spec:
         - application: esyfovarsel
         - application: veilarboppfolging
           namespace: pto
+      external:
+        - host: www.nav.no
