@@ -39,3 +39,8 @@ spec:
       value: "prod"
     - name: AMPLITUDE_ENABLED
       value: "false"
+  accessPolicy:
+    outbound:
+      external:
+        - host: www.nav.no
+        - host: dekoratoren.ekstern.dev.nav.no
