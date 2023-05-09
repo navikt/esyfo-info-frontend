@@ -61,7 +61,7 @@ spec:
     - name: AMPLITUDE_ENABLED
       value: "true"
     - name: VEILARBOPPFOLGING_HOST
-      value: "http://veilarboppfolging.pto.svc.nais.local"
+      value: "veilarboppfolging.dev-fss-pub.nais.io"
   accessPolicy:
     outbound:
       rules:
