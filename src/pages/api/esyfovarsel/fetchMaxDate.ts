@@ -1,3 +1,4 @@
+import * as http from 'http'
 import { RequestOptions } from 'https'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Readable } from 'stream'
@@ -7,7 +8,6 @@ import { stream2buffer } from '../../../proxy/stream2buffer'
 import { esyfovarselHost, isMockBackend } from '../../../utils/environment'
 import { logger } from '../../../utils/logger'
 import { getEsyfovarselTokenFromRequest } from '../../../utils/tokenX/getTokenXFromRequest'
-import * as http from 'http'
 
 const handler = async (
     req: NextApiRequest,
