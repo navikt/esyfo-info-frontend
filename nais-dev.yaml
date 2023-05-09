@@ -70,4 +70,5 @@ spec:
         - application: veilarboppfolging
           namespace: pto
       external:
+        - host: dekoratoren.dev.nav.no
         - host: dekoratoren.ekstern.dev.nav.no  # for dev
