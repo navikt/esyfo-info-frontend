@@ -51,7 +51,7 @@ spec:
     - name: ARBEIDSSOKERREGISTRERING_URL
       value: "https://www.nav.no/arbeid/registrering/"
     - name: ESYFOVARSEL_HOST
-      value: "http://esyfovarsel.team-esyfo"
+      value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID
       value: "prod-gcp:team-esyfo:esyfovarsel"
     - name: DECORATOR_ENV
@@ -59,7 +59,7 @@ spec:
     - name: AMPLITUDE_ENABLED
       value: "true"
     - name: VEILARBOPPFOLGING_HOST
-      value: "http://veilarboppfolging.pto"
+      value: "http://veilarboppfolging.pto.svc.nais.local"
     - name: VEILARBOPPFOLGING_CLIENT_ID
       value: "prod-fss:pto:veilarboppfolging"
   accessPolicy:
