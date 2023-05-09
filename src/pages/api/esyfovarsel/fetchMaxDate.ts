@@ -1,4 +1,3 @@
-import * as https from 'https'
 import { RequestOptions } from 'https'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Readable } from 'stream'
@@ -8,6 +7,7 @@ import { stream2buffer } from '../../../proxy/stream2buffer'
 import { esyfovarselHost, isMockBackend } from '../../../utils/environment'
 import { logger } from '../../../utils/logger'
 import { getEsyfovarselTokenFromRequest } from '../../../utils/tokenX/getTokenXFromRequest'
+import * as http from 'http'
 
 const handler = async (
     req: NextApiRequest,
@@ -47,7 +47,7 @@ export async function getMaxDate(
         },
     }
 
-    const backendRequest = https.request(
+    const backendRequest = http.request(
         `${esyfovarselHost()}/api/v1/sykepenger/maxdate`,
         options,
         (backendResponse) => {
