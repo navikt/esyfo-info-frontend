@@ -1,5 +1,6 @@
 import * as http from 'http'
 import { RequestOptions } from 'http'
+import * as https from 'https'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Readable } from 'stream'
 
@@ -49,7 +50,8 @@ export async function proxyKallTilBackend(opts: Opts) {
     const stream = Readable.from(opts.req)
     const bodyin = await stream2buffer(stream)
 
-    const backendReq = http.request(options, (backendResponse) => {
+    const module = opts.https ? https : http
+    const backendReq = module.request(options, (backendResponse) => {
         if (backendResponse.statusCode != null) {
             opts.res.status(backendResponse.statusCode)
         }
