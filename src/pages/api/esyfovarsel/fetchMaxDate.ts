@@ -6,7 +6,6 @@ import { Readable } from 'stream'
 import { beskyttetApi } from '../../../auth/beskyttetApi'
 import { stream2buffer } from '../../../proxy/stream2buffer'
 import { esyfovarselHost, isMockBackend } from '../../../utils/environment'
-import { logger } from '../../../utils/logger'
 import { getEsyfovarselTokenFromRequest } from '../../../utils/tokenX/getTokenXFromRequest'
 
 const handler = async (
@@ -17,11 +16,7 @@ const handler = async (
         res.status(200).end()
     } else {
         const tokenX = await getEsyfovarselTokenFromRequest(req)
-        try {
-            await getMaxDate(tokenX, req, res)
-        } catch (e) {
-            logger.error(`getMaxDate: caught error: ${e}`)
-        }
+        await getMaxDate(tokenX, req, res)
 
         res.status(200)
     }
