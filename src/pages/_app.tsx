@@ -22,6 +22,7 @@ import {
 } from "react-query";
 
 import { isMockBackend } from "../utils/environment";
+import { configureLogger } from "@navikt/next-logger";
 
 interface AppProps extends Omit<NextAppProps, "pageProps"> {
     pageProps: PropsWithChildren<unknown> & {
@@ -37,6 +38,10 @@ dayjs.locale({
 if (process.browser && isMockBackend()) {
     require("../data/mock");
 }
+
+configureLogger({
+    basePath: "/syk/info",
+});
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const [queryClient] = useState(
