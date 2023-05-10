@@ -64,7 +64,6 @@ spec:
     outbound:
       rules:
         - application: esyfovarsel
-          namespace: team-esyfo
         - application: veilarboppfolging
           namespace: pto
       external:
