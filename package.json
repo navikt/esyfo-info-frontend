@@ -10,6 +10,7 @@
     "@navikt/nav-dekoratoren-moduler": "^1.8.1",
     "@navikt/next-logger": "^1.18.0",
     "amplitude-js": "^8.18.1",
+    "axios": "^1.4.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.1",
     "html-react-parser": "^1.4.12",
