@@ -1,8 +1,9 @@
+import { logger } from '@navikt/next-logger'
+
 import { AktivitetskravTekster } from '../components/aktivitetskrav/aktivitetskravTekster'
 import { BannerTekster } from '../components/banner/bannerTekster'
 import { SnartsluttTekster } from '../components/snart-slutt/snartsluttTekster'
 import { StringMap } from '../types/stringMap'
-import { logger } from './logger'
 
 const tekster = {
     ...BannerTekster,

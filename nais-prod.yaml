@@ -40,8 +40,6 @@ spec:
       value: "prod"
     - name: OPPLAERING
       value: "false"
-    - name: FLEX_GATEWAY_ROOT
-      value: "https://flex-gateway.nav.no"
     - name: DITTNAV_URL
       value: "https://www.nav.no/person/dittnav"
     - name: DITT_SYKEFRAVAER_URL
@@ -51,7 +49,7 @@ spec:
     - name: ARBEIDSSOKERREGISTRERING_URL
       value: "https://www.nav.no/arbeid/registrering/"
     - name: ESYFOVARSEL_HOST
-      value: "https://esyfovarsel.intern.nav.no"
+      value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID
       value: "prod-gcp:team-esyfo:esyfovarsel"
     - name: DECORATOR_ENV
@@ -70,3 +68,4 @@ spec:
           namespace: pto
       external:
         - host: www.nav.no
+        - host: veilarboppfolging.prod-fss-pub.nais.io

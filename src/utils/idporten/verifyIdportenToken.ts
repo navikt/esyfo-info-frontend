@@ -1,8 +1,8 @@
+import { logger } from '@navikt/next-logger'
 import { createRemoteJWKSet, jwtVerify } from 'jose'
 import { Client, Issuer } from 'openid-client'
 
 import { idportenClientId, idportenWellKnownUrl } from '../environment'
-import { logger } from '../logger'
 
 let _issuer: Issuer<Client>
 let _remoteJWKSet: ReturnType<typeof createRemoteJWKSet>

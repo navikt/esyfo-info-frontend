@@ -9,6 +9,7 @@ import '../components/velgArbeidssituasjon/velgArbeidssituasjon.less'
 import '../components/snart-slutt/snartslutt.less'
 import '../pages/snart-slutt.less'
 
+import { configureLogger } from '@navikt/next-logger'
 import dayjs from 'dayjs'
 import nb from 'dayjs/locale/nb'
 import type { AppProps as NextAppProps } from 'next/app'
@@ -37,6 +38,10 @@ dayjs.locale({
 if (process.browser && isMockBackend()) {
     require('../data/mock')
 }
+
+configureLogger({
+    basePath: '/syk/info',
+})
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const [queryClient] = useState(

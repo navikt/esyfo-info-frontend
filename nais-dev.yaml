@@ -40,8 +40,6 @@ spec:
       value: "q1"
     - name: OPPLAERING
       value: "false"
-    - name: FLEX_GATEWAY_ROOT
-      value: "https://flex-gateway.dev.nav.no"
     - name: DITTNAV_URL
       value: "https://www.dev.nav.no/person/dittnav/"
     - name: DITT_SYKEFRAVAER_URL
@@ -51,7 +49,7 @@ spec:
     - name: ARBEIDSSOKERREGISTRERING_URL
       value: "https://arbeid.dev.nav.no/arbeid/registrering"
     - name: ESYFOVARSEL_HOST
-      value: "https://esyfovarsel.dev.intern.nav.no"
+      value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID
       value: "dev-gcp:team-esyfo:esyfovarsel"
     - name: VEILARBOPPFOLGING_CLIENT_ID
@@ -69,4 +67,6 @@ spec:
         - application: veilarboppfolging
           namespace: pto
       external:
-        - host: dekoratoren.ekstern.dev.nav.no  # for dev
+        - host: dekoratoren.dev.nav.no
+        - host: dekoratoren.ekstern.dev.nav.no
+        - host: veilarboppfolging.dev-fss-pub.nais.io
