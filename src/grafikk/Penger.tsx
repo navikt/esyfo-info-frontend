@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const penger = (
     <svg
@@ -45,4 +45,4 @@ export const penger = (
             </g>
         </g>
     </svg>
-);
+)

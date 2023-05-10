@@ -1,67 +1,67 @@
-import getConfig from "next/config";
+import getConfig from 'next/config'
 
-const { publicRuntimeConfig, serverRuntimeConfig } = getConfig();
+const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 
 export function isMockBackend() {
-    return publicRuntimeConfig.mockBackend === "true";
+    return publicRuntimeConfig.mockBackend === 'true'
 }
 
 export function isOpplaering() {
-    return publicRuntimeConfig.opplaering === "true";
+    return publicRuntimeConfig.opplaering === 'true'
 }
 
 export function dittNavUrl() {
-    return publicRuntimeConfig.dittNavUrl;
+    return publicRuntimeConfig.dittNavUrl
 }
 
 export function dittSykefravaerUrl() {
-    return publicRuntimeConfig.dittSykefravaerUrl;
+    return publicRuntimeConfig.dittSykefravaerUrl
 }
 
 export function amplitudeEnabled() {
-    return publicRuntimeConfig.amplitudeEnabled === "true";
+    return publicRuntimeConfig.amplitudeEnabled === 'true'
 }
 
 export function narmestelederUrl() {
-    return publicRuntimeConfig.narmestelederUrl;
+    return publicRuntimeConfig.narmestelederUrl
 }
 
 export function arbeidssokerregistreringUrl() {
-    return publicRuntimeConfig.arbeidssokerregistreringUrl;
+    return publicRuntimeConfig.arbeidssokerregistreringUrl
 }
 
 export function veilarboppfolgingHost() {
-    return serverRuntimeConfig.veilarboppfolgingHost;
+    return serverRuntimeConfig.veilarboppfolgingHost
 }
 
 export function veilarboppfolgingClientId() {
-    return serverRuntimeConfig.veilarboppfolgingClientId;
+    return serverRuntimeConfig.veilarboppfolgingClientId
 }
 
 export function esyfovarselHost() {
-    return serverRuntimeConfig.esyfovarselHost;
+    return serverRuntimeConfig.esyfovarselHost
 }
 
 export function esyfovarselClientId() {
-    return serverRuntimeConfig.esyfovarselClientId;
+    return serverRuntimeConfig.esyfovarselClientId
 }
 
 export function idportenWellKnownUrl() {
-    return serverRuntimeConfig.idportenWellKnownUrl;
+    return serverRuntimeConfig.idportenWellKnownUrl
 }
 
 export function idportenClientId() {
-    return serverRuntimeConfig.idportenClientId;
+    return serverRuntimeConfig.idportenClientId
 }
 
 export function tokenXClientId(): string {
-    return serverRuntimeConfig.tokenXClientId;
+    return serverRuntimeConfig.tokenXClientId
 }
 
 export function tokenXPrivateJwk(): string {
-    return serverRuntimeConfig.tokenXPrivateJwk;
+    return serverRuntimeConfig.tokenXPrivateJwk
 }
 
 export function tokenXWellKnownUrl(): string {
-    return serverRuntimeConfig.tokenXWellKnownUrl;
+    return serverRuntimeConfig.tokenXWellKnownUrl
 }

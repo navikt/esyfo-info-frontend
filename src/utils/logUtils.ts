@@ -1,13 +1,13 @@
-import { AxiosError } from "axios";
-import { logger } from "@navikt/next-logger";
+import { logger } from '@navikt/next-logger'
+import { AxiosError } from 'axios'
 
 const UUID =
-    /\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b/g;
-const FNR = /\b[0-9]{11}\b/g;
+    /\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b/g
+const FNR = /\b[0-9]{11}\b/g
 export function cleanPathForMetric(
     value: string | undefined
 ): string | undefined {
-    return value?.replace(UUID, "[uuid]").replace(FNR, "[fnr]");
+    return value?.replace(UUID, '[uuid]').replace(FNR, '[fnr]')
 }
 
 export const logApiError = (
@@ -15,20 +15,20 @@ export const logApiError = (
     url: string,
     httpMethod: string
 ) => {
-    const logPrefix = typeof window === "undefined" ? "Backend:" : "Frontend:";
+    const logPrefix = typeof window === 'undefined' ? 'Backend:' : 'Frontend:'
 
     if (error.code) {
-        if (error.code === "401") return;
+        if (error.code === '401') return
         logger.error(
             `${logPrefix} ${httpMethod} ${cleanPathForMetric(
                 url
             )} returned code: ${error.code}, message: ${error.message}`
-        );
+        )
     } else {
         logger.error(
             `${logPrefix} ${httpMethod} ${cleanPathForMetric(
                 url
             )} returned error message: ${error.message}`
-        );
+        )
     }
-};
+}

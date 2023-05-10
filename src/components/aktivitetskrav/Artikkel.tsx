@@ -1,20 +1,20 @@
-import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
-import parser from "html-react-parser";
-import React, { useState } from "react";
+import { BodyLong, BodyShort, Heading } from '@navikt/ds-react'
+import parser from 'html-react-parser'
+import React, { useState } from 'react'
 
-import { tekst } from "../../utils/tekster";
-import VelgArbeidssituasjon from "../velgArbeidssituasjon/VelgArbeidssituasjon";
-import { Visning } from "../velgArbeidssituasjon/visning";
-import Vis from "../Vis";
+import { tekst } from '../../utils/tekster'
+import VelgArbeidssituasjon from '../velgArbeidssituasjon/VelgArbeidssituasjon'
+import { Visning } from '../velgArbeidssituasjon/visning'
+import Vis from '../Vis'
 
 const Artikkel = () => {
-    const [visning, setVisning] = useState<Visning>("MED_ARBEIDSGIVER");
+    const [visning, setVisning] = useState<Visning>('MED_ARBEIDSGIVER')
 
     return (
         <article className="artikkel">
             <div className="artikkel__header">
                 <Heading size="small" className="artikkel__tittel">
-                    {tekst("aktivitetskrav-varsel.tittel")}
+                    {tekst('aktivitetskrav-varsel.tittel')}
                 </Heading>
                 <VelgArbeidssituasjon
                     kanVelge={true}
@@ -23,27 +23,27 @@ const Artikkel = () => {
                 />
             </div>
             <BodyShort className="artikkel__ingress">
-                {tekst("aktivitetskrav-varsel.ingress")}
+                {tekst('aktivitetskrav-varsel.ingress')}
             </BodyShort>
             <div className="artikkel__bilde">
                 <Vis
-                    hvis={visning === "MED_ARBEIDSGIVER"}
+                    hvis={visning === 'MED_ARBEIDSGIVER'}
                     render={() => (
                         <img
                             src="/syk/info/static/med_arbeidsgiver.svg"
                             alt={tekst(
-                                "aktivitetskrav-varsel.alt.MED_ARBEIDSGIVER"
+                                'aktivitetskrav-varsel.alt.MED_ARBEIDSGIVER'
                             )}
                         />
                     )}
                 />
                 <Vis
-                    hvis={visning === "UTEN_ARBEIDSGIVER"}
+                    hvis={visning === 'UTEN_ARBEIDSGIVER'}
                     render={() => (
                         <img
                             src="/syk/info/static/uten_arbeidsgiver.svg"
                             alt={tekst(
-                                "aktivitetskrav-varsel.alt.UTEN_ARBEIDSGIVER"
+                                'aktivitetskrav-varsel.alt.UTEN_ARBEIDSGIVER'
                             )}
                         />
                     )}
@@ -56,7 +56,7 @@ const Artikkel = () => {
                 )}
             </BodyLong>
         </article>
-    );
-};
+    )
+}
 
-export default Artikkel;
+export default Artikkel

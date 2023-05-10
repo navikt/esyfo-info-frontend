@@ -1,42 +1,42 @@
-import { Collapse } from "@navikt/ds-icons";
-import { BodyShort, Link as Lenke } from "@navikt/ds-react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import { Collapse } from '@navikt/ds-icons'
+import { BodyShort, Link as Lenke } from '@navikt/ds-react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useEffect, useRef, useState } from 'react'
 
-import { dittNavUrl, dittSykefravaerUrl } from "../../utils/environment";
-import Vis from "../Vis";
-import Person from "./Person";
+import { dittNavUrl, dittSykefravaerUrl } from '../../utils/environment'
+import Vis from '../Vis'
+import Person from './Person'
 
-const LITEN = 768;
+const LITEN = 768
 
 export interface Brodsmule {
-    sti: string;
-    tittel: string;
-    mobilTittel?: string;
-    erKlikkbar?: boolean;
+    sti: string
+    tittel: string
+    mobilTittel?: string
+    erKlikkbar?: boolean
 }
 
 const faste = (): Brodsmule[] => {
     return [
-        { tittel: "Ditt NAV", sti: dittNavUrl(), erKlikkbar: true },
+        { tittel: 'Ditt NAV', sti: dittNavUrl(), erKlikkbar: true },
         {
-            tittel: "Ditt sykefravær",
+            tittel: 'Ditt sykefravær',
             sti: dittSykefravaerUrl(),
             erKlikkbar: true,
         },
-    ];
-};
+    ]
+}
 
 const BrodsmuleBit = ({ sti, tittel, erKlikkbar }: Brodsmule) => {
     const erEkstern =
-        sti && (sti.startsWith("https://") || sti.startsWith("http://"));
-    const router = useRouter();
+        sti && (sti.startsWith('https://') || sti.startsWith('http://'))
+    const router = useRouter()
 
     const klikker = (e: any, sti: string) => {
-        e.preventDefault();
-        router.push(sti);
-    };
+        e.preventDefault()
+        router.push(sti)
+    }
 
     const link = erEkstern ? (
         <Lenke href={sti}>{tittel}</Lenke>
@@ -48,7 +48,7 @@ const BrodsmuleBit = ({ sti, tittel, erKlikkbar }: Brodsmule) => {
         </Link>
     ) : (
         <span>{tittel}</span>
-    );
+    )
 
     if (!erKlikkbar) {
         return (
@@ -56,51 +56,51 @@ const BrodsmuleBit = ({ sti, tittel, erKlikkbar }: Brodsmule) => {
                 <span className="vekk">Du er her:</span>
                 <span>{tittel}</span>
             </li>
-        );
+        )
     } else if (erKlikkbar) {
-        return <li className="smule">{link}</li>;
+        return <li className="smule">{link}</li>
     }
     return (
         <li className="smule">
             <span>{tittel}</span>
         </li>
-    );
-};
+    )
+}
 
 interface BrodsmulerProps {
-    brodsmuler: Brodsmule[];
+    brodsmuler: Brodsmule[]
 }
 
 const Brodsmuler = ({ brodsmuler }: BrodsmulerProps) => {
-    const [synlige, setSynlige] = useState<Brodsmule[]>([]);
-    const [skjerm, setSkjerm] = useState<number>();
-    const smulesti = useRef<HTMLElement>(null);
+    const [synlige, setSynlige] = useState<Brodsmule[]>([])
+    const [skjerm, setSkjerm] = useState<number>()
+    const smulesti = useRef<HTMLElement>(null)
 
-    brodsmuler = faste().concat(brodsmuler);
-
-    useEffect(() => {
-        setSkjerm(window.innerWidth);
-    }, []);
+    brodsmuler = faste().concat(brodsmuler)
 
     useEffect(() => {
-        window.addEventListener("resize", () => {
-            setSkjerm(window.innerWidth);
-        });
+        setSkjerm(window.innerWidth)
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setSkjerm(window.innerWidth)
+        })
         setSynlige(
             skjerm! <= LITEN ? [brodsmuler[brodsmuler.length - 1]] : brodsmuler
-        );
+        )
         // eslint-disable-next-line
-    }, [skjerm]);
+    }, [skjerm])
 
     const toggleSynlige = () => {
         if (synlige.length === brodsmuler.length) {
-            setSynlige([brodsmuler[brodsmuler.length - 1]]);
-            smulesti.current?.classList.remove("apen");
+            setSynlige([brodsmuler[brodsmuler.length - 1]])
+            smulesti.current?.classList.remove('apen')
         } else {
-            setSynlige(brodsmuler);
-            smulesti.current?.classList.add("apen");
+            setSynlige(brodsmuler)
+            smulesti.current?.classList.add('apen')
         }
-    };
+    }
 
     return (
         <nav className="brodsmuler" ref={smulesti} aria-label="Du er her: ">
@@ -114,8 +114,8 @@ const Brodsmuler = ({ brodsmuler }: BrodsmulerProps) => {
                                 <button
                                     aria-label={
                                         synlige.length === brodsmuler.length
-                                            ? "Vis redusert brødsmulesti"
-                                            : "Vis hele brødsmulestien"
+                                            ? 'Vis redusert brødsmulesti'
+                                            : 'Vis hele brødsmulestien'
                                     }
                                     className="js-toggle"
                                     onClick={toggleSynlige}
@@ -135,21 +135,21 @@ const Brodsmuler = ({ brodsmuler }: BrodsmulerProps) => {
                                     skjerm! <= LITEN &&
                                     smule.mobilTittel &&
                                     !smulesti.current?.classList.contains(
-                                        "apen"
+                                        'apen'
                                     )
                                         ? smule.mobilTittel
                                         : smule.tittel
                                 }
                                 erKlikkbar={smule.erKlikkbar}
                             />
-                        );
+                        )
                     })}
                 </BodyShort>
                 <button
                     aria-label={
                         synlige.length === brodsmuler.length
-                            ? "Vis redusert brødsmulesti"
-                            : "Vis hele brødsmulestien"
+                            ? 'Vis redusert brødsmulesti'
+                            : 'Vis hele brødsmulestien'
                     }
                     className="js-toggle"
                     onClick={toggleSynlige}
@@ -158,7 +158,7 @@ const Brodsmuler = ({ brodsmuler }: BrodsmulerProps) => {
                 </button>
             </div>
         </nav>
-    );
-};
+    )
+}
 
-export default Brodsmuler;
+export default Brodsmuler

@@ -1,55 +1,55 @@
-import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
+import { logger } from '@navikt/next-logger'
+import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
 
-import { isMockBackend } from "../utils/environment";
-import { validateToken } from "../utils/idporten/verifyIdportenToken";
-import { logger } from "@navikt/next-logger";
+import { isMockBackend } from '../utils/environment'
+import { validateToken } from '../utils/idporten/verifyIdportenToken'
 
 export type PageHandler = (
     context: GetServerSidePropsContext
-) => Promise<GetServerSidePropsResult<Record<string, unknown>>>;
+) => Promise<GetServerSidePropsResult<Record<string, unknown>>>
 
 const beskyttetSide = (handler: PageHandler) => {
     return async function withBearerTokenHandler(
         context: GetServerSidePropsContext
     ): Promise<ReturnType<NonNullable<typeof handler>>> {
         if (isMockBackend()) {
-            return handler(context);
+            return handler(context)
         }
 
-        const request = context.req;
+        const request = context.req
 
         if (request == null) {
             throw new Error(
-                "Context is missing request. This should not happen"
-            );
+                'Context is missing request. This should not happen'
+            )
         }
         const wonderwallRedirect = {
             redirect: {
                 destination: `/oauth2/login?redirect=/syk/info/${context.resolvedUrl}`,
                 permanent: false,
             },
-        };
+        }
 
         const bearerToken: string | null | undefined =
-            request.headers["authorization"];
+            request.headers['authorization']
 
         if (!bearerToken) {
-            return wonderwallRedirect;
+            return wonderwallRedirect
         }
 
         if (!(await validateToken(bearerToken))) {
-            logger.error("Kunne ikke validere idportentoken i beskyttetSide");
-            return wonderwallRedirect;
+            logger.error('Kunne ikke validere idportentoken i beskyttetSide')
+            return wonderwallRedirect
         }
 
-        return handler(context);
-    };
-};
+        return handler(context)
+    }
+}
 
 export const beskyttetSideUtenProps = beskyttetSide(
     async (): Promise<GetServerSidePropsResult<Record<string, unknown>>> => {
         return {
             props: {},
-        };
+        }
     }
-);
+)
