@@ -1,4 +1,4 @@
-import { logger } from "./logger";
+import { logger } from "@navikt/next-logger";
 
 /**
  * Class with utility functions for working with fetch.
