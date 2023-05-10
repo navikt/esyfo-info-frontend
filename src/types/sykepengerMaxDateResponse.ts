@@ -1,3 +1,3 @@
 export interface SykepengerMaxDateResponse {
-    maxDate: string | null
+    maxDate: string | null;
 }

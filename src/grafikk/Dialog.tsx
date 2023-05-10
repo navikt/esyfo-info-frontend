@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const dialog = (
     <svg
@@ -29,4 +29,4 @@ export const dialog = (
             </g>
         </g>
     </svg>
-)
+);

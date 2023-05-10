@@ -1,19 +1,19 @@
-import { Popover } from '@navikt/ds-react'
-import React, { useRef, useState } from 'react'
+import { Popover } from "@navikt/ds-react";
+import React, { useRef, useState } from "react";
 
-import { personas } from '../../data/mock/testperson'
-import { isMockBackend, isOpplaering } from '../../utils/environment'
-import Vis from '../Vis'
+import { personas } from "../../data/mock/testperson";
+import { isMockBackend, isOpplaering } from "../../utils/environment";
+import Vis from "../Vis";
 
 const Person = () => {
-    const [visInnhold, setVisInnhold] = useState<boolean>(false)
-    const person = useRef<HTMLImageElement>(null)
-    const kanVelgePerson = isMockBackend() || isOpplaering()
+    const [visInnhold, setVisInnhold] = useState<boolean>(false);
+    const person = useRef<HTMLImageElement>(null);
+    const kanVelgePerson = isMockBackend() || isOpplaering();
 
     if (kanVelgePerson) {
-        person?.current?.addEventListener('click', () => {
-            setVisInnhold(!visInnhold)
-        })
+        person?.current?.addEventListener("click", () => {
+            setVisInnhold(!visInnhold);
+        });
     }
 
     return (
@@ -46,7 +46,7 @@ const Person = () => {
                 )}
             />
         </>
-    )
-}
+    );
+};
 
-export default Person
+export default Person;

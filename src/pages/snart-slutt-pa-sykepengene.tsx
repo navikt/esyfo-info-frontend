@@ -1,4 +1,4 @@
-import { Back, Bag, Bandage, Office1 } from '@navikt/ds-icons'
+import { Back, Bag, Bandage, Office1 } from "@navikt/ds-icons";
 import {
     BodyLong,
     BodyShort,
@@ -6,63 +6,63 @@ import {
     GuidePanel,
     Heading,
     Panel,
-} from '@navikt/ds-react'
-import parser from 'html-react-parser'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+} from "@navikt/ds-react";
+import parser from "html-react-parser";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
-import { beskyttetSideUtenProps } from '../auth/beskyttetSide'
-import { logEvent } from '../components/amplitude/amplitude'
-import Brodsmuler, { Brodsmule } from '../components/brodsmuler/Brodsmuler'
-import Vis from '../components/Vis'
-import useArbeidsrettetOppfolging from '../query-hooks/useArbeidsrettetOppfolging'
-import UseMaxDate from '../query-hooks/useMaxDate'
-import { ArbeidsrettetOppfolging } from '../types/arbeidsrettetOppfolging'
+import { beskyttetSideUtenProps } from "../auth/beskyttetSide";
+import { logEvent } from "../components/amplitude/amplitude";
+import Brodsmuler, { Brodsmule } from "../components/brodsmuler/Brodsmuler";
+import Vis from "../components/Vis";
+import useArbeidsrettetOppfolging from "../query-hooks/useArbeidsrettetOppfolging";
+import UseMaxDate from "../query-hooks/useMaxDate";
+import { ArbeidsrettetOppfolging } from "../types/arbeidsrettetOppfolging";
 import {
     arbeidssokerregistreringUrl,
     dittSykefravaerUrl,
-} from '../utils/environment'
-import { setBodyClass } from '../utils/setBodyClass'
-import { tekst } from '../utils/tekster'
+} from "../utils/environment";
+import { setBodyClass } from "../utils/setBodyClass";
+import { tekst } from "../utils/tekster";
 
 const brodsmuler: Brodsmule[] = [
     {
-        tittel: 'Snart slutt på sykepengene',
-        sti: '/snart-slutt-pa-sykepengene',
+        tittel: "Snart slutt på sykepengene",
+        sti: "/snart-slutt-pa-sykepengene",
         erKlikkbar: false,
     },
-]
+];
 
 const SnartSluttPaSykepengene = () => {
-    const [hasMaxDate, setHasMaxDate] = useState<boolean>()
-    const { data: sykepengerMaxDate } = UseMaxDate()
+    const [hasMaxDate, setHasMaxDate] = useState<boolean>();
+    const { data: sykepengerMaxDate } = UseMaxDate();
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
-        useState<ArbeidsrettetOppfolging>()
-    const { data: oppfolging } = useArbeidsrettetOppfolging()
+        useState<ArbeidsrettetOppfolging>();
+    const { data: oppfolging } = useArbeidsrettetOppfolging();
 
     useEffect(() => {
-        setBodyClass('snartslutt')
+        setBodyClass("snartslutt");
         setHasMaxDate(
             sykepengerMaxDate !== undefined && sykepengerMaxDate.maxDate != null
-        )
-        setArbeidsrettetOppfolging(oppfolging)
-    }, [sykepengerMaxDate, oppfolging])
+        );
+        setArbeidsrettetOppfolging(oppfolging);
+    }, [sykepengerMaxDate, oppfolging]);
 
-    const logSvar = (svar: 'JA' | 'NEI') => {
+    const logSvar = (svar: "JA" | "NEI") => {
         // Old event name: Spørsmål besvart
-        logEvent('Skjema spørsmål besvart', {
-            sporsmal: tekst('snartslutt.mer_veiledning.tittel'),
+        logEvent("Skjema spørsmål besvart", {
+            sporsmal: tekst("snartslutt.mer_veiledning.tittel"),
             svar,
-        })
-    }
+        });
+    };
 
     const handleJaBtnClicked = () => {
-        logSvar('JA')
+        logSvar("JA");
         // Må sikre at amplitude får logget ferdig
         window.setTimeout(() => {
-            window.location.href = arbeidssokerregistreringUrl()
-        }, 400)
-    }
+            window.location.href = arbeidssokerregistreringUrl();
+        }, 400);
+    };
 
     return (
         <>
@@ -71,7 +71,7 @@ const SnartSluttPaSykepengene = () => {
                 level="1"
                 className="sidebanner__tittel sidebanner"
             >
-                {tekst('sidetittel.snartslutt')}
+                {tekst("sidetittel.snartslutt")}
             </Heading>
 
             <Brodsmuler brodsmuler={brodsmuler} />
@@ -82,19 +82,19 @@ const SnartSluttPaSykepengene = () => {
                         hvis={hasMaxDate}
                         render={() => (
                             <>
-                                {tekst('snartslutt.general_info.avsnitt1')}
+                                {tekst("snartslutt.general_info.avsnitt1")}
                                 {sykepengerMaxDate !== undefined
                                     ? sykepengerMaxDate.maxDate
-                                    : ''}
-                                {tekst('snartslutt.general_info.avsnitt2')}
+                                    : ""}
+                                {tekst("snartslutt.general_info.avsnitt2")}
                             </>
                         )}
                     />
-                    {tekst('snartslutt.general_info.avsnitt3')}
+                    {tekst("snartslutt.general_info.avsnitt3")}
                 </BodyLong>
 
                 <BodyLong size="medium" spacing>
-                    {tekst('snartslutt.general_info.avsnitt4')}
+                    {tekst("snartslutt.general_info.avsnitt4")}
                 </BodyLong>
 
                 <Heading
@@ -102,10 +102,10 @@ const SnartSluttPaSykepengene = () => {
                     level="2"
                     className="subtittel--large-margin"
                 >
-                    {tekst('snartslutt.hva_na.tittel')}
+                    {tekst("snartslutt.hva_na.tittel")}
                 </Heading>
                 <BodyLong size="medium" spacing>
-                    {tekst('snartslutt.hva_na.tekst')}
+                    {tekst("snartslutt.hva_na.tekst")}
                 </BodyLong>
 
                 <div className="content-wrapper">
@@ -119,13 +119,13 @@ const SnartSluttPaSykepengene = () => {
                                 level="2"
                                 className="paragraph__tittel"
                             >
-                                {tekst('snartslutt.tilbake.tittel')}
+                                {tekst("snartslutt.tilbake.tittel")}
                             </Heading>
                             <BodyLong size="medium" spacing>
-                                {tekst('snartslutt.tilbake.tekst')}
+                                {tekst("snartslutt.tilbake.tekst")}
                             </BodyLong>
                             <BodyLong size="medium" spacing>
-                                {parser(tekst('snartslutt.tilbake.list'))}
+                                {parser(tekst("snartslutt.tilbake.list"))}
                             </BodyLong>
                         </div>
                     </div>
@@ -142,13 +142,13 @@ const SnartSluttPaSykepengene = () => {
                                 level="2"
                                 className="paragraph__tittel"
                             >
-                                {tekst('snartslutt.bytte.tittel')}
+                                {tekst("snartslutt.bytte.tittel")}
                             </Heading>
                             <BodyLong size="medium" spacing>
-                                {tekst('snartslutt.bytte.tekst')}
+                                {tekst("snartslutt.bytte.tekst")}
                             </BodyLong>
                             <BodyLong size="medium" spacing>
-                                {parser(tekst('snartslutt.bytte.list'))}
+                                {parser(tekst("snartslutt.bytte.list"))}
                             </BodyLong>
                         </div>
                     </div>
@@ -165,13 +165,13 @@ const SnartSluttPaSykepengene = () => {
                                 level="2"
                                 className="paragraph__tittel"
                             >
-                                {tekst('snartslutt.fortsatt_syk.tittel')}
+                                {tekst("snartslutt.fortsatt_syk.tittel")}
                             </Heading>
                             <BodyLong size="medium" spacing>
-                                {tekst('snartslutt.fortsatt_syk.tekst')}
+                                {tekst("snartslutt.fortsatt_syk.tekst")}
                             </BodyLong>
                             <BodyLong size="medium">
-                                {parser(tekst('snartslutt.fortsatt_syk.list'))}
+                                {parser(tekst("snartslutt.fortsatt_syk.list"))}
                             </BodyLong>
                         </div>
                     </div>
@@ -183,14 +183,14 @@ const SnartSluttPaSykepengene = () => {
                         <>
                             <Panel border={true} className="info-panel--blue">
                                 <Heading size="large" level="2">
-                                    {tekst('snartslutt.mer_veiledning.tittel')}
+                                    {tekst("snartslutt.mer_veiledning.tittel")}
                                 </Heading>
                                 <BodyLong size="medium" spacing>
-                                    {tekst('snartslutt.mer_veiledning.tekst')}
+                                    {tekst("snartslutt.mer_veiledning.tekst")}
                                 </BodyLong>
                                 <BodyLong size="medium" spacing>
                                     {parser(
-                                        tekst('snartslutt.mer_veiledning.list')
+                                        tekst("snartslutt.mer_veiledning.list")
                                     )}
                                 </BodyLong>
                                 <div className="knapperad">
@@ -199,7 +199,7 @@ const SnartSluttPaSykepengene = () => {
                                         onClick={handleJaBtnClicked}
                                     >
                                         {tekst(
-                                            'snartslutt.mer_veiledning.knapp'
+                                            "snartslutt.mer_veiledning.knapp"
                                         )}
                                     </Button>
                                 </div>
@@ -209,18 +209,18 @@ const SnartSluttPaSykepengene = () => {
                 />
                 <GuidePanel>
                     <Heading size="small" level="2">
-                        {tekst('snartslutt.lese_mer.tittel')}
+                        {tekst("snartslutt.lese_mer.tittel")}
                     </Heading>
                     <BodyLong size="small">
-                        {parser(tekst('snartslutt.lese_mer.tekst'))}
+                        {parser(tekst("snartslutt.lese_mer.tekst"))}
                     </BodyLong>
                 </GuidePanel>
 
                 <Heading size="large" level="2" className="subtittel">
-                    {tekst('snartslutt.sporsmal.tittel')}
+                    {tekst("snartslutt.sporsmal.tittel")}
                 </Heading>
                 <BodyLong size="medium" spacing>
-                    {parser(tekst('snartslutt.sporsmal.tekst'))}
+                    {parser(tekst("snartslutt.sporsmal.tekst"))}
                 </BodyLong>
 
                 <Link href={dittSykefravaerUrl()}>
@@ -231,9 +231,9 @@ const SnartSluttPaSykepengene = () => {
                 </Link>
             </div>
         </>
-    )
-}
+    );
+};
 
-export const getServerSideProps = beskyttetSideUtenProps
+export const getServerSideProps = beskyttetSideUtenProps;
 
-export default SnartSluttPaSykepengene
+export default SnartSluttPaSykepengene;

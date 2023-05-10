@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 interface BannerProps {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 const Banner = ({ children }: BannerProps) => {
-    return <header className="sidebanner">{children}</header>
-}
+    return <header className="sidebanner">{children}</header>;
+};
 
-export default Banner
+export default Banner;

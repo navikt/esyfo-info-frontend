@@ -1,41 +1,41 @@
-import '../style/global.css'
-import '../components/basic.less'
-import '../components/app.less'
-import '../components/aktivitetskrav/aktivitetskrav.less'
-import '../components/banner/banner.less'
-import '../components/bjorn/bjorn.less'
-import '../components/brodsmuler/brodsmuler.less'
-import '../components/velgArbeidssituasjon/velgArbeidssituasjon.less'
-import '../components/snart-slutt/snartslutt.less'
-import '../pages/snart-slutt.less'
+import "../style/global.css";
+import "../components/basic.less";
+import "../components/app.less";
+import "../components/aktivitetskrav/aktivitetskrav.less";
+import "../components/banner/banner.less";
+import "../components/bjorn/bjorn.less";
+import "../components/brodsmuler/brodsmuler.less";
+import "../components/velgArbeidssituasjon/velgArbeidssituasjon.less";
+import "../components/snart-slutt/snartslutt.less";
+import "../pages/snart-slutt.less";
 
-import dayjs from 'dayjs'
-import nb from 'dayjs/locale/nb'
-import type { AppProps as NextAppProps } from 'next/app'
-import Head from 'next/head'
-import React, { PropsWithChildren, useState } from 'react'
+import dayjs from "dayjs";
+import nb from "dayjs/locale/nb";
+import type { AppProps as NextAppProps } from "next/app";
+import Head from "next/head";
+import React, { PropsWithChildren, useState } from "react";
 import {
     DehydratedState,
     Hydrate,
     QueryClient,
     QueryClientProvider,
-} from 'react-query'
+} from "react-query";
 
-import { isMockBackend } from '../utils/environment'
+import { isMockBackend } from "../utils/environment";
 
-interface AppProps extends Omit<NextAppProps, 'pageProps'> {
+interface AppProps extends Omit<NextAppProps, "pageProps"> {
     pageProps: PropsWithChildren<unknown> & {
-        dehydratedState: DehydratedState
-    }
+        dehydratedState: DehydratedState;
+    };
 }
 
 dayjs.locale({
     ...nb,
     weekStart: 1,
-})
+});
 
 if (process.browser && isMockBackend()) {
-    require('../data/mock')
+    require("../data/mock");
 }
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     },
                 },
             })
-    )
+    );
 
     return (
         <>
@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 </Hydrate>
             </QueryClientProvider>
         </>
-    )
+    );
 }
 
-export default MyApp
+export default MyApp;

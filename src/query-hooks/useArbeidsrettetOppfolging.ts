@@ -1,18 +1,18 @@
-import { useQuery } from 'react-query'
+import { useQuery } from "react-query";
 
-import { ArbeidsrettetOppfolging } from '../types/arbeidsrettetOppfolging'
-import Fetch from '../utils/fetch'
+import { ArbeidsrettetOppfolging } from "../types/arbeidsrettetOppfolging";
+import Fetch from "../utils/fetch";
 
 export default function UseArbeidsrettetOppfolging() {
     return useQuery<ArbeidsrettetOppfolging, Error>(
-        'arbeidsrettetOppfolging',
+        "arbeidsrettetOppfolging",
         () =>
             Fetch.authenticatedGet(
-                '/syk/info/api/veilarboppfolging/veilarboppfolging/api/v2/oppfolging',
+                "/syk/info/api/veilarboppfolging/veilarboppfolging/api/v2/oppfolging",
                 async (data) => {
-                    return data as ArbeidsrettetOppfolging
+                    return data as ArbeidsrettetOppfolging;
                 },
-                { 'Nav-Consumer-Id': 'esyfo-info-frontend' }
+                { "Nav-Consumer-Id": "esyfo-info-frontend" }
             )
-    )
+    );
 }

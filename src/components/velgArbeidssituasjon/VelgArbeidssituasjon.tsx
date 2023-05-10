@@ -1,13 +1,13 @@
-import { HelpText } from '@navikt/ds-react'
-import React, { Dispatch, SetStateAction } from 'react'
+import { HelpText } from "@navikt/ds-react";
+import React, { Dispatch, SetStateAction } from "react";
 
-import Vis from '../Vis'
-import { Visning } from './visning'
+import Vis from "../Vis";
+import { Visning } from "./visning";
 
 interface VelgArbeidssituasjonProps {
-    kanVelge: boolean
-    setVisning: Dispatch<SetStateAction<Visning>>
-    medHjelpetekst: boolean
+    kanVelge: boolean;
+    setVisning: Dispatch<SetStateAction<Visning>>;
+    medHjelpetekst: boolean;
 }
 
 const VelgArbeidssituasjon = ({
@@ -17,16 +17,16 @@ const VelgArbeidssituasjon = ({
 }: VelgArbeidssituasjonProps) => {
     const alternativer = [
         {
-            tittel: 'Jeg har arbeidsgiver',
-            verdi: 'MED_ARBEIDSGIVER',
+            tittel: "Jeg har arbeidsgiver",
+            verdi: "MED_ARBEIDSGIVER",
         },
         {
-            tittel: 'Jeg har ikke arbeidsgiver',
-            verdi: 'UTEN_ARBEIDSGIVER',
+            tittel: "Jeg har ikke arbeidsgiver",
+            verdi: "UTEN_ARBEIDSGIVER",
             hjelpetekst:
-                'Velg «Jeg har ikke arbeidsgiver» dersom du er for eks. selvstendig næringsdrivende, frilanser eller arbeidsledig.',
+                "Velg «Jeg har ikke arbeidsgiver» dersom du er for eks. selvstendig næringsdrivende, frilanser eller arbeidsledig.",
         },
-    ]
+    ];
 
     return (
         <Vis
@@ -44,10 +44,10 @@ const VelgArbeidssituasjon = ({
                                 id={`velg-arb-sit-${idx}`}
                                 className="navds-radio__input"
                                 value={a.verdi}
-                                defaultChecked={a.verdi === 'MED_ARBEIDSGIVER'}
+                                defaultChecked={a.verdi === "MED_ARBEIDSGIVER"}
                                 onChange={() => {
                                     /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-                                    setVisning(a.verdi as any)
+                                    setVisning(a.verdi as any);
                                 }}
                             />
                             <label
@@ -61,7 +61,7 @@ const VelgArbeidssituasjon = ({
                                 hvis={medHjelpetekst && a.hjelpetekst}
                                 render={() => (
                                     <HelpText>
-                                        {a.hjelpetekst ? a.hjelpetekst : ''}
+                                        {a.hjelpetekst ? a.hjelpetekst : ""}
                                     </HelpText>
                                 )}
                             />
@@ -70,7 +70,7 @@ const VelgArbeidssituasjon = ({
                 </div>
             )}
         />
-    )
-}
+    );
+};
 
-export default VelgArbeidssituasjon
+export default VelgArbeidssituasjon;

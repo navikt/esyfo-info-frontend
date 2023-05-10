@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const veilederDame = (
     <svg
@@ -77,4 +77,4 @@ export const veilederDame = (
             </g>
         </g>
     </svg>
-)
+);
