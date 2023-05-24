@@ -56,14 +56,15 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - name: Bygg og push Docker image
-        if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')  || startsWith(github.ref, 'refs/heads/demo-')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          docker build -t ${IMAGE} .
-          echo ${GITHUB_TOKEN} | docker login ghcr.io --username ${GITHUB_REPOSITORY} --password-stdin
-          docker push ${IMAGE}
+      - name: Build and push docker image
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: team-esyfo
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
 
   deploy-to-dev-gcp:
     if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/dev-')
@@ -85,6 +86,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais-dev.yaml
+          VAR: image=${{ needs.build.outputs.image }}
 
   deploy-to-prod-gcp:
     if: github.ref == 'refs/heads/master'
@@ -106,6 +108,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
           RESOURCE: nais-prod.yaml
+          VAR: image=${{ needs.build.outputs.image }}
 
   deploy-demo-to-dev-gcp:
     if: github.ref == 'refs/heads/master'
@@ -127,3 +130,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais-demo.yaml
+          VAR: image=${{ needs.build.outputs.image }}
