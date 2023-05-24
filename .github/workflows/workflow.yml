@@ -3,7 +3,7 @@ on: push
 env:
   NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 jobs:
-  build-and-publish:
+  build:
     name: Bygg, test og push Docker image
     runs-on: ubuntu-latest
     permissions:
@@ -55,7 +55,7 @@ jobs:
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
-  deploy-to-dev-gcp:
+  deploy-dev:
     if: github.ref == 'refs/heads/master'
     name: Deploy to dev-gcp
     needs: build
@@ -69,21 +69,7 @@ jobs:
           RESOURCE: naiserator-dev.yaml
           VAR: image=${{ needs.build.outputs.image }}
 
-  deploy-to-prod-gcp:
-    if: github.ref == 'refs/heads/master'
-    name: Deploy to prod-gcp
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-gcp
-          RESOURCE: naiserator-prod.yaml
-          VAR: image=${{ needs.build.outputs.image }}
-
-  deploy-demo-to-dev-gcp:
+  deploy-demo:
     if: github.ref == 'refs/heads/master'
     name: Deploy to demo dev-gcp
     needs: build
@@ -95,4 +81,18 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais-demo.yaml
+          VAR: image=${{ needs.build.outputs.image }}
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/master'
+    name: Deploy to prod-gcp
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: naiserator-prod.yaml
           VAR: image=${{ needs.build.outputs.image }}
