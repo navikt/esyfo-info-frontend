@@ -47,7 +47,8 @@ const SnartSluttPaSykepengene = () => {
             sykepengerMaxDate !== undefined && sykepengerMaxDate.maxDate != null
         )
         setHasCreatedAt(
-            sykepengerMaxDate !== undefined && sykepengerMaxDate.createdAt !== null
+            sykepengerMaxDate !== undefined &&
+                sykepengerMaxDate.createdAt !== null
         )
         setArbeidsrettetOppfolging(oppfolging)
     }, [sykepengerMaxDate, oppfolging])
@@ -93,8 +94,8 @@ const SnartSluttPaSykepengene = () => {
                                 {tekst('snartslutt.general_info.avsnitt2')}
                                 {sykepengerMaxDate !== undefined
                                     ? sykepengerMaxDate.maxDate
-                                    : ''}.
-                                {tekst('snartslutt.general_info.avsnitt3')}
+                                    : ''}
+                                .{tekst('snartslutt.general_info.avsnitt3')}
                             </>
                         )}
                     />

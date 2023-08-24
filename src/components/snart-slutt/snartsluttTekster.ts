@@ -1,6 +1,7 @@
 export const SnartsluttTekster = {
     'snartslutt.general_info.avsnitt1': 'Per ',
-    'snartslutt.general_info.avsnitt2': ' er det beregnet at din siste dag med sykepenger er ',
+    'snartslutt.general_info.avsnitt2':
+        ' er det beregnet at din siste dag med sykepenger er ',
     'snartslutt.general_info.avsnitt3':
         ' Datoen gjelder hvis du er sykmeldt uten opphold. Den vil flytte seg hvis du for eksempel jobber noen perioder, eller hvis du tar ferie. Du kan få sykepenger i maksimalt 52 uker, og for deg vil det si at denne datoen nå nærmer seg.',
     'snartslutt.general_info.avsnitt4':
