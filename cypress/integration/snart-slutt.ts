@@ -9,7 +9,7 @@ describe('Tester snart-slutt', () => {
     it('Har avsnitt med maksdato hvis den ikke er null', () => {
         cy.visit('http://localhost:8080/syk/info/snart-slutt-pa-sykepengene')
 
-        cy.get('.snartslutt').should('contain', 'Etter ')
+        cy.get('.snartslutt').should('contain', 'Per ')
     })
 
     it('Har arbeidsrettet oppfolging', () => {

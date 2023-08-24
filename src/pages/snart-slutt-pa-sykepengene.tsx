@@ -35,6 +35,7 @@ const brodsmuler: Brodsmule[] = [
 
 const SnartSluttPaSykepengene = () => {
     const [hasMaxDate, setHasMaxDate] = useState<boolean>()
+    const [hasUtbetaltTom, setHasUtbetaltTom] = useState<boolean>()
     const { data: sykepengerMaxDate } = UseMaxDate()
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
         useState<ArbeidsrettetOppfolging>()
@@ -44,6 +45,10 @@ const SnartSluttPaSykepengene = () => {
         setBodyClass('snartslutt')
         setHasMaxDate(
             sykepengerMaxDate !== undefined && sykepengerMaxDate.maxDate != null
+        )
+        setHasUtbetaltTom(
+            sykepengerMaxDate !== undefined &&
+                sykepengerMaxDate.utbetaltTom !== null
         )
         setArbeidsrettetOppfolging(oppfolging)
     }, [sykepengerMaxDate, oppfolging])
@@ -79,18 +84,21 @@ const SnartSluttPaSykepengene = () => {
             <div className="limit limit--snartslutt">
                 <BodyLong size="medium" spacing>
                     <Vis
-                        hvis={hasMaxDate}
+                        hvis={hasMaxDate && hasUtbetaltTom}
                         render={() => (
                             <>
                                 {tekst('snartslutt.general_info.avsnitt1')}
                                 {sykepengerMaxDate !== undefined
-                                    ? sykepengerMaxDate.maxDate
+                                    ? sykepengerMaxDate.utbetaltTom
                                     : ''}
                                 {tekst('snartslutt.general_info.avsnitt2')}
+                                {sykepengerMaxDate !== undefined
+                                    ? sykepengerMaxDate.maxDate
+                                    : ''}
+                                .{tekst('snartslutt.general_info.avsnitt3')}
                             </>
                         )}
                     />
-                    {tekst('snartslutt.general_info.avsnitt3')}
                 </BodyLong>
 
                 <BodyLong size="medium" spacing>
