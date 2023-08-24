@@ -1,8 +1,8 @@
 export const SnartsluttTekster = {
-    'snartslutt.general_info.avsnitt1': 'Etter ',
-    'snartslutt.general_info.avsnitt2': ' får du ikke lenger sykepenger. ',
+    'snartslutt.general_info.avsnitt1': 'Per ',
+    'snartslutt.general_info.avsnitt2': ' er det beregnet at din siste dag med sykepenger er ',
     'snartslutt.general_info.avsnitt3':
-        'Du kan få sykepenger i maksimalt 52 uker, og for deg vil det si at denne datoen nå nærmer seg. Datoen kan forskyves, for eksempel hvis du tar ferie mens du er sykmeldt.',
+        ' Datoen gjelder hvis du er sykmeldt uten opphold. Den vil flytte seg hvis du for eksempel jobber noen perioder, eller hvis du tar ferie. Du kan få sykepenger i maksimalt 52 uker, og for deg vil det si at denne datoen nå nærmer seg.',
     'snartslutt.general_info.avsnitt4':
         'Hvis du er usikker på om du er tilbake i arbeid innen sykepengene tar slutt, er det viktig at du planlegger framover slik at du ikke risikerer å stå uten inntekt.',
     'snartslutt.hva_na.tittel': 'Hva kan du gjøre?',

@@ -54,5 +54,8 @@ export const defaultPersona: Persona = {
         },
     ],
     arbeidsrettetOppfolging: { erUnderOppfolging: false },
-    sykepengerMaxDate: { maxDate: '22. juni 2022' },
+    sykepengerMaxDate: {
+        maxDate: '1. november 2023',
+        createdAt: '4. april 2023'
+    },
 }
