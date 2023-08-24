@@ -35,7 +35,7 @@ const brodsmuler: Brodsmule[] = [
 
 const SnartSluttPaSykepengene = () => {
     const [hasMaxDate, setHasMaxDate] = useState<boolean>()
-    const [hasCreatedAt, setHasCreatedAt] = useState<boolean>()
+    const [hasUtbetaltTom, setHasUtbetaltTom] = useState<boolean>()
     const { data: sykepengerMaxDate } = UseMaxDate()
     const [arbeidsrettetOppfolging, setArbeidsrettetOppfolging] =
         useState<ArbeidsrettetOppfolging>()
@@ -46,9 +46,9 @@ const SnartSluttPaSykepengene = () => {
         setHasMaxDate(
             sykepengerMaxDate !== undefined && sykepengerMaxDate.maxDate != null
         )
-        setHasCreatedAt(
+        setHasUtbetaltTom(
             sykepengerMaxDate !== undefined &&
-                sykepengerMaxDate.createdAt !== null
+                sykepengerMaxDate.utbetaltTom !== null
         )
         setArbeidsrettetOppfolging(oppfolging)
     }, [sykepengerMaxDate, oppfolging])
@@ -84,12 +84,12 @@ const SnartSluttPaSykepengene = () => {
             <div className="limit limit--snartslutt">
                 <BodyLong size="medium" spacing>
                     <Vis
-                        hvis={hasMaxDate && hasCreatedAt}
+                        hvis={hasMaxDate && hasUtbetaltTom}
                         render={() => (
                             <>
                                 {tekst('snartslutt.general_info.avsnitt1')}
                                 {sykepengerMaxDate !== undefined
-                                    ? sykepengerMaxDate.createdAt
+                                    ? sykepengerMaxDate.utbetaltTom
                                     : ''}
                                 {tekst('snartslutt.general_info.avsnitt2')}
                                 {sykepengerMaxDate !== undefined

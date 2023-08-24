@@ -1,4 +1,4 @@
 export interface SykepengerMaxDateResponse {
     maxDate: string | null
-    createdAt: string | null
+    utbetaltTom: string | null
 }
