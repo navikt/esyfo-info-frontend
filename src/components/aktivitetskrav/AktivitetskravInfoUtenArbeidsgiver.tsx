@@ -1,0 +1,69 @@
+import React from 'react'
+import { BodyLong, Heading } from '@navikt/ds-react'
+
+export const AktivitetskravInfoUtenArbeidsgiver = () => {
+    return (
+        <div>
+            <Heading size="medium" level="2" spacing>
+                Aktivitetsplikt
+            </Heading>
+
+            <BodyLong spacing>
+                Som sykmeldt har du en plikt til å være i aktivitet hvis det er
+                mulig. Hensikten er å unngå at sykefraværet ditt blir unødvendig
+                langt. Aktivitet vil si å jobbe noe i kombinasjon med å være
+                sykmeldt. Et eksempel er å jobbe 50 prosent og være 50 prosent
+                sykmeldt.
+            </BodyLong>
+
+            <BodyLong spacing>
+                Er du selvstendig næringsdrivende eller frilanser, er det
+                kanskje noen av arbeidsoppgavene dine du fortsatt kan utføre? Er
+                du arbeidsledig og sykmeldt, er det viktig å planlegge hvilke
+                aktiviteter eller tiltak du har behov for slik at du kan komme i
+                jobb igjen.
+            </BodyLong>
+
+            <BodyLong spacing>
+                Du kan selv ta kontakt med NAV-kontoret der du bor hvis du ikke
+                har fått innkalling og ønsker en samtale med en veileder. Husk
+                at du kan registrere din CV på nav.no. Her får du også tilgang
+                til alle offentlig utlyste stillinger. Opplysningene du legger
+                inn, kan brukes i dialogen med NAV.
+            </BodyLong>
+
+            <BodyLong spacing>
+                Hvis du er for syk til å være i aktivitet, må den som har
+                sykmeldt deg begrunne dette i sykmeldingen. Ved alvorlig sykdom
+                er det unntak fra aktivitetsplikten.
+            </BodyLong>
+
+            <Heading size="small" level="3" spacing>
+                NAV vurderer aktivitetsplikten
+            </Heading>
+
+            <BodyLong spacing>
+                NAV har som oppgave å vurdere aktivitetsplikten basert på
+                opplysninger fra den som har sykmeldt deg. Utfallet av
+                vurderingen kan være:
+            </BodyLong>
+
+            <ol className="list-decimal list-inside">
+                <li>
+                    Aktivitetsplikten er oppfylt fordi du er delvis tilbake i
+                    arbeid. Utbetalingen av sykepenger fortsetter.
+                </li>
+
+                <li>
+                    Du får unntak fra aktivitetsplikten på grunn av
+                    helsesituasjonen. Utbetalingen av sykepenger fortsetter.
+                </li>
+
+                <li>
+                    Aktivitetsplikten er ikke oppfylt. Du kan miste retten til
+                    sykepenger, og utbetalingen stanses.
+                </li>
+            </ol>
+        </div>
+    )
+}

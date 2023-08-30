@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { ArbeidsrettetOppfolging } from '../types/arbeidsrettetOppfolging'
 import Fetch from '../utils/fetch'
 
-export default function UseArbeidsrettetOppfolging() {
+export const useArbeidsrettetOppfolging = () => {
     return useQuery<ArbeidsrettetOppfolging, Error>(
         'arbeidsrettetOppfolging',
         () =>

@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const withLess = require('next-with-less')
-
 const csp = {
     'default-src': ["'none'"],
     'connect-src': [
@@ -45,7 +43,7 @@ const cspHeader = [
     },
 ]
 
-module.exports = withLess({
+module.exports = {
     async headers() {
         return [
             {
@@ -55,7 +53,6 @@ module.exports = withLess({
         ]
     },
     basePath: '/syk/info',
-    lessLoaderOptions: {},
     generateEtags: false, //Disabler etag i pages
     serverRuntimeConfig: {
         // Will only be available on the server side
@@ -84,4 +81,4 @@ module.exports = withLess({
         narmestelederUrl: process.env.NARMESTELEDER_URL,
         arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
     },
-})
+}

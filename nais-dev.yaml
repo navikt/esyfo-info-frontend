@@ -66,7 +66,7 @@ spec:
         - application: esyfovarsel
         - application: veilarboppfolging
           namespace: pto
+        - application: nav-dekoratoren
+          namespace: personbruker
       external:
-        - host: dekoratoren.dev.nav.no
-        - host: dekoratoren.ekstern.dev.nav.no
         - host: veilarboppfolging.dev-fss-pub.nais.io

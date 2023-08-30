@@ -1,0 +1,17 @@
+.icon-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-basis: 10%;
+}
+
+.icon-circle {
+    height: 64px;
+    width: 64px;
+    background-color: #e6f0ff;
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

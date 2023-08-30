@@ -14,6 +14,7 @@ import Document, {
     NextScript,
 } from 'next/document'
 import React from 'react'
+import { getBreadcrumbPaths } from '../data/breadcrumbs/breadcrumbs'
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -44,6 +45,7 @@ class MyDocument extends Document<Props> {
             chatbot: false,
             feedback: false,
             urlLookupTable: false,
+            breadcrumbs: getBreadcrumbPaths(ctx.pathname),
         })
 
         const language = getDocumentParameter(initialProps, 'lang')
