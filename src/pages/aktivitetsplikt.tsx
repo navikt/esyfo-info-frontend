@@ -13,7 +13,7 @@ const Aktivitetsplikt = () => {
     return (
         <Page headerText="Ditt sykefravær">
             <div>
-                <Heading size="medium" level="2">
+                <Heading size="medium" level="2" spacing>
                     Påminnelse om aktivitet
                 </Heading>
 

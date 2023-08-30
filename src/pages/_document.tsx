@@ -1,7 +1,5 @@
-import 'node-fetch'
-
 import {
-    Components,
+    DecoratorComponents,
     fetchDecoratorReact,
 } from '@navikt/nav-dekoratoren-moduler/ssr'
 import getConfig from 'next/config'
@@ -28,7 +26,7 @@ const getDocumentParameter = (
 }
 
 interface Props {
-    Decorator: Components
+    Decorator: DecoratorComponents
     language: string
 }
 
@@ -39,13 +37,15 @@ class MyDocument extends Document<Props> {
         const initialProps = await Document.getInitialProps(ctx)
 
         const Decorator = await fetchDecoratorReact({
-            dekoratorenUrl: serverRuntimeConfig.decoratorUrl,
             env: serverRuntimeConfig.decoratorEnv,
-            simple: false,
-            chatbot: false,
-            feedback: false,
-            urlLookupTable: false,
-            breadcrumbs: getBreadcrumbPaths(ctx.pathname),
+            params: {
+                context: 'privatperson',
+                chatbot: true,
+                feedback: false,
+                redirectToApp: true,
+                urlLookupTable: false,
+                breadcrumbs: getBreadcrumbPaths(ctx.pathname),
+            },
         })
 
         const language = getDocumentParameter(initialProps, 'lang')
