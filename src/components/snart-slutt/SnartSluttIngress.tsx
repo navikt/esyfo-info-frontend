@@ -18,16 +18,16 @@ export const SnartSluttIngress = () => {
         return (
             <div>
                 {maxDateQuery.data.maxDate && maxDateQuery.data.utbetaltTom && (
-                        <BodyLong size="medium" spacing>
-                            Per {maxDateQuery.data.utbetaltTom} er det beregnet
-                            at din siste dag med sykepenger er{' '}
-                            {maxDateQuery.data.maxDate}. Datoen gjelder hvis du
-                            er sykmeldt uten opphold. Den vil flytte seg hvis du
-                            for eksempel jobber noen perioder, eller hvis du tar
-                            ferie. Du kan få sykepenger i maksimalt 52 uker, og
-                            for deg vil det si at denne datoen nå nærmer seg.
-                        </BodyLong>
-                    )}
+                    <BodyLong size="medium" spacing>
+                        Per {maxDateQuery.data.utbetaltTom} er det beregnet at
+                        din siste dag med sykepenger er{' '}
+                        {maxDateQuery.data.maxDate}. Datoen gjelder hvis du er
+                        sykmeldt uten opphold. Den vil flytte seg hvis du for
+                        eksempel jobber noen perioder, eller hvis du tar ferie.
+                        Du kan få sykepenger i maksimalt 52 uker, og for deg vil
+                        det si at denne datoen nå nærmer seg.
+                    </BodyLong>
+                )}
 
                 <BodyLong size="medium">
                     Hvis du er usikker på om du er tilbake i arbeid innen
