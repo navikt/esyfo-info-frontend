@@ -1,7 +1,7 @@
 import { BodyLong, Heading } from '@navikt/ds-react'
-import CircledIcon from '../circledicon/CircledIcon'
 import { BaggageIcon, BandageIcon, Buldings3Icon } from '@navikt/aksel-icons'
 import React from 'react'
+import { IconRow } from '../wrappers/IconRow'
 
 export const SnartSluttHvaKanDuGjore = () => {
     return (
@@ -16,43 +16,32 @@ export const SnartSluttHvaKanDuGjore = () => {
             </BodyLong>
 
             <div className="flex flex-col gap-8">
-                <div className="flex flex-row gap-4">
-                    <CircledIcon
-                        className="hidden sm:flex"
-                        icon={<Buldings3Icon />}
-                    />
-                    <div className="text-wrapper">
-                        <div>
-                            <Heading size="medium" level="2">
-                                Kan du gå tilbake til jobben din?
-                            </Heading>
-                            <BodyLong size="medium" spacing>
-                                Arbeidsgiveren din skal, så langt det er mulig,
-                                tilpasse arbeidsplassen og oppgavene dine slik
-                                at du kan jobbe.
-                            </BodyLong>
-                            <ul className="list-disc list-inside">
-                                <li>Snakk med lederen din.</li>
-                                <li>
-                                    Det er arbeidsgiverens ansvar å legge til
-                                    rette for at du kan jobbe.
-                                </li>
-                                <li>
-                                    Det er ditt ansvar å være med å finne
-                                    løsninger slik at du kan komme tilbake til
-                                    jobb.
-                                </li>
-                            </ul>
-                        </div>
+                <IconRow icon={<Buldings3Icon />}>
+                    <div>
+                        <Heading size="medium" level="2">
+                            Kan du gå tilbake til jobben din?
+                        </Heading>
+                        <BodyLong size="medium" spacing>
+                            Arbeidsgiveren din skal, så langt det er mulig,
+                            tilpasse arbeidsplassen og oppgavene dine slik at du
+                            kan jobbe.
+                        </BodyLong>
+                        <ul className="list-disc list-inside">
+                            <li>Snakk med lederen din.</li>
+                            <li>
+                                Det er arbeidsgiverens ansvar å legge til rette
+                                for at du kan jobbe.
+                            </li>
+                            <li>
+                                Det er ditt ansvar å være med å finne løsninger
+                                slik at du kan komme tilbake til jobb.
+                            </li>
+                        </ul>
                     </div>
-                </div>
+                </IconRow>
 
-                <div className="flex flex-row gap-4">
-                    <CircledIcon
-                        className="hidden sm:flex"
-                        icon={<BaggageIcon />}
-                    />
-                    <div className="text-wrapper">
+                <IconRow icon={<BaggageIcon />}>
+                    <div>
                         <Heading size="medium" level="2">
                             Bør du bytte jobb?
                         </Heading>
@@ -79,13 +68,9 @@ export const SnartSluttHvaKanDuGjore = () => {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </IconRow>
 
-                <div className="flex flex-row gap-4">
-                    <CircledIcon
-                        className="hidden sm:flex"
-                        icon={<BandageIcon />}
-                    />
+                <IconRow icon={<BandageIcon />}>
                     <div>
                         <Heading size="medium" level="2">
                             Er du fortsatt syk?
@@ -121,7 +106,7 @@ export const SnartSluttHvaKanDuGjore = () => {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </IconRow>
             </div>
         </div>
     )

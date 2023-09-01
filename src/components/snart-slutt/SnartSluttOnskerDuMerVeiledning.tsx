@@ -1,4 +1,4 @@
-import { BodyLong, Button, Heading, Panel } from '@navikt/ds-react'
+import { BodyLong, Button, GuidePanel, Heading } from '@navikt/ds-react'
 import React from 'react'
 import { useArbeidsrettetOppfolging } from '../../query-hooks/useArbeidsrettetOppfolging'
 import { logEvent } from '../amplitude/amplitude'
@@ -23,7 +23,7 @@ export const SnartSluttOnskerDuMerVeiledning = () => {
             {arbeidsrettetOppfolgingQuery.isSuccess &&
                 arbeidsrettetOppfolgingQuery.data.erUnderOppfolging ===
                     false && (
-                    <Panel border={true} className="info-panel--blue">
+                    <GuidePanel poster>
                         <Heading size="large" level="2" spacing>
                             Ønsker du mer veiledning?
                         </Heading>
@@ -45,15 +45,10 @@ export const SnartSluttOnskerDuMerVeiledning = () => {
                             </li>
                         </ul>
 
-                        <div className="knapperad">
-                            <Button
-                                variant="primary"
-                                onClick={handleJaBtnClicked}
-                            >
-                                Jeg trenger mer veiledning
-                            </Button>
-                        </div>
-                    </Panel>
+                        <Button variant="primary" onClick={handleJaBtnClicked}>
+                            Jeg trenger mer veiledning
+                        </Button>
+                    </GuidePanel>
                 )}
         </>
     )

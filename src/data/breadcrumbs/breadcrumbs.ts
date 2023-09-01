@@ -16,7 +16,7 @@ const BaseCrumbs: Breadcrumb[] = [
     },
 ]
 
-export const SnartSluttCrumbs: Breadcrumb[] = [
+const SnartSluttCrumbs: Breadcrumb[] = [
     ...BaseCrumbs,
     {
         url: '/snart-slutt-pa-sykepengene',
@@ -24,7 +24,7 @@ export const SnartSluttCrumbs: Breadcrumb[] = [
     },
 ]
 
-export const AktivitetspliktCrumbs: Breadcrumb[] = [
+const AktivitetspliktCrumbs: Breadcrumb[] = [
     ...BaseCrumbs,
     {
         url: '/aktivitetsplikt',

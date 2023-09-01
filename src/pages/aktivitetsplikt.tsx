@@ -1,34 +1,22 @@
-import { BodyLong, Heading, Radio, RadioGroup } from '@navikt/ds-react'
+import { BodyLong } from '@navikt/ds-react'
 import { GetServerSideProps } from 'next'
 import React, { useState } from 'react'
 import { Page } from '../components/page/Page'
 import { AktivitetskravInfoUtenArbeidsgiver } from '../components/aktivitetskrav/AktivitetskravInfoUtenArbeidsgiver'
 import { AktivitetskravInfoMedArbeidsgiver } from '../components/aktivitetskrav/AktivitetskravInfoMedArbeidsgiver'
+import { MedUtenArbeidsgiverRadio } from '../components/aktivitetskrav/MedUtenArbeidsgiverRadio'
 
-type Visning = 'MED_ARBEIDSGIVER' | 'UTEN_ARBEIDSGIVER' | 'VALGFRI'
+export type MedUtenAGVisning =
+    | 'MED_ARBEIDSGIVER'
+    | 'UTEN_ARBEIDSGIVER'
+    | 'VALGFRI'
 
 const Aktivitetsplikt = () => {
-    const [visning, setVisning] = useState<Visning>('MED_ARBEIDSGIVER')
+    const [visning, setVisning] = useState<MedUtenAGVisning>('MED_ARBEIDSGIVER')
 
     return (
-        <Page headerText="Ditt sykefravær">
-            <div>
-                <Heading size="medium" level="2" spacing>
-                    Påminnelse om aktivitet
-                </Heading>
-
-                <RadioGroup
-                    legend=""
-                    defaultValue="MED_ARBEIDSGIVER"
-                    hideLegend={true}
-                    onChange={(val: Visning) => setVisning(val)}
-                >
-                    <Radio value="MED_ARBEIDSGIVER">Jeg har arbeidsgiver</Radio>
-                    <Radio value="UTEN_ARBEIDSGIVER">
-                        Jeg har ikke arbeidsgiver
-                    </Radio>
-                </RadioGroup>
-            </div>
+        <Page headerText="Påminnelse om aktivitet">
+            <MedUtenArbeidsgiverRadio setVisning={setVisning} />
 
             <BodyLong>
                 Du har snart vært sykmeldt i åtte uker. NAV skal vurdere om du

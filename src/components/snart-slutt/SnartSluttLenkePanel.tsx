@@ -1,14 +1,14 @@
-import { GuidePanel, Heading, Link } from '@navikt/ds-react'
+import { Heading, Link } from '@navikt/ds-react'
 import React from 'react'
 
 export const SnartSluttLenkePanel = () => {
     return (
-        <GuidePanel poster>
-            <Heading size="small" level="2" spacing>
+        <div>
+            <Heading size="large" level="2" spacing>
                 Her kan du lese mer
             </Heading>
 
-            <ul className="list-disc md:list-inside">
+            <ul className="md:list-disc md:list-inside">
                 <li>
                     <Link
                         href="https://www.nav.no/syk-lenge"
@@ -49,6 +49,6 @@ export const SnartSluttLenkePanel = () => {
                     </Link>
                 </li>
             </ul>
-        </GuidePanel>
+        </div>
     )
 }
