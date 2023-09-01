@@ -8,7 +8,7 @@ export const SnartSluttIngress = () => {
     if (maxDateQuery.isLoading) {
         return (
             <div>
-                <Skeleton variant="text" height="8rem" />
+                <Skeleton variant="text" height="7rem" />
                 <Skeleton variant="text" height="4rem" />
             </div>
         )
