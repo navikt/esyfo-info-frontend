@@ -1,10 +1,6 @@
-import React from 'react'
-import { AktivitetskravContent } from './AktivitetskravContent'
-
-describe('<AktivitetskravContent />', () => {
-    it('Tester aktivitetskrav', () => {
-        // see: https://on.cypress.io/mounting-react
-        cy.mount(<AktivitetskravContent />)
+describe('Tester aktivitetskrav', () => {
+    it('Aktivitetskrav info side', () => {
+        cy.visit('http://localhost:8080/syk/info/aktivitetsplikt')
 
         cy.contains(
             'Du har snart vært sykmeldt i åtte uker. NAV skal vurdere om du oppfyller aktivitetsplikten og om du fortsatt har rett til sykepenger.'
@@ -39,3 +35,5 @@ describe('<AktivitetskravContent />', () => {
         ).should('not.exist')
     })
 })
+
+export {}
