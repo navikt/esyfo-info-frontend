@@ -41,7 +41,7 @@ export const AktivitetskravInfoUtenArbeidsgiver = () => {
             </div>
 
             <div>
-                <Heading size="medium" level="3">
+                <Heading size="medium" level="3" spacing>
                     NAV vurderer aktivitetsplikten
                 </Heading>
 

@@ -13,8 +13,6 @@ import {
     QueryClientProvider,
 } from 'react-query'
 
-import { isMockBackend } from '../utils/environment'
-
 interface AppProps extends Omit<NextAppProps, 'pageProps'> {
     pageProps: PropsWithChildren<unknown> & {
         dehydratedState: DehydratedState
@@ -25,10 +23,6 @@ dayjs.locale({
     ...nb,
     weekStart: 1,
 })
-
-if (process.browser && isMockBackend()) {
-    require('../data/mock')
-}
 
 configureLogger({
     basePath: '/syk/info',
