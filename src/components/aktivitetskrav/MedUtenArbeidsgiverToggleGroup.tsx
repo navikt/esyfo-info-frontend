@@ -7,7 +7,7 @@ interface Props {
     setVisning(val: MedUtenAGVisning): void
 }
 
-export const MedUtenArbeidsgiverRadio = ({ setVisning }: Props) => {
+export const MedUtenArbeidsgiverToggleGroup = ({ setVisning }: Props) => {
     return (
         <div className="flex w-full justify-center">
             <ToggleGroup
