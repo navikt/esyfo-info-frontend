@@ -1,13 +1,4 @@
 import '../style/global.css'
-import '../components/basic.less'
-import '../components/app.less'
-import '../components/aktivitetskrav/aktivitetskrav.less'
-import '../components/banner/banner.less'
-import '../components/bjorn/bjorn.less'
-import '../components/brodsmuler/brodsmuler.less'
-import '../components/velgArbeidssituasjon/velgArbeidssituasjon.less'
-import '../components/snart-slutt/snartslutt.less'
-import '../pages/snart-slutt.less'
 
 import { configureLogger } from '@navikt/next-logger'
 import dayjs from 'dayjs'
