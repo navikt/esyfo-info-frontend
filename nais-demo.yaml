@@ -7,7 +7,7 @@ metadata:
     team: team-esyfo
 spec:
   image: {{image}}
-  port: 3000
+  port: 8080
   ingresses:
     - "https://demo.ekstern.dev.nav.no/syk/info/"
   tokenx:
@@ -18,15 +18,8 @@ spec:
       enabled: false
   liveness:
     path: syk/info/api/isAlive
-    initialDelay: 20
-    timeout: 5
-    periodSeconds: 5
-    failureThreshold: 30
   readiness:
     path: syk/info/api/isReady
-    initialDelay: 20
-    periodSeconds: 5
-    timeout: 5
   env:
     - name: MOCK_BACKEND
       value: "true"
