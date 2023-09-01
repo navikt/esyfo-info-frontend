@@ -7,9 +7,9 @@ metadata:
     team: team-esyfo
 spec:
   image: {{image}}
-  port: 8080
+  port: 3000
   ingresses:
-    - "https://www.ekstern.dev.nav.no/syk/info"
+    - "https://www.nav.no/syk/info"
   tokenx:
     enabled: true
   idporten:
@@ -19,47 +19,54 @@ spec:
       level: Level4
       autoLogin: true
   replicas:
-    min: 1
-    max: 2
+    min: 2
+    max: 3
     cpuThresholdPercentage: 50
   resources:
     limits:
-      cpu: 200m
-      memory: 128Mi
+      cpu: 400m
+      memory: 400Mi
     requests:
-      cpu: 100m
-      memory: 64Mi
+      cpu: 200m
+      memory: 100Mi
   liveness:
     path: syk/info/api/isAlive
+    initialDelay: 20
+    timeout: 5
+    periodSeconds: 5
+    failureThreshold: 30
   readiness:
     path: syk/info/api/isReady
+    initialDelay: 20
+    periodSeconds: 5
+    timeout: 5
   env:
     - name: MOCK_BACKEND
       value: "false"
     - name: ENVIRONMENT
-      value: "q1"
+      value: "prod"
     - name: OPPLAERING
       value: "false"
     - name: DITTNAV_URL
-      value: "https://www.dev.nav.no/person/dittnav/"
+      value: "https://www.nav.no/person/dittnav"
     - name: DITT_SYKEFRAVAER_URL
-      value: "https://www-gcp.dev.nav.no/syk/sykefravaer"
+      value: "https://www.nav.no/syk/sykefravaer"
     - name: NARMESTELEDER_URL
-      value: "https://narmesteleder.dev.nav.no"
+      value: "https://narmesteleder.nav.no"
     - name: ARBEIDSSOKERREGISTRERING_URL
-      value: "https://arbeid.dev.nav.no/arbeid/registrering"
+      value: "https://www.nav.no/arbeid/registrering/"
     - name: ESYFOVARSEL_HOST
       value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID
-      value: "dev-gcp:team-esyfo:esyfovarsel"
-    - name: VEILARBOPPFOLGING_CLIENT_ID
-      value: "dev-fss:pto:veilarboppfolging"
+      value: "prod-gcp:team-esyfo:esyfovarsel"
     - name: DECORATOR_ENV
-      value: "dev"
+      value: "prod"
     - name: AMPLITUDE_ENABLED
       value: "true"
     - name: VEILARBOPPFOLGING_HOST
-      value: "veilarboppfolging.dev-fss-pub.nais.io"
+      value: "veilarboppfolging.prod-fss-pub.nais.io"
+    - name: VEILARBOPPFOLGING_CLIENT_ID
+      value: "prod-fss:pto:veilarboppfolging"
   accessPolicy:
     outbound:
       rules:
@@ -69,4 +76,5 @@ spec:
         - application: nav-dekoratoren
           namespace: personbruker
       external:
-        - host: veilarboppfolging.dev-fss-pub.nais.io
+        - host: www.nav.no
+        - host: veilarboppfolging.prod-fss-pub.nais.io

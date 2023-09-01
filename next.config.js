@@ -53,6 +53,8 @@ module.exports = {
         ]
     },
     basePath: '/syk/info',
+    assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || null,
+    output: 'standalone',
     generateEtags: false, //Disabler etag i pages
     serverRuntimeConfig: {
         // Will only be available on the server side
