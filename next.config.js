@@ -79,6 +79,6 @@ module.exports = {
         amplitudeEnabled: process.env.AMPLITUDE_ENABLED,
         environment: process.env.ENVIRONMENT,
         narmestelederUrl: process.env.NARMESTELEDER_URL,
-        arbeidssokerregistreringUrl: process.env.ARBEIDSSOKERREGISTRERING_URL,
+        meroppfolgingRegistreringUrl: process.env.MEROPPFOLGING_REGISTRERING_URL,
     },
 }

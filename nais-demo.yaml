@@ -31,8 +31,8 @@ spec:
       value: "https://www.nav.no/person/dittnav"
     - name: DITT_SYKEFRAVAER_URL
       value: "https://ditt-sykefravaer.labs.nais.io/syk/sykefravaer"
-    - name: ARBEIDSSOKERREGISTRERING_URL
-      value: "https://arbeid.dev.nav.no/arbeid/registrering"
+    - name: MEROPPFOLGING_REGISTRERING_URL
+      value: "https://demo.ekstern.dev.nav.no/syk/meroppfolging/reg/0"
     - name: ESYFOVARSEL_HOST
       value: "https://esyfovarsel.dev.intern.nav.no"
     - name: DECORATOR_ENV

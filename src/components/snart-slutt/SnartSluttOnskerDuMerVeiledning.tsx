@@ -2,7 +2,7 @@ import { BodyLong, Button, GuidePanel, Heading } from '@navikt/ds-react'
 import React from 'react'
 import { useArbeidsrettetOppfolging } from '../../query-hooks/useArbeidsrettetOppfolging'
 import { logEvent } from '../amplitude/amplitude'
-import { arbeidssokerregistreringUrl } from '../../utils/environment'
+import { meroppfolgingRegistreringUrl } from '../../utils/environment'
 
 export const SnartSluttOnskerDuMerVeiledning = () => {
     const arbeidsrettetOppfolgingQuery = useArbeidsrettetOppfolging()
@@ -14,7 +14,7 @@ export const SnartSluttOnskerDuMerVeiledning = () => {
         })
         // Må sikre at amplitude får logget ferdig
         window.setTimeout(() => {
-            window.location.href = arbeidssokerregistreringUrl()
+            window.location.href = meroppfolgingRegistreringUrl()
         }, 400)
     }
 

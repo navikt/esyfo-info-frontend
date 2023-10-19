@@ -46,8 +46,8 @@ spec:
       value: "https://www-gcp.dev.nav.no/syk/sykefravaer"
     - name: NARMESTELEDER_URL
       value: "https://narmesteleder.dev.nav.no"
-    - name: ARBEIDSSOKERREGISTRERING_URL
-      value: "https://arbeid.dev.nav.no/arbeid/registrering"
+    - name: MEROPPFOLGING_REGISTRERING_URL
+      value: "https://ekstern.dev.nav.no/syk/meroppfolging/reg/0"
     - name: ESYFOVARSEL_HOST
       value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID
