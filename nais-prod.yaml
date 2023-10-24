@@ -46,8 +46,8 @@ spec:
       value: "https://www.nav.no/syk/sykefravaer"
     - name: NARMESTELEDER_URL
       value: "https://narmesteleder.nav.no"
-    - name: ARBEIDSSOKERREGISTRERING_URL
-      value: "https://www.nav.no/arbeid/registrering/"
+    - name: MEROPPFOLGING_REGISTRERING_URL
+      value: "https://www.nav.no/syk/meroppfolging/reg/0"
     - name: ESYFOVARSEL_HOST
       value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID

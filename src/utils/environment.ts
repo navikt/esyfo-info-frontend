@@ -26,8 +26,8 @@ export function narmestelederUrl() {
     return publicRuntimeConfig.narmestelederUrl
 }
 
-export function arbeidssokerregistreringUrl() {
-    return publicRuntimeConfig.arbeidssokerregistreringUrl
+export function meroppfolgingRegistreringUrl() {
+    return publicRuntimeConfig.meroppfolgingRegistreringUrl
 }
 
 export function veilarboppfolgingHost() {
