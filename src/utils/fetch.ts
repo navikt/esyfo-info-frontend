@@ -48,17 +48,7 @@ class Fetch {
 
         const textResponse = await res.text()
 
-        // skal ikke logge
-        if (
-            res.status === 403 &&
-            url.endsWith('/veilarboppfolging/api/oppfolging')
-        ) {
-            // skal ikke logge
-        } else {
-            logger.warn(
-                `Request to ${url} resulted in statuscode: ${res.status} with message: ${textResponse}`
-            )
-        }
+        logger.warn(`Request to ${url} resulted in statuscode: ${res.status} with message: ${textResponse}`)
 
         if (res.status === 400) {
             throw new Error(textResponse)

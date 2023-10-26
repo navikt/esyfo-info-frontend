@@ -1,5 +1,5 @@
 import { Persona } from './data/persona'
-import { defaultPersona, underOppfolging } from './data/personas'
+import { defaultPersona } from './data/personas'
 
 export interface StringFunctionMap {
     [index: string]: () => Persona
@@ -7,5 +7,4 @@ export interface StringFunctionMap {
 
 export const personas: StringFunctionMap = {
     default: () => defaultPersona,
-    'under-oppfolging': () => underOppfolging,
 }

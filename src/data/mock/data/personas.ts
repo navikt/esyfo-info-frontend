@@ -1,12 +1,6 @@
 import { Persona } from './persona'
 import { sendtSykmelding } from './sykmeldinger'
 
-export const underOppfolging: Persona = {
-    sykmeldinger: [],
-    narmesteledere: [],
-    arbeidsrettetOppfolging: { erUnderOppfolging: true },
-    sykepengerMaxDate: { maxDate: null, utbetaltTom: null },
-}
 
 export const defaultPersona: Persona = {
     sykmeldinger: [
@@ -53,7 +47,6 @@ export const defaultPersona: Persona = {
             aktivFom: '2021-03-19',
         },
     ],
-    arbeidsrettetOppfolging: { erUnderOppfolging: false },
     sykepengerMaxDate: {
         maxDate: '1. november 2023',
         utbetaltTom: '4. april 2023',
