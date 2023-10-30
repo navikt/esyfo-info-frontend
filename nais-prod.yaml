@@ -56,18 +56,11 @@ spec:
       value: "prod"
     - name: AMPLITUDE_ENABLED
       value: "true"
-    - name: VEILARBOPPFOLGING_HOST
-      value: "veilarboppfolging.prod-fss-pub.nais.io"
-    - name: VEILARBOPPFOLGING_CLIENT_ID
-      value: "prod-fss:pto:veilarboppfolging"
   accessPolicy:
     outbound:
       rules:
         - application: esyfovarsel
-        - application: veilarboppfolging
-          namespace: pto
         - application: nav-dekoratoren
           namespace: personbruker
       external:
         - host: www.nav.no
-        - host: veilarboppfolging.prod-fss-pub.nais.io

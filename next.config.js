@@ -64,8 +64,6 @@ module.exports = {
         tokenXClientId: process.env.TOKEN_X_CLIENT_ID,
         tokenXPrivateJwk: process.env.TOKEN_X_PRIVATE_JWK,
         tokenXWellKnownUrl: process.env.TOKEN_X_WELL_KNOWN_URL,
-        veilarboppfolgingClientId: process.env.VEILARBOPPFOLGING_CLIENT_ID,
-        veilarboppfolgingHost: process.env.VEILARBOPPFOLGING_HOST,
         esyfovarselClientId: process.env.ESYFOVARSEL_CLIENT_ID,
         esyfovarselHost: process.env.ESYFOVARSEL_HOST,
     },

@@ -30,14 +30,6 @@ export function meroppfolgingRegistreringUrl() {
     return publicRuntimeConfig.meroppfolgingRegistreringUrl
 }
 
-export function veilarboppfolgingHost() {
-    return serverRuntimeConfig.veilarboppfolgingHost
-}
-
-export function veilarboppfolgingClientId() {
-    return serverRuntimeConfig.veilarboppfolgingClientId
-}
-
 export function esyfovarselHost() {
     return serverRuntimeConfig.esyfovarselHost
 }

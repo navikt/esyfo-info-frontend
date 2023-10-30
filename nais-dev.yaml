@@ -52,21 +52,13 @@ spec:
       value: "http://esyfovarsel"
     - name: ESYFOVARSEL_CLIENT_ID
       value: "dev-gcp:team-esyfo:esyfovarsel"
-    - name: VEILARBOPPFOLGING_CLIENT_ID
-      value: "dev-fss:pto:veilarboppfolging"
     - name: DECORATOR_ENV
       value: "dev"
     - name: AMPLITUDE_ENABLED
       value: "true"
-    - name: VEILARBOPPFOLGING_HOST
-      value: "veilarboppfolging.dev-fss-pub.nais.io"
   accessPolicy:
     outbound:
       rules:
         - application: esyfovarsel
-        - application: veilarboppfolging
-          namespace: pto
         - application: nav-dekoratoren
           namespace: personbruker
-      external:
-        - host: veilarboppfolging.dev-fss-pub.nais.io
