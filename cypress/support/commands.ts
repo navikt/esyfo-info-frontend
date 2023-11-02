@@ -39,7 +39,7 @@ export function isNotInViewport(element: string) {
     return cy.get(element).should(($el) => {
         /* eslint-disable-next-line */
         // @ts-ignore
-        const bottom = Cypress.$(cy.state('window')).height() || 0
+        const bottom = Cypress.$(cy.state("window")).height() || 0
         const rect = $el[0].getBoundingClientRect()
 
         expect(rect.top).to.be.greaterThan(bottom)
@@ -53,7 +53,7 @@ export function isInViewport(element: string) {
     return cy.get(element).should(($el) => {
         /* eslint-disable-next-line */
         // @ts-ignore
-        const bottom = Cypress.$(cy.state('window')).height() || 0
+        const bottom = Cypress.$(cy.state("window")).height() || 0
         const rect = $el[0].getBoundingClientRect()
 
         expect(rect.top).not.to.be.greaterThan(bottom)
@@ -63,5 +63,5 @@ export function isInViewport(element: string) {
     })
 }
 
-Cypress.Commands.add('isNotInViewport', isNotInViewport)
-Cypress.Commands.add('isInViewport', isInViewport)
+Cypress.Commands.add("isNotInViewport", isNotInViewport)
+Cypress.Commands.add("isInViewport", isInViewport)

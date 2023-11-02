@@ -1,54 +1,53 @@
-import { Persona } from './persona'
-import { sendtSykmelding } from './sykmeldinger'
-
+import { Persona } from "./persona"
+import { sendtSykmelding } from "./sykmeldinger"
 
 export const defaultPersona: Persona = {
     sykmeldinger: [
         sendtSykmelding,
         {
-            id: 'APEN',
+            id: "APEN",
             sykmeldingStatus: {
-                statusEvent: 'BEKREFTET',
+                statusEvent: "BEKREFTET",
                 sporsmalOgSvarListe: [
                     {
-                        shortName: 'FORSIKRING',
-                        svar: { svarType: 'JA_NEI', svar: 'JA' },
+                        shortName: "FORSIKRING",
+                        svar: { svarType: "JA_NEI", svar: "JA" },
                     },
                     {
-                        shortName: 'FRAVAER',
-                        svar: { svarType: 'JA_NEI', svar: 'NEI' },
+                        shortName: "FRAVAER",
+                        svar: { svarType: "JA_NEI", svar: "NEI" },
                     },
                     {
-                        shortName: 'ARBEIDSSITUASJON',
+                        shortName: "ARBEIDSSITUASJON",
                         svar: {
-                            svarType: 'ARBEIDSSITUASJON',
-                            svar: 'FRILANSER',
+                            svarType: "ARBEIDSSITUASJON",
+                            svar: "FRILANSER",
                         },
                     },
                 ],
             },
-            behandlingsutfall: { status: 'OK' },
-            sykmeldingsperioder: [{ fom: '2021-03-15', tom: '2021-03-19' }],
-            syketilfelleStartDato: '2021-03-01',
+            behandlingsutfall: { status: "OK" },
+            sykmeldingsperioder: [{ fom: "2021-03-15", tom: "2021-03-19" }],
+            syketilfelleStartDato: "2021-03-01",
         },
         {
-            id: 'AVVIST',
-            sykmeldingStatus: { statusEvent: 'APEN' },
-            behandlingsutfall: { status: 'INVALID' },
-            sykmeldingsperioder: [{ fom: '2021-03-19', tom: '2021-03-19' }],
-            syketilfelleStartDato: '2021-03-01',
+            id: "AVVIST",
+            sykmeldingStatus: { statusEvent: "APEN" },
+            behandlingsutfall: { status: "INVALID" },
+            sykmeldingsperioder: [{ fom: "2021-03-19", tom: "2021-03-19" }],
+            syketilfelleStartDato: "2021-03-01",
         },
     ],
     narmesteledere: [
         {
-            navn: 'Albus Dumbledore',
-            orgnummer: '972674818',
+            navn: "Albus Dumbledore",
+            orgnummer: "972674818",
             arbeidsgiverForskutterer: true,
-            aktivFom: '2021-03-19',
+            aktivFom: "2021-03-19",
         },
     ],
     sykepengerMaxDate: {
-        maxDate: '1. november 2023',
-        utbetaltTom: '4. april 2023',
+        maxDate: "1. november 2023",
+        utbetaltTom: "4. april 2023",
     },
 }

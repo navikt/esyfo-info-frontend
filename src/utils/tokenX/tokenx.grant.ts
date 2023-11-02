@@ -1,6 +1,6 @@
-import { GrantBody, GrantExtras, TokenSet } from 'openid-client'
+import { GrantBody, GrantExtras, TokenSet } from "openid-client"
 
-import { getClient } from './tokenx.client'
+import { getClient } from "./tokenx.client"
 
 export const grant = async (
     subject_token: string,
@@ -9,10 +9,10 @@ export const grant = async (
     const client = await getClient()
 
     const body: GrantBody = {
-        grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
+        grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
         client_assertion_type:
-            'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
-        subject_token_type: 'urn:ietf:params:oauth:token-type:jwt',
+            "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
         audience: audience,
         subject_token,
     }

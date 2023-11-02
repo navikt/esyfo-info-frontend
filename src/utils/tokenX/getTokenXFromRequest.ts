@@ -1,7 +1,7 @@
-import { NextApiRequest } from 'next'
+import { NextApiRequest } from "next"
 
-import getIdportenToken from '../idporten/idportenToken'
-import { getEsyfovarselTokenX } from './tokenX'
+import getIdportenToken from "../idporten/idportenToken"
+import { getEsyfovarselTokenX } from "./tokenX"
 
 export const getEsyfovarselTokenFromRequest = async (
     req: NextApiRequest

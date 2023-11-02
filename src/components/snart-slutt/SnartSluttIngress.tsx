@@ -1,6 +1,6 @@
-import useMaxDate from '../../query-hooks/useMaxDate'
-import { BodyLong, Skeleton } from '@navikt/ds-react'
-import React from 'react'
+import useMaxDate from "../../query-hooks/useMaxDate"
+import { BodyLong, Skeleton } from "@navikt/ds-react"
+import React from "react"
 
 export const SnartSluttIngress = () => {
     const maxDateQuery = useMaxDate()
@@ -20,7 +20,7 @@ export const SnartSluttIngress = () => {
                 {maxDateQuery.data.maxDate && maxDateQuery.data.utbetaltTom && (
                     <BodyLong size="medium" spacing>
                         Per {maxDateQuery.data.utbetaltTom} er det beregnet at
-                        din siste dag med sykepenger er{' '}
+                        din siste dag med sykepenger er{" "}
                         {maxDateQuery.data.maxDate}. Datoen gjelder hvis du er
                         sykmeldt uten opphold. Den vil flytte seg hvis du for
                         eksempel jobber noen perioder, eller hvis du tar ferie.

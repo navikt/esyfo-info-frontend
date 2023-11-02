@@ -1,4 +1,4 @@
-import { logger } from '@navikt/next-logger'
+import { logger } from "@navikt/next-logger"
 
 /**
  * Class with utility functions for working with fetch.
@@ -20,7 +20,7 @@ class Fetch {
         headers?: HeadersInit
     ): Promise<T> {
         const res = await fetch(url, {
-            credentials: 'include',
+            credentials: "include",
             headers: headers,
         })
         if (res.ok) {
@@ -28,13 +28,13 @@ class Fetch {
                 return await cb(await res.json())
             } catch (error) {
                 if (error instanceof TypeError) {
-                    logger.warn('oops', {
+                    logger.warn("oops", {
                         message: `${error.name}: ${error.message}`,
                         stack: error.stack,
                     })
                 }
                 throw new Error(
-                    'Beklager! En uventet feil har oppstått. Sannsynligvis jobber vi med saken allerede, men ta kontakt med oss hvis det ikke har løst seg til i morgen.'
+                    "Beklager! En uventet feil har oppstått. Sannsynligvis jobber vi med saken allerede, men ta kontakt med oss hvis det ikke har løst seg til i morgen."
                 )
             }
         }
@@ -42,19 +42,21 @@ class Fetch {
         if (res.status === 401) {
             window.location.href = `/syk/info/oauth2/login?redirect=${window.location.pathname}`
             throw new Error(
-                'Sesjonen er utløpt. Vi videresender deg til innloggingssiden.'
+                "Sesjonen er utløpt. Vi videresender deg til innloggingssiden."
             )
         }
 
         const textResponse = await res.text()
 
-        logger.warn(`Request to ${url} resulted in statuscode: ${res.status} with message: ${textResponse}`)
+        logger.warn(
+            `Request to ${url} resulted in statuscode: ${res.status} with message: ${textResponse}`
+        )
 
         if (res.status === 400) {
             throw new Error(textResponse)
         }
         throw new Error(
-            'Vi har problemer med baksystemene for øyeblikket. Vennligst prøv igjen senere.'
+            "Vi har problemer med baksystemene for øyeblikket. Vennligst prøv igjen senere."
         )
     }
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import { BodyLong, Heading } from '@navikt/ds-react'
+import React from "react"
+import { BodyLong, Heading } from "@navikt/ds-react"
 
 export const AktivitetskravInfoUtenArbeidsgiver = () => {
     return (

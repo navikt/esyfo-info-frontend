@@ -1,7 +1,7 @@
-import axios, { AxiosError, ResponseType } from 'axios'
+import axios, { AxiosError, ResponseType } from "axios"
 
-import { logApiError } from './logUtils'
-import { loginUser } from './urlUtils'
+import { logApiError } from "./logUtils"
+import { loginUser } from "./urlUtils"
 
 interface AxiosOptions {
     accessToken?: string
@@ -9,14 +9,14 @@ interface AxiosOptions {
     personIdent?: string
 }
 
-export const AUTHORIZATION_HEADER = 'Authorization'
-export const NAV_PERSONIDENT_HEADER = 'nav-personident'
+export const AUTHORIZATION_HEADER = "Authorization"
+export const NAV_PERSONIDENT_HEADER = "nav-personident"
 
 const defaultRequestHeaders = (
     options?: AxiosOptions
 ): Record<string, string> => {
     const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
     }
 
     if (options?.accessToken) {
@@ -51,7 +51,7 @@ export const get = <ResponseData>(
         })
         .then((response) => response.data)
         .catch(function (error) {
-            handleError(error, url, 'GET')
+            handleError(error, url, "GET")
         })
 }
 
@@ -69,6 +69,6 @@ export const post = <ResponseData>(
         })
         .then((response) => response.data)
         .catch(function (error) {
-            handleError(error, url, 'POST')
+            handleError(error, url, "POST")
         })
 }

@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
-import styles from './circledicon.module.css'
+import React, { ReactNode } from "react"
+import styles from "./circledicon.module.css"
 
 interface Props {
     icon: ReactNode

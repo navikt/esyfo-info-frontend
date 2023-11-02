@@ -1,17 +1,17 @@
-describe('Tester snart-slutt', () => {
+describe("Tester snart-slutt", () => {
 
-    it('Har avsnitt med maksdato hvis den ikke er null', () => {
-        cy.visit('http://localhost:8080/syk/info/snart-slutt-pa-sykepengene')
+    it("Har avsnitt med maksdato hvis den ikke er null", () => {
+        cy.visit("http://localhost:8080/syk/info/snart-slutt-pa-sykepengene")
 
-        cy.contains('Per')
+        cy.contains("Per")
     })
 
-    it('Har ikke avsnitt med maksdato hvis den er null', () => {
+    it("Har ikke avsnitt med maksdato hvis den er null", () => {
         cy.visit(
-            'http://localhost:8080/syk/info/snart-slutt-pa-sykepengene'
+            "http://localhost:8080/syk/info/snart-slutt-pa-sykepengene"
         )
 
-        cy.contains('Etter ').should('not.exist')
+        cy.contains("Etter ").should("not.exist")
     })
 })
 

@@ -1,13 +1,13 @@
-import getConfig from 'next/config'
+import getConfig from "next/config"
 
 const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 
 export function isMockBackend() {
-    return publicRuntimeConfig.mockBackend === 'true'
+    return publicRuntimeConfig.mockBackend === "true"
 }
 
 export function isOpplaering() {
-    return publicRuntimeConfig.opplaering === 'true'
+    return publicRuntimeConfig.opplaering === "true"
 }
 
 export function dittNavUrl() {
@@ -19,7 +19,7 @@ export function dittSykefravaerUrl() {
 }
 
 export function amplitudeEnabled() {
-    return publicRuntimeConfig.amplitudeEnabled === 'true'
+    return publicRuntimeConfig.amplitudeEnabled === "true"
 }
 
 export function narmestelederUrl() {

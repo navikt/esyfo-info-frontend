@@ -1,17 +1,15 @@
-import { BodyLong } from '@navikt/ds-react'
-import { GetServerSideProps } from 'next'
-import React, { useState } from 'react'
-import { Page } from '../components/page/Page'
-import { AktivitetskravInfoUtenArbeidsgiver } from '../components/aktivitetskrav/AktivitetskravInfoUtenArbeidsgiver'
-import { AktivitetskravInfoMedArbeidsgiver } from '../components/aktivitetskrav/AktivitetskravInfoMedArbeidsgiver'
-import { MedUtenArbeidsgiverToggleGroup } from '../components/aktivitetskrav/MedUtenArbeidsgiverToggleGroup'
+import { BodyLong } from "@navikt/ds-react"
+import { GetServerSideProps } from "next"
+import React, { useState } from "react"
+import { Page } from "../components/page/Page"
+import { AktivitetskravInfoUtenArbeidsgiver } from "../components/aktivitetskrav/AktivitetskravInfoUtenArbeidsgiver"
+import { AktivitetskravInfoMedArbeidsgiver } from "../components/aktivitetskrav/AktivitetskravInfoMedArbeidsgiver"
+import { MedUtenArbeidsgiverToggleGroup } from "../components/aktivitetskrav/MedUtenArbeidsgiverToggleGroup"
 
-export type MedUtenAGVisning =
-    | 'MED_ARBEIDSGIVER'
-    | 'UTEN_ARBEIDSGIVER'
+export type MedUtenAGVisning = "MED_ARBEIDSGIVER" | "UTEN_ARBEIDSGIVER"
 
 const Aktivitetsplikt = () => {
-    const [visning, setVisning] = useState<MedUtenAGVisning>('MED_ARBEIDSGIVER')
+    const [visning, setVisning] = useState<MedUtenAGVisning>("MED_ARBEIDSGIVER")
 
     return (
         <Page headerText="Påminnelse om aktivitet">
@@ -24,7 +22,7 @@ const Aktivitetsplikt = () => {
             </BodyLong>
 
             <div className="flex justify-center">
-                {visning === 'MED_ARBEIDSGIVER' ? (
+                {visning === "MED_ARBEIDSGIVER" ? (
                     <img
                         src="/syk/info/static/med_arbeidsgiver.svg"
                         alt="Sykmeldt og arbeidsgiver"
@@ -43,7 +41,7 @@ const Aktivitetsplikt = () => {
                 jobber. Slik vet vi at du allerede oppfyller aktivitetsplikten.
             </BodyLong>
 
-            {visning === 'MED_ARBEIDSGIVER' ? (
+            {visning === "MED_ARBEIDSGIVER" ? (
                 <AktivitetskravInfoMedArbeidsgiver />
             ) : (
                 <AktivitetskravInfoUtenArbeidsgiver />
