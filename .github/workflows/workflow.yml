@@ -56,7 +56,6 @@ jobs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
   deploy-dev:
-    if: github.ref == 'refs/heads/master'
     name: Deploy to dev-gcp
     needs: build
     runs-on: ubuntu-latest
@@ -70,7 +69,6 @@ jobs:
           VAR: image=${{ needs.build.outputs.image }}
 
   deploy-demo:
-    if: github.ref == 'refs/heads/master'
     name: Deploy to demo dev-gcp
     needs: build
     runs-on: ubuntu-latest
