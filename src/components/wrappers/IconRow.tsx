@@ -1,5 +1,5 @@
-import CircledIcon from '../circledicon/CircledIcon'
-import React, { ReactElement } from 'react'
+import CircledIcon from "../circledicon/CircledIcon"
+import React, { ReactElement } from "react"
 
 interface Props {
     icon: ReactElement

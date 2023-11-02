@@ -1,5 +1,5 @@
-import { BodyLong, Heading, Link } from '@navikt/ds-react'
-import React from 'react'
+import { BodyLong, Heading, Link } from "@navikt/ds-react"
+import React from "react"
 
 export const SnartSluttSporsmalOmAndreTing = () => {
     return (
@@ -9,7 +9,7 @@ export const SnartSluttSporsmalOmAndreTing = () => {
             </Heading>
             <BodyLong size="medium">
                 Har du spørsmål du ikke finner svar på her, for eksempel om
-                sykepenger,{' '}
+                sykepenger,{" "}
                 <Link
                     href="https://www.nav.no/person/kontakt-oss/nb/"
                     target="_blank"

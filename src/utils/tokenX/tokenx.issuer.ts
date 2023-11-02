@@ -1,6 +1,6 @@
-import { Issuer } from 'openid-client'
+import { Issuer } from "openid-client"
 
-import { tokenXWellKnownUrl } from '../environment'
+import { tokenXWellKnownUrl } from "../environment"
 
 let _issuer: Issuer
 

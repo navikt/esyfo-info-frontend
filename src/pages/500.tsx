@@ -1,5 +1,5 @@
-import { ContentContainer } from '@navikt/ds-react'
-import React from 'react'
+import { ContentContainer } from "@navikt/ds-react"
+import React from "react"
 
 function ServerError(): JSX.Element | boolean {
     return (

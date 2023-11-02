@@ -1,21 +1,21 @@
-import '../style/global.css'
+import "../style/global.css"
 
-import { configureLogger } from '@navikt/next-logger'
-import dayjs from 'dayjs'
-import nb from 'dayjs/locale/nb'
-import type { AppProps as NextAppProps } from 'next/app'
-import Head from 'next/head'
-import React, { PropsWithChildren, useState } from 'react'
+import { configureLogger } from "@navikt/next-logger"
+import dayjs from "dayjs"
+import nb from "dayjs/locale/nb"
+import type { AppProps as NextAppProps } from "next/app"
+import Head from "next/head"
+import React, { PropsWithChildren, useState } from "react"
 import {
     DehydratedState,
     Hydrate,
     QueryClient,
     QueryClientProvider,
-} from 'react-query'
+} from "react-query"
 
-import { isMockBackend } from '../utils/environment'
+import { isMockBackend } from "../utils/environment"
 
-interface AppProps extends Omit<NextAppProps, 'pageProps'> {
+interface AppProps extends Omit<NextAppProps, "pageProps"> {
     pageProps: PropsWithChildren<unknown> & {
         dehydratedState: DehydratedState
     }
@@ -27,11 +27,11 @@ dayjs.locale({
 })
 
 if (process.browser && isMockBackend()) {
-    require('../data/mock')
+    require("../data/mock")
 }
 
 configureLogger({
-    basePath: '/syk/info',
+    basePath: "/syk/info",
 })
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {

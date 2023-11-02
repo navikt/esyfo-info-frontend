@@ -1,4 +1,4 @@
-import { grant } from './tokenx.grant'
+import { grant } from "./tokenx.grant"
 
 export async function getTokenX(
     subjectToken: string,

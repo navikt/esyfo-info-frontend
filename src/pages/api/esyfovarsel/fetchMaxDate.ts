@@ -1,9 +1,9 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from "next"
 
-import { beskyttetApi } from '../../../auth/beskyttetApi'
-import { get } from '../../../utils/axios'
-import { esyfovarselHost, isMockBackend } from '../../../utils/environment'
-import { getEsyfovarselTokenFromRequest } from '../../../utils/tokenX/getTokenXFromRequest'
+import { beskyttetApi } from "../../../auth/beskyttetApi"
+import { get } from "../../../utils/axios"
+import { esyfovarselHost, isMockBackend } from "../../../utils/environment"
+import { getEsyfovarselTokenFromRequest } from "../../../utils/tokenX/getTokenXFromRequest"
 
 const handler = async (
     req: NextApiRequest,

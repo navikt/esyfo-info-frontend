@@ -1,5 +1,5 @@
-import { Heading, Link } from '@navikt/ds-react'
-import React from 'react'
+import { Heading, Link } from "@navikt/ds-react"
+import React from "react"
 
 export const SnartSluttLenkePanel = () => {
     return (

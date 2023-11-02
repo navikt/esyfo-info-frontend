@@ -1,8 +1,8 @@
 import {
     DecoratorComponents,
     fetchDecoratorReact,
-} from '@navikt/nav-dekoratoren-moduler/ssr'
-import getConfig from 'next/config'
+} from "@navikt/nav-dekoratoren-moduler/ssr"
+import getConfig from "next/config"
 import Document, {
     DocumentContext,
     DocumentInitialProps,
@@ -10,9 +10,9 @@ import Document, {
     Html,
     Main,
     NextScript,
-} from 'next/document'
-import React from 'react'
-import { getBreadcrumbPaths } from '../data/breadcrumbs/breadcrumbs'
+} from "next/document"
+import React from "react"
+import { getBreadcrumbPaths } from "../data/breadcrumbs/breadcrumbs"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -39,7 +39,7 @@ class MyDocument extends Document<Props> {
         const Decorator = await fetchDecoratorReact({
             env: serverRuntimeConfig.decoratorEnv,
             params: {
-                context: 'privatperson',
+                context: "privatperson",
                 chatbot: true,
                 feedback: false,
                 redirectToApp: true,
@@ -48,16 +48,16 @@ class MyDocument extends Document<Props> {
             },
         })
 
-        const language = getDocumentParameter(initialProps, 'lang')
+        const language = getDocumentParameter(initialProps, "lang")
 
         return { ...initialProps, Decorator, language }
     }
 
     render(): JSX.Element {
         const { Decorator, language } = this.props
-        const showDecorator = serverRuntimeConfig.noDecorator != 'true'
+        const showDecorator = serverRuntimeConfig.noDecorator != "true"
         return (
-            <Html lang={language || 'no'}>
+            <Html lang={language || "no"}>
                 <Head>{showDecorator && <Decorator.Styles />}</Head>
                 <body>
                     {showDecorator && <Decorator.Header />}

@@ -1,7 +1,7 @@
-import { BodyLong, Heading } from '@navikt/ds-react'
-import { BaggageIcon, BandageIcon, Buldings3Icon } from '@navikt/aksel-icons'
-import React from 'react'
-import { IconRow } from '../wrappers/IconRow'
+import { BodyLong, Heading } from "@navikt/ds-react"
+import { BaggageIcon, BandageIcon, Buldings3Icon } from "@navikt/aksel-icons"
+import React from "react"
+import { IconRow } from "../wrappers/IconRow"
 
 export const SnartSluttHvaKanDuGjore = () => {
     return (

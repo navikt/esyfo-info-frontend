@@ -1,21 +1,21 @@
-import { logger } from '@navikt/next-logger'
-import { createRemoteJWKSet, jwtVerify } from 'jose'
-import { Client, Issuer } from 'openid-client'
+import { logger } from "@navikt/next-logger"
+import { createRemoteJWKSet, jwtVerify } from "jose"
+import { Client, Issuer } from "openid-client"
 
-import { idportenClientId, idportenWellKnownUrl } from '../environment'
+import { idportenClientId, idportenWellKnownUrl } from "../environment"
 
 let _issuer: Issuer<Client>
 let _remoteJWKSet: ReturnType<typeof createRemoteJWKSet>
 
 async function issuer(): Promise<Issuer<Client>> {
-    if (typeof _issuer === 'undefined') {
+    if (typeof _issuer === "undefined") {
         _issuer = await Issuer.discover(idportenWellKnownUrl())
     }
     return _issuer
 }
 
 async function jwkSet(): Promise<ReturnType<typeof createRemoteJWKSet>> {
-    if (typeof _remoteJWKSet === 'undefined') {
+    if (typeof _remoteJWKSet === "undefined") {
         const iss = await issuer()
         _remoteJWKSet = createRemoteJWKSet(
             new URL(<string>iss.metadata.jwks_uri)
@@ -26,13 +26,13 @@ async function jwkSet(): Promise<ReturnType<typeof createRemoteJWKSet>> {
 }
 
 export async function validateToken(bearerToken: string): Promise<boolean> {
-    const token = bearerToken.replace('Bearer ', '')
+    const token = bearerToken.replace("Bearer ", "")
     const verified = await jwtVerify(token, await jwkSet(), {
         issuer: (await issuer()).metadata.issuer,
     })
 
     if (verified.payload.exp && verified.payload.exp * 1000 <= Date.now()) {
-        logger.warn('Token is expired')
+        logger.warn("Token is expired")
         return false
     }
 
@@ -41,10 +41,10 @@ export async function validateToken(bearerToken: string): Promise<boolean> {
     }
 
     if (
-        verified.payload.acr !== 'Level4' &&
-        verified.payload.acr !== 'idporten-loa-high'
+        verified.payload.acr !== "Level4" &&
+        verified.payload.acr !== "idporten-loa-high"
     ) {
-        logger.warn('Token does not have acr Level4 or idporten-loa-high')
+        logger.warn("Token does not have acr Level4 or idporten-loa-high")
         return false
     }
 

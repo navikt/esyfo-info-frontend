@@ -1,7 +1,7 @@
-import React from 'react'
-import { BodyLong, Heading } from '@navikt/ds-react'
-import { Chat2Icon, DocPencilIcon } from '@navikt/aksel-icons'
-import { IconRow } from '../wrappers/IconRow'
+import React from "react"
+import { BodyLong, Heading } from "@navikt/ds-react"
+import { Chat2Icon, DocPencilIcon } from "@navikt/aksel-icons"
+import { IconRow } from "../wrappers/IconRow"
 
 export const AktivitetskravInfoMedArbeidsgiver = () => {
     return (

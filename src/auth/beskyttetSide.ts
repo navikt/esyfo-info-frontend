@@ -1,8 +1,8 @@
-import { logger } from '@navikt/next-logger'
-import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
+import { logger } from "@navikt/next-logger"
+import { GetServerSidePropsContext, GetServerSidePropsResult } from "next"
 
-import { isMockBackend } from '../utils/environment'
-import { validateToken } from '../utils/idporten/verifyIdportenToken'
+import { isMockBackend } from "../utils/environment"
+import { validateToken } from "../utils/idporten/verifyIdportenToken"
 
 export type PageHandler = (
     context: GetServerSidePropsContext
@@ -20,7 +20,7 @@ const beskyttetSide = (handler: PageHandler) => {
 
         if (request == null) {
             throw new Error(
-                'Context is missing request. This should not happen'
+                "Context is missing request. This should not happen"
             )
         }
         const wonderwallRedirect = {
@@ -31,14 +31,14 @@ const beskyttetSide = (handler: PageHandler) => {
         }
 
         const bearerToken: string | null | undefined =
-            request.headers['authorization']
+            request.headers["authorization"]
 
         if (!bearerToken) {
             return wonderwallRedirect
         }
 
         if (!(await validateToken(bearerToken))) {
-            logger.error('Kunne ikke validere idportentoken i beskyttetSide')
+            logger.error("Kunne ikke validere idportentoken i beskyttetSide")
             return wonderwallRedirect
         }
 

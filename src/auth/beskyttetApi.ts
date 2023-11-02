@@ -1,8 +1,8 @@
-import { logger } from '@navikt/next-logger'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { logger } from "@navikt/next-logger"
+import { NextApiRequest, NextApiResponse } from "next"
 
-import { isMockBackend } from '../utils/environment'
-import { validateToken } from '../utils/idporten/verifyIdportenToken'
+import { isMockBackend } from "../utils/environment"
+import { validateToken } from "../utils/idporten/verifyIdportenToken"
 
 type ApiHandler = (
     req: NextApiRequest,
@@ -18,9 +18,9 @@ export function cleanPathForMetric(
     value: string | undefined
 ): string | undefined {
     return value
-        ?.replace(UUID, '[uuid]')
-        .replace(ORGNR, '[orgnr]')
-        .replace(FNR, '[fnr]')
+        ?.replace(UUID, "[uuid]")
+        .replace(ORGNR, "[orgnr]")
+        .replace(FNR, "[fnr]")
 }
 
 export function beskyttetApi(handler: ApiHandler): ApiHandler {
@@ -28,17 +28,17 @@ export function beskyttetApi(handler: ApiHandler): ApiHandler {
         try {
             if (!isMockBackend) {
                 const bearerToken: string | null | undefined =
-                    req.headers['authorization']
+                    req.headers["authorization"]
 
                 if (!bearerToken) {
-                    return res.status(401).json({ message: 'Access denied' })
+                    return res.status(401).json({ message: "Access denied" })
                 }
 
                 if (!(await validateToken(bearerToken))) {
                     logger.warn(
-                        'Kunne ikke validere idportentoken i beskyttetApi'
+                        "Kunne ikke validere idportentoken i beskyttetApi"
                     )
-                    return res.status(401).json({ message: 'Access denied' })
+                    return res.status(401).json({ message: "Access denied" })
                 }
             }
 
@@ -46,7 +46,7 @@ export function beskyttetApi(handler: ApiHandler): ApiHandler {
             // eslint-disable-next-line
         } catch (error: any) {
             if (error.code === 401 || error.code === 403) {
-                res.status(401).json({ message: 'Access denied' })
+                res.status(401).json({ message: "Access denied" })
             } else {
                 if (error.code) {
                     logger.error(
