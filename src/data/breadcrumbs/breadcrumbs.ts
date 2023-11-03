@@ -28,7 +28,7 @@ const AktivitetspliktCrumbs: Breadcrumb[] = [
     ...BaseCrumbs,
     {
         url: "/aktivitetsplikt",
-        title: "Påminnelse om aktivitet",
+        title: "Informasjon om aktivitetsplikt",
     },
 ]
 
