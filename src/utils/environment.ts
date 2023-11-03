@@ -10,8 +10,8 @@ export function isOpplaering() {
     return publicRuntimeConfig.opplaering === "true"
 }
 
-export function dittNavUrl() {
-    return publicRuntimeConfig.dittNavUrl
+export function minSideURL() {
+    return publicRuntimeConfig.minSideUrl
 }
 
 export function dittSykefravaerUrl() {

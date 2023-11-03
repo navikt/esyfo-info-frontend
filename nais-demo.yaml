@@ -27,8 +27,8 @@ spec:
       value: "demo"
     - name: OPPLAERING
       value: "true"
-    - name: DITTNAV_URL
-      value: "https://www.nav.no/person/dittnav"
+    - name: MIN_SIDE_URL
+      value: "https://www.nav.no/minside/"
     - name: DITT_SYKEFRAVAER_URL
       value: "https://ditt-sykefravaer.labs.nais.io/syk/sykefravaer"
     - name: MEROPPFOLGING_REGISTRERING_URL
