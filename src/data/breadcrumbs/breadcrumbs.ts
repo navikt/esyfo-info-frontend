@@ -1,4 +1,4 @@
-import { dittNavUrl, dittSykefravaerUrl } from "../../utils/environment"
+import { minSideURL, dittSykefravaerUrl } from "../../utils/environment"
 
 interface Breadcrumb {
     url: string
@@ -7,8 +7,8 @@ interface Breadcrumb {
 
 const BaseCrumbs: Breadcrumb[] = [
     {
-        url: dittNavUrl(),
-        title: "Ditt NAV",
+        url: minSideURL(),
+        title: "Min side",
     },
     {
         url: dittSykefravaerUrl(),

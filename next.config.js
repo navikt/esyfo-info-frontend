@@ -72,7 +72,7 @@ module.exports = {
         mockBackend: process.env.MOCK_BACKEND,
         opplaering: process.env.OPPLAERING,
         sykefravaerUrl: process.env.SYKEFRAVAER_URL,
-        dittNavUrl: process.env.DITTNAV_URL,
+        minSideUrl: process.env.MIN_SIDE_URL,
         dittSykefravaerUrl: process.env.DITT_SYKEFRAVAER_URL,
         amplitudeEnabled: process.env.AMPLITUDE_ENABLED,
         environment: process.env.ENVIRONMENT,

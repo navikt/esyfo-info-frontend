@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { Page } from "../components/page/Page"
 import { MedUtenArbeidsgiverToggleGroup } from "../components/aktivitetskrav/MedUtenArbeidsgiverToggleGroup"
 import { AktivitetskravInfo } from "../components/aktivitetskrav/AktivitetskravInfo"
-import { dittNavUrl } from "../utils/environment"
+import { minSideURL } from "../utils/environment"
 import { Link } from "@navikt/ds-react"
 
 export type MedUtenAGVisning = "MED_ARBEIDSGIVER" | "UTEN_ARBEIDSGIVER"
@@ -19,8 +19,8 @@ const Aktivitetsplikt = () => {
                 harArbeidsgiver={visning === "MED_ARBEIDSGIVER"}
             />
 
-            <Link className="flex self-center" href={dittNavUrl()}>
-                Naviger til Ditt NAV
+            <Link className="flex self-center" href={minSideURL()}>
+                Naviger til Min side
             </Link>
         </Page>
     )
