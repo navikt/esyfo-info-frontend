@@ -21,7 +21,7 @@ export const AktivitetskravInfo = ({ harArbeidsgiver }: Props) => {
                 <BodyLong>
                     Det er på tide å informere deg om aktivitetsplikten. Alle
                     sykmeldte skal i utgangspunktet jobbe litt hvis de kan, også
-                    hvis de er 100% sykmeldt. Dette kalles aktivitetsplikt i
+                    hvis de er 100 % sykmeldt. Dette kalles aktivitetsplikt i
                     folketrygdloven.
                 </BodyLong>
             </div>

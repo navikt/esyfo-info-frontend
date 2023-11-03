@@ -1,7 +1,6 @@
 import { Persona } from "./persona"
 import { sendtSykmelding } from "./sykmeldinger"
 
-
 export const defaultPersona: Persona = {
     sykmeldinger: [
         sendtSykmelding,
