@@ -1,24 +1,24 @@
 import { NextApiRequest } from "next"
+import { getToken, validateToken } from "@navikt/oasis"
 
 import { isMockBackend } from "../environment"
-import { validateToken } from "./verifyIdportenToken"
 
 async function getIdportenToken(req: NextApiRequest) {
     if (isMockBackend()) {
         return "sometoken"
     }
 
-    const bearerToken = req.headers["authorization"]
-
-    if (!bearerToken) {
+    const token = getToken(req)
+    if (!token) {
         throw new Error("loginRequiredError")
     }
 
-    if (!(await validateToken(bearerToken))) {
+    const validationResult = await validateToken(token)
+    if (!validationResult.ok) {
         throw new Error("Failed to validate bearer token, redirecting to login")
     }
 
-    return bearerToken.replace("Bearer ", "")
+    return token
 }
 
 export default getIdportenToken

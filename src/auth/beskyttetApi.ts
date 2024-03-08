@@ -2,7 +2,7 @@ import { logger } from "@navikt/next-logger"
 import { NextApiRequest, NextApiResponse } from "next"
 
 import { isMockBackend } from "../utils/environment"
-import { validateToken } from "../utils/idporten/verifyIdportenToken"
+import { getToken, validateToken } from "@navikt/oasis"
 
 type ApiHandler = (
     req: NextApiRequest,
@@ -27,14 +27,14 @@ export function beskyttetApi(handler: ApiHandler): ApiHandler {
     return async function withBearerTokenHandler(req, res) {
         try {
             if (!isMockBackend) {
-                const bearerToken: string | null | undefined =
-                    req.headers["authorization"]
+                const token = getToken(req)
 
-                if (!bearerToken) {
+                if (!token) {
                     return res.status(401).json({ message: "Access denied" })
                 }
 
-                if (!(await validateToken(bearerToken))) {
+                const validationResult = await validateToken(token)
+                if (!validationResult.ok) {
                     logger.warn(
                         "Kunne ikke validere idportentoken i beskyttetApi"
                     )
