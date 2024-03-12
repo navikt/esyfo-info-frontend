@@ -37,23 +37,3 @@ export function esyfovarselHost() {
 export function esyfovarselClientId() {
     return serverRuntimeConfig.esyfovarselClientId
 }
-
-export function idportenWellKnownUrl() {
-    return serverRuntimeConfig.idportenWellKnownUrl
-}
-
-export function idportenClientId() {
-    return serverRuntimeConfig.idportenClientId
-}
-
-export function tokenXClientId(): string {
-    return serverRuntimeConfig.tokenXClientId
-}
-
-export function tokenXPrivateJwk(): string {
-    return serverRuntimeConfig.tokenXPrivateJwk
-}
-
-export function tokenXWellKnownUrl(): string {
-    return serverRuntimeConfig.tokenXWellKnownUrl
-}

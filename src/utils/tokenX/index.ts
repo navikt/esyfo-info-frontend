@@ -1,24 +1,16 @@
-import { grant } from "./tokenx.grant"
+import { requestOboToken } from "@navikt/oasis"
 
 export async function getTokenX(
     subjectToken: string,
     audience: string
 ): Promise<string> {
-    let tokenX
-
-    try {
-        tokenX = await grant(subjectToken, audience)
-    } catch (e) {
+    const tokenX = await requestOboToken(subjectToken, audience)
+    if (!tokenX.ok) {
         throw new Error(
-            `Failed grant for client id: ${audience}. Error message: ${e}`
+            `Failed grant for client id: ${audience}. Error message: ${tokenX.error.message}`,
+            { cause: tokenX.error }
         )
     }
 
-    if (!tokenX.access_token) {
-        throw new Error(
-            `Token X missing access token for client id: ${audience}`
-        )
-    }
-
-    return tokenX.access_token
+    return tokenX.token
 }

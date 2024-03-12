@@ -1,8 +1,8 @@
 import { logger } from "@navikt/next-logger"
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next"
+import { getToken, validateToken } from "@navikt/oasis"
 
 import { isMockBackend } from "../utils/environment"
-import { validateToken } from "../utils/idporten/verifyIdportenToken"
 
 export type PageHandler = (
     context: GetServerSidePropsContext
@@ -30,14 +30,13 @@ const beskyttetSide = (handler: PageHandler) => {
             },
         }
 
-        const bearerToken: string | null | undefined =
-            request.headers["authorization"]
-
-        if (!bearerToken) {
+        const token = getToken(request)
+        if (!token) {
             return wonderwallRedirect
         }
 
-        if (!(await validateToken(bearerToken))) {
+        const validationResult = await validateToken(token)
+        if (!validationResult.ok) {
             logger.error("Kunne ikke validere idportentoken i beskyttetSide")
             return wonderwallRedirect
         }
